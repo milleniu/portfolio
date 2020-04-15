@@ -1,0 +1,33 @@
+@import '../../../styles.less';
+
+.title {
+
+    padding-bottom: 60px;
+    text-align: center;
+
+    h2 > .accent {
+        color: @accent-color;
+    }
+
+    .divider {
+        border-top: 2px solid rgba(236, 239, 241, .07);
+        height: 1px;
+        margin: 15px auto 0;
+        position: relative;
+        width: 30%;
+
+        &:before {
+            content: '';
+            background-color: @accent-color;
+            position: absolute;
+
+            top: -4px;
+            left: 50%;
+            margin-left: -25px;
+
+            height: 6px;
+            width: 50px;
+
+        }
+    }
+}

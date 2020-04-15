@@ -15,6 +15,7 @@
 @warning-color: @gold-6;
 @normal-color: #1d2024;
 @background-color: #353b43;
+@accent-color: #57cbcc;
 @white: #fff;
 @black: #000;
 
@@ -48,7 +49,7 @@
 @text-color-secondary: fade(@white, 45%);
 @text-color-inverse: @black;
 @icon-color: inherit;
-@icon-color-hover: #57cbcc;
+@icon-color-hover: @accent-color;
 @heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@black, 100%);
 @text-color-dark: fade(@black, 85%);
@@ -682,49 +683,11 @@
 // ---
 @typography-title-font-weight: 600;
 
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+@import './styles/_layout';
+@import './styles/_button';
+@import './styles/_font.less';
+
 body {
   -webkit-font-smoothing: antialiased;
-}
-
-a {
-  font-family: @font-family;
-}
-
-button {
-  background-color: transparent;
-  border-width: 1px;
-  transition: all .3s @ease-in 0s;
-  font-size: 16px;
-  font-weight: 400;
-
-  &:hover {
-    background-color: @icon-color-hover;
-    cursor: pointer;
-    cursor: hand;
-  }
-}
-
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: 15px;
-  margin-left: 15px;
-
-  @media screen and (min-width: @screen-sm) {
-    max-width: 540px;
-  }
-
-  @media screen and (min-width: @screen-md) {
-    max-width: 720px;
-  }
-
-  @media screen and (min-width: @screen-lg) {
-    max-width: 960px;
-  }
-
-  @media screen and (min-width: @screen-xl) {
-    max-width: 1140px;
-  }
 }
