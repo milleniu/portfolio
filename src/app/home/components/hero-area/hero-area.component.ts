@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hero-area',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroAreaComponent implements OnInit {
 
+  @Input()
+  discoveryTarget: HTMLElement;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  scroll() {
+    if (!this.discoveryTarget) return;
+    this.discoveryTarget.scrollIntoView({ behavior: 'smooth' });
+  }
 }
