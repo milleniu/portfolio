@@ -148,14 +148,14 @@
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
-@btn-primary-color: #fff;
+@btn-primary-color: @white;
 @btn-primary-bg: @primary-color;
 
 @btn-default-color: @text-color;
 @btn-default-bg: @component-background;
 @btn-default-border: @border-color-base;
 
-@btn-danger-color: #fff;
+@btn-danger-color: @white;
 @btn-danger-bg: color(~`colorPalette('@{error-color}', 5) `);
 @btn-danger-border: color(~`colorPalette('@{error-color}', 5) `);
 
@@ -689,4 +689,18 @@ body {
 
 a {
   font-family: @font-family;
+}
+
+button {
+  background-color: transparent;
+  border-width: 1px;
+  transition: all .3s @ease-in 0s;
+  font-size: 16px;
+  font-weight: 400;
+
+  &:hover {
+    background-color: @icon-color-hover;
+    cursor: pointer;
+    cursor: hand;
+  }
 }
