@@ -1,20 +1,16 @@
 <section class="section">
-    <div class="container">
+    <div class="container" nz-row>
 
-        <div nz-row>
+        <div nz-col nzSpan="24">
+            <app-section-header sectionName="À Propos"></app-section-header>
+        </div>
 
-            <div nz-col nzSpan="24">
-                <app-section-header sectionName="À Propos"></app-section-header>
-            </div>
-
-            <div *ngFor="let entry of content" class="card" nz-col nzSpan="8">
-                <app-about-card
-                    [title]="entry.title"
-                    [content]="entry.content"
-                    [icon]="entry.icon"
-                ></app-about-card>
-            </div>
-
+        <div *ngFor="let entry of content" class="card" nz-col nzSpan="8">
+            <app-about-card
+                [title]="entry.title"
+                [content]="entry.content"
+                [icon]="entry.icon"
+            ></app-about-card>
         </div>
 
     </div>
