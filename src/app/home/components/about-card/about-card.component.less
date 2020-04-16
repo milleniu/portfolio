@@ -1,0 +1,95 @@
+@import '../../../../styles.less';
+
+.block {
+    height: 100%;
+    padding: 30px;
+    background: @normal-color;
+    border-bottom: 2px solid transparent;
+    transition: .5s all;
+
+    .icon-box {
+
+        @transform: scaleY( 0.5774 ) rotate( -45deg );
+        @border: 2px solid rgba( 236, 239, 241, .07 );
+        @offset: -56.5685px;
+        @square_size: 113.14px;
+
+        position: relative;
+        background-color: transparent;
+
+        width: 160px;
+        height: 92.38px;
+        margin: 46.19px auto 60px;
+        padding: 20px 0;
+
+        font-size: 50px;
+
+        border-left: @border;
+        border-right: @border;
+
+        -webkit-transform: translateZ( 0px );
+        transform: translateZ( 0px );
+        transition-duration: .3s;
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        transition-property: transform, -webkit-transform;
+
+        i {
+            @icon-size: 60px;
+            font-size: @icon-size;
+            margin-left: calc( ~"50% - (" @icon-size / 2 ~")" );
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            
+            z-index: 1;
+            position: absolute;
+            background-color: inherit;
+            
+            width: @square_size;
+            height: @square_size;
+            left: 20.4315px;
+
+            -webkit-transform: @transform;
+            transform: @transform;
+        }
+
+        &:before {
+            top: @offset;
+            border-top: @border;
+            border-right: @border;
+        }
+
+        &:after {
+            bottom: @offset;
+            border-bottom: @border;
+            border-left: @border;
+        }
+
+    }
+
+    .content {
+        text-align: center;
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &:hover {
+        border-bottom: 2px solid @accent-color;
+
+        .icon-box {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+        }
+    }
+}

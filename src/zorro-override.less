@@ -1,0 +1,44 @@
+@import '../node_modules/ng-zorro-antd/style/entry.less';
+@import '../node_modules/ng-zorro-antd/button/style/entry.less';
+@import '../node_modules/ng-zorro-antd/grid/style/entry.less';
+
+@import './styles/_colors.less';
+
+// Background color for `<body>`
+@body-background: @background-color;
+// Base background color for most components
+@component-background: @normal-color;
+
+@text-color: fade(@white, 65%);
+@text-color-secondary: fade(@white, 45%);
+@text-color-inverse: @black;
+@icon-color: inherit;
+@icon-color-hover: @accent-color;
+@heading-color: fade(@black, 85%);
+@heading-color-dark: fade(@black, 100%);
+@text-color-dark: fade(@black, 85%);
+@text-color-secondary-dark: fade(@black, 65%);
+@text-selection-bg: @primary-color;
+@font-variant-base: tabular-nums;
+@font-feature-settings-base: 'tnum';
+@font-size-base: 14px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 12px;
+@heading-1-size: ceil(@font-size-base * 2.71);
+@heading-2-size: ceil(@font-size-base * 2.14);
+@heading-3-size: ceil(@font-size-base * 1.71);
+@heading-4-size: ceil(@font-size-base * 1.42);
+@line-height-base: 1.5;
+
+// ICONFONT
+@iconfont-css-prefix: anticon;
+
+// LINK
+@link-color: @white;
+@link-hover-color: #57cbcc;
+@link-active-color: #6cb670;
+@link-decoration: none;
+@link-hover-decoration: none;
+
+// Buttons
+@btn-font-weight: 400;

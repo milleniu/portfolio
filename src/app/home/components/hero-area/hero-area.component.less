@@ -1,0 +1,45 @@
+@import '../../../../styles.less';
+
+.hero-area {
+    background-image: url(/assets/home/hero-area.jpg);
+    background-size: cover;
+
+    height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .block {
+        text-align: center;
+        z-index: 99;
+
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: @white;
+            font-size: 1.25rem;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        button {
+            margin-top: 40px;
+            padding: 14px 50px;
+            font-weight: 700;
+        }
+    }
+}
+
+:host > :before {
+    content: '';
+    background: rgba(0, 0, 0, 0.63);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
