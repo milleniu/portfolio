@@ -98,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/zorro-override.less",
               "src/styles.less"
             ],
             "scripts": []
