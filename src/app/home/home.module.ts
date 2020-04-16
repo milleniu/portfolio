@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeroAreaComponent } from './components/hero-area/hero-area.component';
 import { AboutComponent } from './components/about/about.component';
 import { AboutCardComponent } from './components/about-card/about-card.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AboutCardComponent } from './components/about-card/about-card.component
     HeroAreaComponent,
     AboutComponent,
     AboutCardComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule,

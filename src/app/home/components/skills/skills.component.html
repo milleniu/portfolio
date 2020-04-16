@@ -1,0 +1,33 @@
+<section class="section">
+    <div class="container" nz-row>
+
+        <div nz-col nzSpan="24">
+            <app-section-header sectionName="Mes Compétences"></app-section-header>
+        </div>
+
+        <div nz-col nzSpan="8" class="word-cloud-container">
+            <ul class="word-cloud">
+                <li *ngFor="let word of words" [ngStyle]="{'font-size.rem': word.weight}">
+                    {{ word.word }}
+                </li>
+            </ul>
+        </div>
+
+        <div nz-col nzSpan="16" class="skills-container">
+            <h3>Développeur dans le monde .NET</h3>
+            <p>
+                Mener à bien des tâches aux difficultés titanesques est ce qui m’anime et me motive tous
+                les jours. À l’instar de ma personnalité, bien que certains me décriraient plutôt comme
+                psychorigide un bon algorithme ne peut être que carré, organisé, hiérarchisé, structuré,
+                sous peine de ne jamais voir le jour, victime d'une efficience insuffisante.
+            </p>
+            <p>
+                Je suis aujourd'hui développeur full stack .NET et ces algorithmes sont mon quotidien.
+                Je me spécialise dans l’optimisation et l’implémentation d’algorithmes, majoritairement
+                dans le domaine des systèmes d’informations
+                géographiques.
+            </p>
+        </div>
+
+    </div>
+</section>
