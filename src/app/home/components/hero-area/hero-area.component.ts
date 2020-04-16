@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeroAreaComponent implements OnInit {
 
   @Input()
-  discoveryTarget: HTMLElement;
+  scrollTarget: HTMLElement;
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class HeroAreaComponent implements OnInit {
   }
 
   scroll() {
-    if (!this.discoveryTarget) return;
-    this.discoveryTarget.scrollIntoView({ behavior: 'smooth' });
+    if (!this.scrollTarget) return;
+    this.scrollTarget.scrollIntoView({ behavior: 'smooth' });
   }
 }

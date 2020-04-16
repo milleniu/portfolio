@@ -29,13 +29,18 @@
   align-items: center;
 }
 
-.title {
-  
-  h2 {
-    text-transform: capitalize;
-    font-weight: 700;
-    font-size: 38px;
-    color: @white;
-  }
+button {
+  background-color: transparent;
+  color: @white;
 
+  transition: all .3s @ease-in 0s;
+
+  border-width: 1px;
+  border-color: @white;
+
+  &:hover {
+    background-color: @accent-color;
+    cursor: pointer;
+    cursor: hand;
+  }
 }
