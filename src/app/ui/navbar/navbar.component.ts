@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
     this.displayMenu = false;
   }
 
-  @HostListener( 'window:scroll', ['$event'])
+  @HostListener( 'window:scroll' )
   updateHighlightedIndex() {
     const offsetY = window.pageYOffset + this.elementRef.nativeElement.offsetHeight;
     const currentHighlightedIndex = this.navigationTargets
