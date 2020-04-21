@@ -56,12 +56,15 @@
     flex-direction: column;
     justify-content: center;
 
-    @media screen and (max-width: @screen-lg) {
-        width: 100%;
-    }
-
     p {
         line-height: 1.75;
-        text-indent: 2em;
+    }
+
+    @media screen and (max-width: @screen-lg) {
+        width: 100%;
+
+        p {
+            text-indent: 2em;
+        }
     }
 }
