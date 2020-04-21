@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
-
-
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,8 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
     SectionHeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NzMenuModule
   ],
   exports: [
     NavbarComponent,

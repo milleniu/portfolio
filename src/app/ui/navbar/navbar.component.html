@@ -1,8 +1,16 @@
 <nav class="navbar">
     <div class="container">
-        <a routerLink="/home">
-            <img src="assets/logo.png" clas="logo" alt="Logo">
+        <a routerLink="/home" class="logo">
+            <img src="assets/logo.png" alt="Logo">
             <span class="heading">Hugo Zammit</span>
         </a>
+        <div class="navigation">
+            <ul nz-menu nzMode="horizontal" [nzSelectable]="false">
+                <li nz-menu-item>Accueil</li>
+                <li nz-menu-item>À Propos</li>
+                <li nz-menu-item>Compétences</li>
+                <li nz-menu-item>Réalisations</li>
+            </ul>
+        </div>
     </div>
 </nav>
