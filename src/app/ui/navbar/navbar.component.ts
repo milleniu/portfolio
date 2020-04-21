@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
 
   @Input() navigationTargets: NavbarItem[];
 
+  public displayMenu: boolean;
+
   private _highlightedIndex: number;
   navbarItems: SelectableNavbarItem[]
 
@@ -30,6 +32,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this._highlightedIndex = -1;
     this.navbarItems = this.navigationTargets.map(target => ({ ...target, selected: false }));
+    this.displayMenu = false;
   }
 
   @HostListener( 'window:scroll', ['$event'])
