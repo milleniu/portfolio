@@ -4,12 +4,14 @@
             <img src="assets/logo.png" alt="Logo">
             <span class="heading">Hugo Zammit</span>
         </a>
-        <div class="navigation">
+        <div class="navigation" *ngIf="navbarItems?.length">
             <ul nz-menu nzMode="horizontal" [nzSelectable]="false">
-                <li nz-menu-item routerLink="/home" fragment="hero">Accueil</li>
-                <li nz-menu-item routerLink="/home" fragment="about">À Propos</li>
-                <li nz-menu-item routerLink="/home" fragment="skills">Compétences</li>
-                <li nz-menu-item routerLink="/home" fragment="articles">Réalisations</li>
+                <li nz-menu-item *ngFor="let item of navbarItems"
+                    [routerLink]="item.navigationTarget.routerLink"
+                    [fragment]="item.navigationTarget.fragment"
+                    [nzSelected]="item.selected">
+                        {{ item.label }}
+                </li>
             </ul>
         </div>
     </div>
