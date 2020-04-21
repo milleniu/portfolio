@@ -6,10 +6,10 @@
         </a>
         <div class="navigation">
             <ul nz-menu nzMode="horizontal" [nzSelectable]="false">
-                <li nz-menu-item>Accueil</li>
-                <li nz-menu-item>À Propos</li>
-                <li nz-menu-item>Compétences</li>
-                <li nz-menu-item>Réalisations</li>
+                <li nz-menu-item routerLink="/home" fragment="hero">Accueil</li>
+                <li nz-menu-item routerLink="/home" fragment="about">À Propos</li>
+                <li nz-menu-item routerLink="/home" fragment="skills">Compétences</li>
+                <li nz-menu-item routerLink="/home" fragment="articles">Réalisations</li>
             </ul>
         </div>
     </div>

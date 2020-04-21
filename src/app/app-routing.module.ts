@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
+const routingConfiguration: ExtraOptions = {
+  scrollPositionRestoration: 'disabled',
+  onSameUrlNavigation: 'reload'
+};
 
 const routes: Routes = [
   {
@@ -10,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routingConfiguration)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
