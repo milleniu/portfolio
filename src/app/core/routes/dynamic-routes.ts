@@ -6,7 +6,7 @@ import { BlogPageComponent } from 'src/app/blog/pages/blog-page/blog-page.compon
 function getBlogDynamicRoutes(): Routes {
     return Object
         .keys(blogPostRepository)
-        .map<Route>(path => ({ path, component: BlogPageComponent }))
+        .map<Route>(routerLink => ({ path: `blog/${routerLink}`, component: BlogPageComponent }))
 }
 
 export function registerDynamicRoutes(router: Router) {

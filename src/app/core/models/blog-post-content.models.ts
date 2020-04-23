@@ -20,7 +20,7 @@ export class Paragraph implements BlogPostContent {
 
     renderHTML(): string {
         return this.content instanceof Array
-            ? this.content.map(content => `<p>${content}</p>`).join('\n')
+            ? this.content.map(content => `<p>${content}</p>`).join('')
             : `<p>${this.content}</p>`;
     }
 }
@@ -33,7 +33,7 @@ export class List implements BlogPostContent {
     renderHTML(): string {
         const sb = [];
         List.renderHTMLWithSB(this.items, sb);
-        return sb.join('\n');
+        return sb.join('');
     }
 
     private static renderHTMLWithSB(items: Array<string | string[]>, sb: string[]): string[] {
@@ -57,7 +57,7 @@ export class Image implements BlogPostContent {
     ) { }
 
     renderHTML(): string {
-        return `<img src="${this.imagePath}" alt="${this.altText}">`;
+        return `<p><img src="${this.imagePath}" alt="${this.altText}"></p>`;
     }
 }
 

@@ -2,7 +2,7 @@ import { BlogPostModel } from '../../models/blog-post.models';
 import { BlogPostContent, Paragraph, Divider, Title, Image, List } from '../../models/blog-post-content.models';
 
 export class RedPandaUI implements BlogPostModel {
-    private readonly assetsRoot: 'assets/blog/project/red-panda-ui/';
+    private readonly assetsRoot = 'assets/blog/project/red-panda-ui/';
 
     title: string = 'Red Panda UI';
     coverImage: string = this.assetsRoot + 'cover.png';
@@ -27,7 +27,7 @@ export class RedPandaUI implements BlogPostModel {
         new Image(this.assetsRoot + 'ffxiv_ui.jpg', "Interface Tutorial - FFXIV"),
         
         new Title("Interface de World of Warcraft", 3 ),
-        new Image(this.assetsRoot + 'ffxiv_ui.jpg', "Nnoggie Interface - WoW"),
+        new Image(this.assetsRoot + 'wow_ui.jpg', "Nnoggie Interface - WoW"),
         
         new Title("Objectifs", 2),
         new Paragraph(
