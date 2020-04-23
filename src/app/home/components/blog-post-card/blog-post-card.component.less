@@ -1,0 +1,29 @@
+@import '../../../../styles.less';
+
+.blog-post-card {
+
+    border-bottom: 2px solid transparent;
+    transition: .5s all;
+
+    &:hover {
+        border-bottom: 2px solid @accent-color;
+
+        .cover-image {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+        }
+    }
+
+    .cover-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15em;
+
+        > .cover-image {
+            transition-duration: .3s;
+            max-width: 80%;
+            height: auto;
+        }
+    }
+}

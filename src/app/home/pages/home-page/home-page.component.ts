@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit {
         viewRef: this.skillsComponentRef
       },
       {
-        label: 'Réalisation',
+        label: 'Publications',
         navigationTarget: { routerLink: '/home', fragment: 'blog-posts' },
       }
     ];

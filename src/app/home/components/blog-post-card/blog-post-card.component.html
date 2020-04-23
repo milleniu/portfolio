@@ -1,0 +1,15 @@
+<nz-card
+    class="blog-post-card"
+    [routerLink]="routerLink"
+    [nzHoverable]="true"
+    [nzCover]="coverImageTemplate">
+
+    <nz-card-meta [nzTitle]="title"></nz-card-meta>
+
+</nz-card>
+
+<ng-template #coverImageTemplate>
+    <div class="cover-image-container">
+        <img class="cover-image" [src]="coverImage" alt="blog post cover" />
+    </div>
+</ng-template>

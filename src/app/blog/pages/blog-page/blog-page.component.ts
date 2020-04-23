@@ -28,7 +28,7 @@ export class BlogPageComponent implements OnInit {
         navigationTarget: { routerLink: '/home', fragment: 'skills' }
       },
       {
-        label: 'Réalisation',
+        label: 'Publications',
         navigationTarget: { routerLink: '/home', fragment: 'blog-posts' }
       }
     ]
