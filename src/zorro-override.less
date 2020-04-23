@@ -1,6 +1,7 @@
 @import '../node_modules/ng-zorro-antd/style/entry.less';
 @import '../node_modules/ng-zorro-antd/button/style/entry.less';
 @import '../node_modules/ng-zorro-antd/grid/style/entry.less';
+@import '../node_modules/ng-zorro-antd/menu/style/entry.less';
 
 @import './styles/_colors.less';
 
@@ -21,14 +22,17 @@
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
-@font-size-base: 14px;
+@font-size-base: 16px;
 @font-size-lg: @font-size-base + 2px;
-@font-size-sm: 12px;
+@font-size-sm: @font-size-base - 2px;
 @heading-1-size: ceil(@font-size-base * 2.71);
 @heading-2-size: ceil(@font-size-base * 2.14);
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base * 1.42);
 @line-height-base: 1.5;
+
+// BUTTONS
+@btn-font-weight: 400;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
@@ -40,5 +44,15 @@
 @link-decoration: none;
 @link-hover-decoration: none;
 
-// Buttons
-@btn-font-weight: 400;
+// MENU
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 40px;
+@menu-collapsed-width: 80px;
+@menu-bg: transparent;
+@menu-item-color: @darkened-text-color;
+@menu-highlight-color: @accent-color;
+@menu-item-active-bg: transparent;
+@menu-item-active-border-width: 0px;
+@menu-item-font-size: 32px;
+@menu-item-boundary-margin: 0px;
+@border-width-base: 0px;
