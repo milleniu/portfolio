@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit {
       },
       {
         label: 'Réalisation',
-        navigationTarget: { routerLink: '/home', fragment: 'articles' },
+        navigationTarget: { routerLink: '/home', fragment: 'blog-posts' },
       }
   ]}
 
