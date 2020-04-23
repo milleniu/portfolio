@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { BlogModule } from './blog/blog.module';
 import { addFragmentSmoothScrolling } from './core/routes/smooth-scrolling';
-import { registerDynamicRoutes } from './core/routes/dynamic-routes';
 
 registerLocaleData(fr);
 
@@ -36,9 +35,8 @@ registerLocaleData(fr);
 })
 export class AppModule {
   constructor(
-    router: Router
+    router: Router,
   ) {
-    registerDynamicRoutes(router);
     addFragmentSmoothScrolling(router);
   }
 }

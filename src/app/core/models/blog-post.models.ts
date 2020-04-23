@@ -1,18 +1,18 @@
 import { BlogPostContent } from './blog-post-content.models';
 
-export type BlogPostRepository = { [routerLink: string]: BlogPostModel };
 
-export interface BlogPostModel extends BlogPostCard, BlogPostView {
-    readonly tags: string[];
+export interface BlogPostRepository {
+    readonly blogPosts: ReadonlyArray<BlogPost>;
+
+    getLatest(count: number): ReadonlyArray<BlogPost>;
+    getFromRouterLink(routerLink: string): BlogPost|undefined;
 }
 
-export interface BlogPostCard {
-    readonly title: string;
-    readonly coverImage: string;
-}
-
-export interface BlogPostView {
+export interface BlogPost {
     readonly title: string;
     readonly coverImage: string;
     readonly content: ReadonlyArray<BlogPostContent>;
+
+    readonly tags: string[];
+    readonly routerLink: string;
 }

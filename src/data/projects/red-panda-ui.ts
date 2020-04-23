@@ -1,11 +1,13 @@
-import { BlogPostModel } from '../../models/blog-post.models';
-import { BlogPostContent, Paragraph, Divider, Title, Image, List } from '../../models/blog-post-content.models';
+import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { BlogPostContent, Paragraph, Divider, List, Title, Image } from 'src/app/core/models/blog-post-content.models';
 
-export class RedPandaUI implements BlogPostModel {
+export class RedPandaUI implements BlogPost {
     private readonly assetsRoot = 'assets/blog/project/red-panda-ui/';
 
     title: string = 'Red Panda UI';
     coverImage: string = this.assetsRoot + 'cover.png';
+
+    routerLink: string = 'red-panda-ui';
     tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source' ];
 
     content: ReadonlyArray<BlogPostContent> = [

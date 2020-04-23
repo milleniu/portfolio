@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { BlogPostView } from '../../../core/models/blog-post.models';
+import { BlogPost } from '../../../core/models/blog-post.models';
 
 @Component({
   selector: 'app-blog-post',
@@ -8,7 +8,7 @@ import { BlogPostView } from '../../../core/models/blog-post.models';
   styleUrls: ['./blog-post.component.less']
 })
 export class BlogPostComponent implements OnInit {
-  @Input() post: BlogPostView;
+  @Input() post: BlogPost;
 
   content: SafeHtml;
   get title(): string { return this.post.title; }
