@@ -10,7 +10,10 @@ export interface BlogPostRepository {
 
 export interface BlogPost {
     readonly title: string;
+
     readonly coverImage: string;
+    readonly description: string;
+
     readonly content: ReadonlyArray<BlogPostContent>;
 
     readonly tags: string[];

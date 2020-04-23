@@ -5,7 +5,9 @@ export class RedPandaUI implements BlogPost {
     private readonly assetsRoot = 'assets/blog/project/red-panda-ui/';
 
     title: string = 'Red Panda UI';
+
     coverImage: string = this.assetsRoot + 'cover.png';
+    description: string = "Red panda UI est un projet communautaire réalisé en 2016 / 2017 sur Final Fantasy XIV."
 
     routerLink: string = 'red-panda-ui';
     tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source' ];

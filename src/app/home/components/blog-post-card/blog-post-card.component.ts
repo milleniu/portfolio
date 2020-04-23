@@ -11,6 +11,7 @@ export class BlogPostCardComponent implements OnInit {
 
   get title(): string { return this.post.title };
   get coverImage(): string { return this.post.coverImage };
+  get description(): string { return this.post.description };
   get routerLink(): string { return `/blog/${this.post.routerLink}` };
 
   constructor() { }
