@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { BlogPostView } from '../../shared/models/blog-post.models';
+import { BlogPostView } from '../../../core/models/blog-post.models';
 
 @Component({
   selector: 'app-blog-post',

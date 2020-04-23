@@ -1,5 +1,7 @@
 import { BlogPostContent } from './blog-post-content.models';
 
+export type BlogPostRepository = { [routerLink: string]: BlogPostModel };
+
 export interface BlogPostModel extends BlogPostCard, BlogPostView {
     readonly tags: string[];
 }

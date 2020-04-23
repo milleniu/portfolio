@@ -13,6 +13,7 @@ import { filter } from 'rxjs/operators';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
+import { BlogModule } from './blog/blog.module';
 
 registerLocaleData(fr);
 
@@ -27,6 +28,7 @@ registerLocaleData(fr);
     FormsModule,
     NgZorroAntdModule,
     HomeModule,
+    BlogModule,
     AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
