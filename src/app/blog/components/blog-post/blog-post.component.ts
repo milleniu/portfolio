@@ -8,16 +8,18 @@ import { BlogPostView } from '../../../core/models/blog-post.models';
   styleUrls: ['./blog-post.component.less']
 })
 export class BlogPostComponent implements OnInit {
-  @Input() blogPost: BlogPostView;
+  @Input() post: BlogPostView;
 
-  innerHTML: SafeHtml;
+  content: SafeHtml;
+  get title(): string { return this.post.title; }
+  get coverImage(): string { return this.post.coverImage; }
 
   constructor(
     private domSanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
-    const joinedContent = this.blogPost.content.map(c => c.renderHTML()).join('\n');
-    this.innerHTML = this.domSanitizer.sanitize(SecurityContext.HTML, joinedContent);
+    const joinedContent = this.post.content.map(c => c.renderHTML()).join('');
+    this.content = this.domSanitizer.sanitize(SecurityContext.HTML, joinedContent);
   }
 }

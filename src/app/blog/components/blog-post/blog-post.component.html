@@ -1,7 +1,12 @@
 <section class="section">
     <div class="container">
 
-        <div class="content" [innerHtml]="innerHtml"></div>
+        <div class="header">
+            <h1>{{ title }}</h1>
+            <img [src]="coverImage" alt="Blog Post Image">
+        </div>
+
+        <div class="content" [innerHtml]="content"></div>
 
     </div>
 </section>
