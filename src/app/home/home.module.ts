@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 import { UiModule } from '../ui/ui.module';
 import { HomeRoutingModule } from './home-routing.module';
@@ -21,6 +22,7 @@ import { BlogPostListComponent } from './components/blog-post-list/blog-post-lis
     NzGridModule,
     NzIconModule,
     NzCardModule,
+    NzTagModule,
     HomeRoutingModule
   ],
   declarations: [

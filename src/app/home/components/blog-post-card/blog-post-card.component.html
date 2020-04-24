@@ -1,8 +1,7 @@
 <nz-card
     class="blog-post-card"
     [routerLink]="routerLink"
-    [nzHoverable]="true"
-    [nzCover]="coverImageTemplate">
+    [nzCover]="coverTemplate">
 
     <nz-card-meta
         [nzTitle]="title"
@@ -11,8 +10,15 @@
 
 </nz-card>
 
-<ng-template #coverImageTemplate>
-    <div class="cover-image-container">
-        <img class="cover-image" [src]="coverImage" alt="blog post cover" />
+<ng-template #coverTemplate>
+    <div class="cover-container">
+        <div class="cover-image-container">
+            <img class="cover-image" [src]="coverImage" alt="blog post cover" />
+        </div>
+        <div class="tags-container">
+            <ng-container *ngFor="let tag of tags">
+                <nz-tag>{{ tag }}</nz-tag>
+            </ng-container>
+        </div>
     </div>
 </ng-template>

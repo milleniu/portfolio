@@ -13,6 +13,7 @@ export class BlogPostCardComponent implements OnInit {
   get coverImage(): string { return this.post.coverImage };
   get description(): string { return this.post.description };
   get routerLink(): string { return `/blog/${this.post.routerLink}` };
+  get tags(): ReadonlyArray<string> { return this.post.tags; }
 
   constructor() { }
 

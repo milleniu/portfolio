@@ -16,6 +16,6 @@ export interface BlogPost {
 
     readonly content: ReadonlyArray<BlogPostContent>;
 
-    readonly tags: string[];
+    readonly tags: ReadonlyArray<string>;
     readonly routerLink: string;
 }
