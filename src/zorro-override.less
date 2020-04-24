@@ -4,6 +4,7 @@
 @import '../node_modules/ng-zorro-antd/menu/style/entry.less';
 @import '../node_modules/ng-zorro-antd/card/style/entry.less';
 @import '../node_modules/ng-zorro-antd/tag/style/entry.less';
+@import '../node_modules/ng-zorro-antd/back-top/style/entry.less';
 
 @import './styles/_colors.less';
 
@@ -33,7 +34,7 @@
 
 // LINK
 @link-color: @white;
-@link-hover-color: #57cbcc;
+@link-hover-color: @accent-color;
 @link-active-color: #6cb670;
 @link-decoration: none;
 @link-hover-decoration: none;
@@ -62,3 +63,7 @@
 @tag-default-bg: @auxiliary-color;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
+
+// BackTop
+@back-top-bg: @darkened-text-color;
+@back-top-hover-bg: @accent-color;

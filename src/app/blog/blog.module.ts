@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzBackTopModule } from 'ng-zorro-antd/back-top';
+
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { BlogRoutingModule } from './blog-routing.module';
@@ -9,6 +11,7 @@ import { UiModule } from '../ui/ui.module';
   imports: [
     CommonModule,
     UiModule,
+    NzBackTopModule,
     BlogRoutingModule
   ],
   declarations: [
