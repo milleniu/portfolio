@@ -5,14 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
-import { Router } from '@angular/router';
 import fr from '@angular/common/locales/fr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { BlogModule } from './blog/blog.module';
-import { addFragmentSmoothScrolling } from './core/routes/smooth-scrolling';
 
 registerLocaleData(fr);
 
@@ -34,9 +32,4 @@ registerLocaleData(fr);
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(
-    router: Router,
-  ) {
-    addFragmentSmoothScrolling(router);
-  }
 }
