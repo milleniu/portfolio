@@ -1,7 +1,7 @@
 <nz-card
     class="blog-post-card"
-    [routerLink]="routerLink"
-    [nzCover]="coverTemplate">
+    [nzCover]="coverTemplate"
+    [nzActions]="[ actionNavigate ]">
 
     <nz-card-meta
         [nzTitle]="title"
@@ -21,4 +21,10 @@
             </ng-container>
         </div>
     </div>
+</ng-template>
+
+<ng-template #actionNavigate>
+    <button nz-button [routerLink]="routerLink" class="navigate-button">
+        Lire plus
+    </button>
 </ng-template>
