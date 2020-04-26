@@ -14,7 +14,9 @@ class BlogPostRepository implements BlogPostRepositoryModel {
     ) { }
     
     getLatest(count: number): ReadonlyArray<BlogPost> {
-        return this.blogPosts.slice(-Math.max(count, this.blogPosts.length));
+        return count > 0
+            ? this.blogPosts.slice(-Math.min(count, this.blogPosts.length))
+            : this.blogPosts;
     }
     
     getFromRouterLink(routerLink: string): BlogPost|undefined {
