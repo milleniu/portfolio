@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 type WeightedWord = { word: string, weight: number };
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.less']
+  selector: 'app-skills-section',
+  templateUrl: './skills-section.component.html',
+  styleUrls: ['./skills-section.component.less']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsSectionComponent implements OnInit {
 
   readonly words: WeightedWord[] = [
     { word: 'Vue.js', weight: 1.4 },

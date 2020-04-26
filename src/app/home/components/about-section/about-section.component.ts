@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.less']
+  selector: 'app-about-section',
+  templateUrl: './about-section.component.html',
+  styleUrls: ['./about-section.component.less']
 })
-export class AboutComponent implements OnInit {
+export class AboutSectionComponent implements OnInit {
 
   public readonly content: Array<{ title: string, content: string, icon: string }> = [
     {
