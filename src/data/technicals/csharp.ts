@@ -10,7 +10,7 @@ export class CSharp implements BlogPost {
     description: string = "C# est un langage développé par Microsoft que j'utilise en entreprise et dans mon temps libre.";
 
     routerLink: string = 'csharp';
-    tags: ReadonlyArray<string> = [ 'C#', '.NET', 'Entreprise', 'Open Source', 'Microsoft', 'Back End' ];
+    tags: ReadonlyArray<string> = [ 'C#', 'Open Source', 'Back End' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(

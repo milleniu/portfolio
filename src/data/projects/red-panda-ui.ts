@@ -10,7 +10,7 @@ export class RedPandaUI implements BlogPost {
     description: string = "Red panda UI est un projet communautaire réalisé en 2016 / 2017 sur Final Fantasy XIV."
 
     routerLink: string = 'red-panda-ui';
-    tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source' ];
+    tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source', 'Game Development' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph([

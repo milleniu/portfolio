@@ -10,7 +10,7 @@ export class Angular implements BlogPost {
     description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";
 
     routerLink: string = 'angular';
-    tags: ReadonlyArray<string> = [ 'Angular', 'Entreprise', 'Open Source', 'Microsoft', 'Front End', 'TypeScript' ];
+    tags: ReadonlyArray<string> = [ 'Angular', 'Open Source', 'Front End', 'TypeScript' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(

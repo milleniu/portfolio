@@ -10,7 +10,7 @@ export class Typescript implements BlogPost {
     description: string = "TypeScript est un langage open source développé par Microsoft.";
 
     routerLink: string = 'typescript';
-    tags: ReadonlyArray<string> = [ 'TypeScript', 'Entreprise', 'Open Source', 'Microsoft', 'Angular', 'vue.js' ];
+    tags: ReadonlyArray<string> = [ 'TypeScript', 'Open Source', 'Angular', 'vue.js' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
@@ -37,7 +37,7 @@ export class Typescript implements BlogPost {
 
         new Title("Au quotidien", 2),
         new Paragraph(
-            "J'utilise TypeScript presque quotidiennement et je m'efforce de passer mes projets en JavaScript vers " +
+            "J'utilise TypeScript presque quotidiennement et je m'efforce de migrer mes projets JavaScript vers " +
             "TypeScript. En effet, le système de type est une réelle force qui me permet d'améliorer mon expérience " +
             "quel que soit le sujet du développement."
         ),
