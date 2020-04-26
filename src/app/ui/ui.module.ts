@@ -6,8 +6,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
-import { NavbarComponent } from './navbar/navbar.component';
-import { SectionHeaderComponent } from './section-header/section-header.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
 
 @NgModule({
   declarations: [

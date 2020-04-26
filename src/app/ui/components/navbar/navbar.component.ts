@@ -1,10 +1,6 @@
-import { Component, ElementRef, Input, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
+import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 
-export interface NavbarItem {
-  label: string;
-  navigationTarget: { routerLink: string, fragment?: string }
-  viewRef?: ElementRef;
-}
+import { NavbarItem } from '../../shared/models/navbar.models';
 
 type SelectableNavbarItem = NavbarItem & { selected: boolean };
 
