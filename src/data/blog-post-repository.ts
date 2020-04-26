@@ -1,5 +1,8 @@
 import { BlogPostRepository as BlogPostRepositoryModel, BlogPost } from 'src/app/core/models/blog-post.models';
 import { RedPandaUI } from './projects/red-panda-ui';
+import { CSharp } from './technicals/csharp';
+import { Angular } from './technicals/angular';
+import { Typescript } from './technicals/typescript';
 
 class BlogPostRepository implements BlogPostRepositoryModel {
 
@@ -18,5 +21,8 @@ class BlogPostRepository implements BlogPostRepositoryModel {
 }
 
 export const blogPostRepository = new BlogPostRepository([
-    new RedPandaUI()
+    new RedPandaUI(),
+    new CSharp(),
+    new Angular(),
+    new Typescript(),
 ]);
