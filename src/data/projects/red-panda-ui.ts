@@ -2,7 +2,7 @@ import { BlogPost } from 'src/app/core/models/blog-post.models';
 import { BlogPostContent, Paragraph, Divider, List, Title, Image } from 'src/app/core/models/blog-post-content.models';
 
 export class RedPandaUI implements BlogPost {
-    private readonly assetsRoot = 'assets/blog/project/red-panda-ui/';
+    private readonly assetsRoot = 'assets/blog/projects/red-panda-ui/';
 
     title: string = 'Red Panda UI';
 
@@ -104,7 +104,7 @@ export class RedPandaUI implements BlogPost {
         new Divider(),
         new Title("Retour sur expérience", 2),
         new Paragraph([
-            "Malgré que ce projet puisse être considéré comme un projet \"non terminé\", il serait dénigrant de le " +
+            "Bien que ce projet puisse être considéré comme un projet \"non terminé\", il serait dénigrant de le " +
             "considérer de la sorte. En effet, sa version initiale a été distribuée et utilisée par de nombreux " +
             "joueurs au sein de la communauté. Ce sont les nouvelles fonctionnalités qui n'ont jamais eu la chance " +
             "de voir le jour.",
