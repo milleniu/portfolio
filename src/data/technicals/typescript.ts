@@ -10,7 +10,7 @@ export class Typescript implements BlogPost {
     description: string = "TypeScript est un langage open source développé par Microsoft.";
 
     routerLink: string = 'typescript';
-    tags: ReadonlyArray<string> = [ 'TypeScript', 'Open Source', 'Angular', 'vue.js' ];
+    tags: ReadonlyArray<string> = [ 'TypeScript', 'Open Source', 'Angular', 'Vue.js' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
