@@ -42,7 +42,7 @@ export class RedPandaUI implements BlogPost {
             "Thème : le thème doit se séparer de la franchise et se raprocher de celui plus classique de WoW",
             "Configurable : l'utilisateur doit pouvoir choisir la position des éléments de l'interface ainsi que de ses couleurs",
             "Alertes : il devrait être possible de rajouter des alertes en fonction d'événements arbitraires du jeu",
-            "Facile : Cela devrait être assez simple de l'installer et si possible fonctionner \"out of the box\""
+            "Facile : Cela devrait être assez simple de l'installer et si possible fonctionner « out of the box »"
         ]),
 
         new Title("Phase de développement", 2),
@@ -104,7 +104,7 @@ export class RedPandaUI implements BlogPost {
         new Divider(),
         new Title("Retour sur expérience", 2),
         new Paragraph([
-            "Bien que ce projet puisse être considéré comme un projet \"non terminé\", il serait dénigrant de le " +
+            "Bien que ce projet puisse être considéré comme un projet « non terminé », il serait dénigrant de le " +
             "considérer de la sorte. En effet, sa version initiale a été distribuée et utilisée par de nombreux " +
             "joueurs au sein de la communauté. Ce sont les nouvelles fonctionnalités qui n'ont jamais eu la chance " +
             "de voir le jour.",
