@@ -3,7 +3,7 @@ import { HeroAreaComponent } from '../../components/hero-area/hero-area.componen
 import { AboutSectionComponent } from '../../components/about-section/about-section.component';
 import { SkillsSectionComponent } from '../../components/skills-section/skills-section.component';
 import { BlogSectionComponent } from '../../components/blog-section/blog-section.component';
-import { NavbarItem, NavbarItemViewRefCollection, getDefaultNavigationTarget } from 'src/app/ui/shared/models/navbar.models';
+import { NavbarItem, NavbarItemViewRefCollection, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
 
 @Component({
   selector: 'app-home-page',
@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
   @ViewChild(BlogSectionComponent, { read: ElementRef, static: true }) blogSectionComponentRef: ElementRef;
 
   public get navigationTargets(): NavbarItem[] {
-    return getDefaultNavigationTarget({
+    return getDefaultNavigationTargets({
       'home': this.heroAreaComponentRef,
       'about': this.aboutComponentRef,
       'skills': this.skillsComponentRef,

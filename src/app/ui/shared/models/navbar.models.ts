@@ -9,7 +9,7 @@ export interface NavbarItem {
 export type NavbarItemDefault = 'home' | 'about' | 'skills' | 'posts';
 export type NavbarItemViewRefCollection = { [label in NavbarItemDefault]?: ElementRef; };
 
-export function getDefaultNavigationTarget(
+export function getDefaultNavigationTargets(
   viewRefCollection?: NavbarItemViewRefCollection
 ): NavbarItem[] {
   const resolveViewRef = (label: NavbarItemDefault) => {

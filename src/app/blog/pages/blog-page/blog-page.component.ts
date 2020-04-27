@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPost, BlogPostRepository } from 'src/app/core/models/blog-post.models';
-import { NavbarItem, getDefaultNavigationTarget } from 'src/app/ui/shared/models/navbar.models';
+import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 
 @Component({
@@ -14,7 +14,7 @@ export class BlogPageComponent implements OnInit {
   public post: BlogPost;
 
   public get navigationTargets(): NavbarItem[] {
-    return getDefaultNavigationTarget();
+    return getDefaultNavigationTargets();
   }
 
   constructor(
