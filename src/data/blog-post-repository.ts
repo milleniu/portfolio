@@ -10,13 +10,23 @@ import { SQL } from './technicals/sql';
 class BlogPostRepository implements BlogPostRepositoryModel {
 
     constructor(
-        public readonly blogPosts: ReadonlyArray<BlogPost>
+        private readonly blogPosts: ReadonlyArray<BlogPost>
     ) { }
     
-    getLatest(count: number): ReadonlyArray<BlogPost> {
+    get(count?: number): ReadonlyArray<BlogPost> {
         return count > 0
             ? this.blogPosts.slice(-Math.min(count, this.blogPosts.length))
             : this.blogPosts;
+    }
+
+    getWithTags(tags: string | string[]): ReadonlyArray<BlogPost> {
+        return this.blogPosts.filter(blogPost => {
+            if(!tags) return true;
+
+            return tags instanceof Array
+                ? blogPost.tags.some(tag => tags.indexOf(tag) !== -1)
+                : blogPost.tags.includes(tags);
+        });
     }
     
     getFromRouterLink(routerLink: string): BlogPost|undefined {

@@ -9,7 +9,7 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 })
 export class BlogPostListComponent implements OnInit {
 
-  @Input() maxDisplayCount: number;
+  @Input() maxDisplayCount?: number = -1;
 
   public blogPostList: BlogPost[];
 
@@ -18,7 +18,7 @@ export class BlogPostListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.blogPostList = [ ...this.blogPostRepository.getLatest(this.maxDisplayCount) ];
+    this.blogPostList = [ ...this.blogPostRepository.get(this.maxDisplayCount) ];
   }
 
 }

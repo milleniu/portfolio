@@ -2,9 +2,8 @@ import { BlogPostContent } from './blog-post-content.models';
 
 
 export interface BlogPostRepository {
-    readonly blogPosts: ReadonlyArray<BlogPost>;
-
-    getLatest(count: number): ReadonlyArray<BlogPost>;
+    get(count?: number): ReadonlyArray<BlogPost>;
+    getWithTags(tags: string | string[]): ReadonlyArray<BlogPost>;
     getFromRouterLink(routerLink: string): BlogPost|undefined;
 }
 
