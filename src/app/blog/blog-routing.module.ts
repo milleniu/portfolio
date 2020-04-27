@@ -4,9 +4,15 @@ import { registerDynamicRoutes } from '../core/routes/dynamic-routes';
 import { BLOG_POST_REPOSITORY } from '../core/config/injection-tokens';
 import { BlogPostRepository } from '../core/models/blog-post.models';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
+import { BlogPostListPageComponent } from './pages/blog-post-list-page/blog-post-list-page.component';
 
 @NgModule({
-  imports: [RouterModule.forChild([])],
+  imports: [RouterModule.forChild([
+    {
+      path: 'blog',
+      component: BlogPostListPageComponent
+    }
+  ])],
   exports: [RouterModule]
 })
 export class BlogRoutingModule {

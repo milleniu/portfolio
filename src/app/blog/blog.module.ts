@@ -10,6 +10,7 @@ import { BlogPostListComponent } from './components/blog-post-list/blog-post-lis
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { UiModule } from '../ui/ui.module';
 import { BlogRoutingModule } from './blog-routing.module';
+import { BlogPostListPageComponent } from './pages/blog-post-list-page/blog-post-list-page.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { BlogRoutingModule } from './blog-routing.module';
     BlogPostCardComponent,
     BlogPostListComponent,
     BlogPageComponent,
-    BlogPostListComponent
+    BlogPostListComponent,
+    BlogPostListPageComponent
   ],
   exports: [
     BlogPostListComponent
