@@ -10,7 +10,7 @@ export class VueJS implements BlogPost {
     description: string = "Vue.js est un framework open source créé par Evan You en JavaScript.";
 
     routerLink: string = 'vue-js';
-    tags: ReadonlyArray<string> = [ 'Vue.js', 'Open-Source', 'Front End', 'TypeScript' ];
+    tags: ReadonlyArray<string> = [ 'Vue.js', 'Open Source', 'Front End', 'TypeScript' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
