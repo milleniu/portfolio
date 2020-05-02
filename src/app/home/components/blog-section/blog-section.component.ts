@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BlogPost } from 'src/app/core/models/blog-post.models';
 
 @Component({
   selector: 'app-blog-section',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-section.component.less']
 })
 export class BlogSectionComponent implements OnInit {
+
+  @Input() public posts: ReadonlyArray<BlogPost>;
 
   constructor() { }
 

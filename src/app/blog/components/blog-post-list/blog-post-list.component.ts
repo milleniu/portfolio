@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { BlogPost, BlogPostRepository } from 'src/app/core/models/blog-post.models';
-import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
+import { BlogPost } from 'src/app/core/models/blog-post.models';
 
 @Component({
   selector: 'app-blog-post-list',
@@ -9,16 +8,10 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 })
 export class BlogPostListComponent implements OnInit {
 
-  @Input() maxDisplayCount?: number = -1;
+  @Input('posts') public blogPostList: ReadonlyArray<BlogPost>;
 
-  public blogPostList: BlogPost[];
-
-  constructor(
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepository
-  ) { }
+  constructor() {}
 
   ngOnInit() {
-    this.blogPostList = [ ...this.blogPostRepository.get(this.maxDisplayCount) ];
   }
-
 }

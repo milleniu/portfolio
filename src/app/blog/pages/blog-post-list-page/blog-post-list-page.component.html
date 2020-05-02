@@ -4,10 +4,14 @@
     <div class="container">
 
         <div class="heading">
-            <app-blog-tags></app-blog-tags>
+            <app-blog-tags
+                [tags]="getAllTagsFromPosts()"
+                [default]="tags"
+                (tagsChange)="tagsChange($event)"
+            ></app-blog-tags>
         </div>
 
-        <app-blog-post-list></app-blog-post-list>
+        <app-blog-post-list [posts]="posts"></app-blog-post-list>
 
     </div>
 </section>

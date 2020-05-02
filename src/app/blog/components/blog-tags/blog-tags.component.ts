@@ -1,6 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Inject, Output, EventEmitter } from '@angular/core';
-import { BlogPostRepository, BlogPost } from 'src/app/core/models/blog-post.models';
-import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-tags',
@@ -10,33 +8,22 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 })
 export class BlogTagsComponent implements OnInit {
 
-  @Output() public tagsChange = new EventEmitter<string[]>();
+  @Input('tags') public allTags: string[];
+  @Input('default') public defaultActiveTags?: string[] = [];
 
-  private _allTags: string[];
+  @Output() public tagsChange = new EventEmitter<string[]>();
 
   public activeTags: string[];
   public tagsSuggestions: string[];
   public tagInput: string;
 
   constructor(
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepository,
     private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
-    const getAllTagsFromPosts = (posts: ReadonlyArray<BlogPost>): string[] => {
-      const set = new Set<string>();
-      for (const post of posts)
-        for (const tag of post.tags)
-          if (!set.has(tag))
-            set.add(tag);
-      return [...set.values()];
-    }
-
-    this._allTags = getAllTagsFromPosts(this.blogPostRepository.get());
     this.tagInput = '';
-    this.activeTags = []; // TODO: Set from query
-
+    this.activeTags = this.defaultActiveTags;
     this.updateTagsSuggestions();
   }
 
@@ -63,7 +50,7 @@ export class BlogTagsComponent implements OnInit {
 
   updateTagsSuggestions() {
     this.tagsSuggestions = this
-      ._allTags
+      .allTags
       .filter(tag =>
         !this.activeTags.includes(tag)
         && tag.toLocaleLowerCase('fr-FR').includes(this.tagInput.toLocaleLowerCase('fr-FR'))

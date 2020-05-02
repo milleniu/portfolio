@@ -19,13 +19,13 @@ class BlogPostRepository implements BlogPostRepositoryModel {
             : this.blogPosts;
     }
 
-    getWithTags(tags: string | string[]): ReadonlyArray<BlogPost> {
+    getWithTags(tagFilter: string | string[]): ReadonlyArray<BlogPost> {
         return this.blogPosts.filter(blogPost => {
-            if(!tags) return true;
+            if(tagFilter.length === 0) return true;
 
-            return tags instanceof Array
-                ? blogPost.tags.some(tag => tags.indexOf(tag) !== -1)
-                : blogPost.tags.includes(tags);
+            return tagFilter instanceof Array
+                ? tagFilter.every(tag => blogPost.tags.includes(tag))
+                : blogPost.tags.includes(tagFilter);
         });
     }
     
