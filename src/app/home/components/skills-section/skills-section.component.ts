@@ -12,7 +12,7 @@ export class SkillsSectionComponent implements OnInit {
   readonly words: WeightedWord[] = [
     { word: 'Vue.js', weight: 1.4 },
     { word: 'SQL', weight: 1.2 },
-    { word: 'Typescript', weight: 1.8 },
+    { word: 'TypeScript', weight: 1.8 },
     { word: 'C#', weight: 1.8 },
     { word: 'Algorithmie', weight: 1.8 },
     { word: 'Angular', weight: 1.4 },

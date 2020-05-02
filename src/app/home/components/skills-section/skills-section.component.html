@@ -7,8 +7,10 @@
 
         <div nz-col nzSpan="8" class="word-cloud-container">
             <ul class="word-cloud">
-                <li *ngFor="let word of words" [ngStyle]="{'font-size.rem': word.weight}">
-                    {{ word.word }}
+                <li *ngFor="let word of words"
+                    [ngStyle]="{'font-size.rem': word.weight}"
+                    routerLink="/blog" [queryParams]="{tag: word.word}">
+                        {{ word.word }}
                 </li>
             </ul>
         </div>
