@@ -10,7 +10,6 @@ import fr from '@angular/common/locales/fr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { BlogModule } from './blog/blog.module';
 
 registerLocaleData(fr);
 

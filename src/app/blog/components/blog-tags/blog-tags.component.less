@@ -1,0 +1,33 @@
+@import '../../../../styles.less';
+
+.tags-container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 1em;
+
+    > .tags-label {
+        margin-right: 1em;
+    }
+
+    > .tag-input {
+        width: 200px;
+        height: 21px;
+        padding: 0 4px;
+        
+        border: 0;
+        border-radius: 4px;
+        
+        background-color: @normal-color;
+        color: @auxiliary-color;
+        
+        &:hover {
+            cursor: hand;
+            cursor: pointer;
+        }
+        
+        .collapse-input(@auxiliary-color, @light-text-color);
+    }
+}

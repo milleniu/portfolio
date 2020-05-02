@@ -1,0 +1,25 @@
+<div class="tags-container">
+    <div class="tags-label">Filtres</div>
+    <nz-tag
+        *ngFor="let tag of activeTags; let i = index"
+        nzMode="closeable"
+        (nzOnClose)="removeTag(i)">
+        {{ tag }}
+    </nz-tag>
+    <input
+        class="tag-input"
+        placeholder="Entrez un tag"
+        nz-input
+        [(ngModel)]="tagInput"
+        (ngModelChange)="updateTagsSuggestions()"
+        [nzAutocomplete]="autocompleteTemplate"
+        (blur)="addTag()"
+        (keydown.enter)="addTag()"
+    ><span></span>
+</div>
+
+<nz-autocomplete
+    #autocompleteTemplate
+    [nzDataSource]="tagsSuggestions"
+    [nzWidth]="200">
+</nz-autocomplete>
