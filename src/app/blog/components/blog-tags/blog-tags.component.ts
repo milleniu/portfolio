@@ -53,7 +53,7 @@ export class BlogTagsComponent implements OnInit {
       .allTags
       .filter(tag =>
         !this.activeTags.includes(tag)
-        && tag.toLocaleLowerCase('fr-FR').includes(this.tagInput.toLocaleLowerCase('fr-FR'))
+        && tag.toLocaleLowerCase().includes(this.tagInput.toLocaleLowerCase())
       );
   }
 }
