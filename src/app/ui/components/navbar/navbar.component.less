@@ -2,7 +2,9 @@
 
 @navbar-padding: 1em;
 @navbar-toggler-height: 1.75em;
+@navbar-toggler-border-width: 1px;
 @navbar-toggler-width: 2.5em;
+@navigation-item-height: 2rem;
 
 .navbar {
     background-color: #1d2024;
@@ -19,6 +21,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
 
         > .logo {
             padding: 0;
@@ -51,6 +54,7 @@
 
             border-radius: 0;
             border-color: @background-color;
+            border-width: @navbar-toggler-border-width;
 
             font-size: 1.5rem;
             line-height: 1;
@@ -66,26 +70,67 @@
         }
 
         > .navigation {
-
             flex-basis: 100%;
             flex-grow: 1;
 
-            padding: 10px;
+            padding: 0 @navbar-padding;
 
             &:not(.show) {
                 display: none;
             }
 
-            @media screen and (max-width: @screen-xs) {
-                height: calc(100vh - 2 * @navbar-padding - @navbar-toggler-height);
-            }
-
             @media screen and (min-width: @screen-lg) {
                 display: flex!important;
                 flex-basis: auto;
-                padding-top: 0px;
             }
-            
+
+            .navigation-animation(@navigation-animation-target-height) {
+                @navigation-animation-duration: 0.3s;
+
+                @navigation-slide-in-animation: slide-in @navigation-animation-duration @ease-out;
+
+                .navigation-animation-slide-in-frames() {
+                    from { height: 0; }
+                    to { height: @navigation-animation-target-height; }
+                }
+
+                @keyframes slide-in { .navigation-animation-slide-in-frames; };
+                @-webkit-keyframes slide-in { .navigation-animation-slide-in-frames; };
+                @-moz-keyframes slide-in { .navigation-animation-slide-in-frames; };
+                @-o-keyframes slide-in { .navigation-animation-slide-in-frames; };
+                @-ms-keyframes slide-in { .navigation-animation-slide-in-frames; };
+
+                @navigation-fade-in-animation: fade-in @navigation-animation-duration @ease-in;
+
+                .navigation-animation-fade-in-frames() {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                @keyframes fade-in { .navigation-animation-fade-in-frames; };
+                @-webkit-keyframes fade-in { .navigation-animation-fade-in-frames; };
+                @-moz-keyframes fade-in { .navigation-animation-fade-in-frames; };
+                @-o-keyframes fade-in { .navigation-animation-fade-in-frames; };
+                @-ms-keyframes fade-in { .navigation-animation-fade-in-frames; };
+
+                @navigation-animation: @navigation-slide-in-animation, @navigation-fade-in-animation;
+                animation: @navigation-animation;
+                -webkit-animation: @navigation-animation;
+                -moz-animation: @navigation-animation;
+                -o-animation: @navigation-animation;
+                -ms-animation: @navigation-animation;
+            }
+
+            @media screen and (max-width: @screen-xs) {
+                @navigation-height-xs: calc(100vh - 3 * @navbar-padding - @navbar-toggler-height + 2 * @navbar-toggler-border-width);
+                height: @navigation-height-xs;
+                .navigation-animation(@navigation-height-xs);
+            }
+
+            @media screen and (min-width: @screen-xs) and (max-width: @screen-lg) {
+                .navigation-animation(4 * (@navigation-item-height + @navbar-padding));
+            }
+
             > .navigation-menu {
                 display: flex;
                 flex-direction: column;
@@ -97,6 +142,8 @@
                 }
 
                 > .navigation-menu-item {
+                    height: @navigation-item-height;
+
                     @media screen and (max-width: @screen-lg) {
                         margin: 0.25em 0;
                     }
