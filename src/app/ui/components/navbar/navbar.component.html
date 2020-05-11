@@ -17,8 +17,10 @@
                 [nzSelectable]="false">
 
                 <li nz-menu-item *ngFor="let item of navbarItems"
+                    class="navigation-menu-item"
                     [routerLink]="item.navigationTarget.routerLink"
                     [fragment]="item.navigationTarget.fragment"
+                    (click)="displayMenu = false"
                     [nzSelected]="item.selected">
                         {{ item.label }}
                 </li>
