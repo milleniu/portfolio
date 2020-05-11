@@ -1,6 +1,8 @@
-import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
+import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener, HostBinding, OnDestroy } from '@angular/core';
 
 import { NavbarItem } from '../../shared/models/navbar.models';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 type SelectableNavbarItem = NavbarItem & { selected: boolean };
 
@@ -10,18 +12,21 @@ type SelectableNavbarItem = NavbarItem & { selected: boolean };
   styleUrls: ['./navbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   @Input() navigationTargets: NavbarItem[];
 
   public displayMenu: boolean;
 
   private _highlightedIndex: number;
-  navbarItems: SelectableNavbarItem[]
+  public navbarItems: SelectableNavbarItem[]
+
+  private _resizeObserver: { observe: (elementRef: any) => void; disconnect: () => void; };
+  private _updateHighlightedIndex$: Subject<void>;
 
   constructor(
-    private ref: ChangeDetectorRef,
-    private elementRef: ElementRef
+    private readonly ref: ChangeDetectorRef,
+    private readonly elementRef: ElementRef
   ) {
   }
 
@@ -29,9 +34,17 @@ export class NavbarComponent implements OnInit {
     this._highlightedIndex = -1;
     this.navbarItems = this.navigationTargets.map(target => ({ ...target, selected: false }));
     this.displayMenu = false;
+
+    if (window['ResizeObserver']) {
+      this._updateHighlightedIndex$ = new Subject<void>();
+      this._updateHighlightedIndex$.pipe(debounceTime(100)).subscribe(() => this.updateHighlightedIndex);
+
+      this._resizeObserver = new window['ResizeObserver'](() => { this._updateHighlightedIndex$.next(); });
+      this._resizeObserver.observe(this.elementRef.nativeElement);
+    }
   }
 
-  @HostListener( 'window:scroll' )
+  @HostListener('window:scroll')
   updateHighlightedIndex() {
     const offsetY = window.pageYOffset + this.elementRef.nativeElement.offsetHeight;
     const currentHighlightedIndex = this.navigationTargets
@@ -40,12 +53,17 @@ export class NavbarComponent implements OnInit {
       .map(({ viewRef, i }) => ({ offsetTop: viewRef.nativeElement.offsetTop, i }))
       .sort((a, b) => -(a.offsetTop > b.offsetTop))
       .reduce((prev, curr) => prev !== -1 ? prev : curr.offsetTop <= offsetY ? curr.i : prev, -1);
-    
-    if( currentHighlightedIndex === this._highlightedIndex ) return;
+
+    if (currentHighlightedIndex === this._highlightedIndex) return;
 
     this._highlightedIndex = currentHighlightedIndex;
     this.navbarItems = this.navigationTargets.map((item, i) => ({ ...item, selected: this._highlightedIndex === i }));
 
     this.ref.markForCheck();
+  }
+
+  ngOnDestroy() {
+    if (!!this._resizeObserver) this._resizeObserver.disconnect();
+    if (!!this._updateHighlightedIndex$) this._updateHighlightedIndex$.complete();
   }
 }
