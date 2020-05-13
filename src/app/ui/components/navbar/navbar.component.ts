@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener, HostBinding, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener, HostBinding, OnDestroy, ViewChild } from '@angular/core';
 
 import { NavbarItem } from '../../shared/models/navbar.models';
 import { Subject } from 'rxjs';
@@ -15,6 +15,8 @@ type SelectableNavbarItem = NavbarItem & { selected: boolean };
 export class NavbarComponent implements OnInit, OnDestroy {
 
   @Input() navigationTargets: NavbarItem[];
+
+  @ViewChild('navigation', { static: true }) navigationElement: ElementRef;
 
   public displayMenu: boolean;
 
@@ -60,6 +62,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.navbarItems = this.navigationTargets.map((item, i) => ({ ...item, selected: this._highlightedIndex === i }));
 
     this.ref.markForCheck();
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeOnOutsideClick(event: Event) {
+    if (!(this.displayMenu && event.target)) return;
+    
+    const clickedInside = this.navigationElement.nativeElement.contains(event.target);
+    if(clickedInside) return;
+    
+    this.displayMenu = false;
   }
 
   ngOnDestroy() {
