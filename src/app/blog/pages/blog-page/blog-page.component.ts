@@ -12,6 +12,7 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 export class BlogPageComponent implements OnInit {
 
   public post: BlogPost;
+  public get postTitle(): string { return this.post ? this.post.title : ''; }
 
   public get navigationTargets(): NavbarItem[] {
     return getDefaultNavigationTargets();

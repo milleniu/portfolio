@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
-import { FormsModule } from '@angular/forms';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { BlogPostCardComponent } from './components/blog-post-card/blog-post-card.component';
@@ -14,6 +16,7 @@ import { UiModule } from '../ui/ui.module';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogPostListPageComponent } from './pages/blog-post-list-page/blog-post-list-page.component';
 import { BlogTagsComponent } from './components/blog-tags/blog-tags.component';
+import { BlogBreadcrumbComponent } from './components/blog-breadcrumb/blog-breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -24,6 +27,8 @@ import { BlogTagsComponent } from './components/blog-tags/blog-tags.component';
     NzCardModule,
     NzTagModule,
     NzAutocompleteModule,
+    NzBreadCrumbModule,
+    NzIconModule,
     BlogRoutingModule
   ],
   declarations: [
@@ -33,7 +38,8 @@ import { BlogTagsComponent } from './components/blog-tags/blog-tags.component';
     BlogPageComponent,
     BlogPostListComponent,
     BlogPostListPageComponent,
-    BlogTagsComponent
+    BlogTagsComponent,
+    BlogBreadcrumbComponent
   ],
   exports: [
     BlogPostListComponent
