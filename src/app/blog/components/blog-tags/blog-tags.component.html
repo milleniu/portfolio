@@ -6,11 +6,11 @@
         (nzOnClose)="removeTag(i)">
         {{ tag }}
     </nz-tag>
-    <input
+    <input #tagInput
         class="tag-input"
         placeholder="Entrez un tag"
         nz-input
-        [(ngModel)]="tagInput"
+        [(ngModel)]="tagInputValue"
         (ngModelChange)="updateTagsSuggestions()"
         [nzAutocomplete]="autocompleteTemplate"
         (blur)="addTag()"
@@ -18,8 +18,11 @@
     ><span></span>
 </div>
 
-<nz-autocomplete
-    #autocompleteTemplate
-    [nzDataSource]="tagsSuggestions"
+<nz-autocomplete #autocompleteTemplate
     [nzWidth]="200">
+        <nz-auto-option *ngFor="let suggestion of tagsSuggestions"
+            [nzValue]="suggestion"
+            (click)="acceptSuggestion()">
+                {{ suggestion}}
+        </nz-auto-option>
 </nz-autocomplete>

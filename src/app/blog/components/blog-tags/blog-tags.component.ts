@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-blog-tags',
@@ -13,30 +13,33 @@ export class BlogTagsComponent implements OnInit {
 
   @Output() public tagsChange = new EventEmitter<string[]>();
 
+  @ViewChild('tagInput', { static: true }) tagInputElement: ElementRef;
+
   public activeTags: string[];
   public tagsSuggestions: string[];
-  public tagInput: string;
+  public tagInputValue: string;
 
   constructor(
     private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
-    this.tagInput = '';
+    this.tagInputValue = '';
     this.activeTags = this.defaultActiveTags;
     this.updateTagsSuggestions();
   }
 
   addTag() {
-    if (this.tagInput && this.tagsSuggestions.includes(this.tagInput)) {
-      this.activeTags = [...this.activeTags, this.tagInput];
-      this.tagsChange.emit(this.activeTags);
-    }
-
-    this.tagInput = '';
-    this.updateTagsSuggestions();
-
+    this.parseTagInput();
     this.ref.markForCheck();
+  }
+
+  acceptSuggestion() {
+    setTimeout(() => {
+      this.parseTagInput();
+      (<HTMLInputElement>this.tagInputElement.nativeElement).blur();
+      this.ref.markForCheck();
+    });
   }
 
   removeTag(index: number) {
@@ -44,7 +47,6 @@ export class BlogTagsComponent implements OnInit {
     this.tagsChange.emit(this.activeTags);
 
     this.updateTagsSuggestions();
-
     this.ref.markForCheck();
   }
 
@@ -53,7 +55,17 @@ export class BlogTagsComponent implements OnInit {
       .allTags
       .filter(tag =>
         !this.activeTags.includes(tag)
-        && tag.toLocaleLowerCase().includes(this.tagInput.toLocaleLowerCase())
+        && tag.toLocaleLowerCase().includes(this.tagInputValue.toLocaleLowerCase())
       );
+  }
+
+  private parseTagInput() {
+    if (this.tagInputValue && this.tagsSuggestions.includes(this.tagInputValue)) {
+      this.activeTags = [...this.activeTags, this.tagInputValue];
+      this.tagsChange.emit(this.activeTags);
+    }
+
+    this.tagInputValue = '';
+    this.updateTagsSuggestions();
   }
 }
