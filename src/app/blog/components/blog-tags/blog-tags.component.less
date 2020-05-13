@@ -2,33 +2,100 @@
 
 .tags-container {
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0 1em;
+    &-xs {
 
-    > .tags-label {
-        font-size: 1.25rem;
-        margin: 0 1em 0 0;
+        .button-color() {
+            @button-xs-color: @light-text-color;
+            color: @button-xs-color;
+            border-color: @button-xs-color;
+        }
+
+        > .filter-button { .button-color(); }
+
+        &-drawer {
+            position: fixed;
+            z-index: 20;
+
+            width: 100vw;
+            height: 100vh;
+            left: 0;
+            top: 0;
+
+            background: @background-color;
+
+            transition: left 0.3s @ease-out;
+
+            > .section {
+
+                height: 100%;
+
+                > .container {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+    
+                    > .tags {
+                        flex: 1;
+                    }
+    
+                    > .validation {
+                        .button-color();
+                        align-self: flex-end;
+                    }
+                }
+
+            }
+
+            &:not(.show) {
+                left: -100vw;
+            }
+        }
+
+        @media screen and (min-width: @screen-md) {
+            display: none;
+
+            &-drawer {
+                display: none;
+            }
+        }
     }
 
-    > .tag-input {
-        width: 200px;
-        height: 21px;
-        padding: 0 4px;
-        
-        border: 0;
-        border-radius: 4px;
-        
-        background-color: @normal-color;
-        color: @auxiliary-color;
-        
-        &:hover {
-            cursor: hand;
-            cursor: pointer;
+    &-md {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 1em;
+
+        > .tag-input {
+            width: 200px;
+            height: 21px;
+            padding: 0 4px;
+            
+            border: 0;
+            border-radius: 4px;
+            
+            background-color: @normal-color;
+            color: @auxiliary-color;
+            
+            &:hover {
+                cursor: hand;
+                cursor: pointer;
+            }
+            
+            .collapse-input(@auxiliary-color, @light-text-color);
         }
-        
-        .collapse-input(@auxiliary-color, @light-text-color);
+
+        @media screen and (max-width: @screen-md) {
+            display: none;
+        }
+    }
+
+    &-xs-drawer >,
+    &-md > {
+        .tags-label {
+            font-size: 1.25rem;
+            margin: 0 1em 0 0;
+        }
     }
 }

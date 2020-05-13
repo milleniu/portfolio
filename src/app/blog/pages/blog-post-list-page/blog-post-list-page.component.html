@@ -1,19 +1,22 @@
 <app-navbar [navigationTargets]="navigationTargets"></app-navbar>
-<app-blog-breadcrumb></app-blog-breadcrumb>
 
-<section class="section">
+<section class="section heading">
     <div class="container">
 
-        <div class="heading">
-            <app-blog-tags
-                [tags]="getAllTagsFromPosts()"
-                [default]="tags"
-                (tagsChange)="tagsChange($event)"
-            ></app-blog-tags>
-        </div>
+    <app-blog-breadcrumb></app-blog-breadcrumb>
+    <app-blog-tags
+        class="tags"
+        [tags]="getAllTagsFromPosts()"
+        [default]="tags"
+        (tagsChange)="tagsChange($event)"
+    ></app-blog-tags>
 
+    </div>
+</section>
+
+<section class="section posts">
+    <div class="container">
         <app-blog-post-list [posts]="posts"></app-blog-post-list>
-
     </div>
 </section>
 

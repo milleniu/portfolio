@@ -18,6 +18,7 @@ export class BlogTagsComponent implements OnInit {
   public activeTags: string[];
   public tagsSuggestions: string[];
   public tagInputValue: string;
+  public displayDrawer: boolean;
 
   constructor(
     private ref: ChangeDetectorRef
@@ -27,11 +28,16 @@ export class BlogTagsComponent implements OnInit {
     this.tagInputValue = '';
     this.activeTags = this.defaultActiveTags;
     this.updateTagsSuggestions();
+    this.displayDrawer = false;
   }
 
   addTag() {
     this.parseTagInput();
     this.ref.markForCheck();
+  }
+
+  addTags() {
+    this.displayDrawer = false;
   }
 
   acceptSuggestion() {
