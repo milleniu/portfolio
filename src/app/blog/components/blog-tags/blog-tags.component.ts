@@ -1,5 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
 
+interface TagDetails {
+  label: string;
+  active: boolean;
+}
+
 @Component({
   selector: 'app-blog-tags',
   templateUrl: './blog-tags.component.html',
@@ -16,9 +21,12 @@ export class BlogTagsComponent implements OnInit {
   @ViewChild('tagInput', { static: true }) tagInputElement: ElementRef;
 
   public activeTags: string[];
-  public tagsSuggestions: string[];
+
   public tagInputValue: string;
+  public tagsSuggestions: string[];
+
   public displayDrawer: boolean;
+  public detailedTags: TagDetails[];
 
   constructor(
     private ref: ChangeDetectorRef
@@ -28,6 +36,7 @@ export class BlogTagsComponent implements OnInit {
     this.tagInputValue = '';
     this.activeTags = this.defaultActiveTags;
     this.updateTagsSuggestions();
+    this.updateDetailedTags();
     this.displayDrawer = false;
   }
 
@@ -37,7 +46,20 @@ export class BlogTagsComponent implements OnInit {
   }
 
   addTags() {
+    for (const tag of this.allTags) {
+      const isSelected = this.detailedTags.findIndex(v => v.active && v.label === tag) !== -1;
+      const wasSelected = this.activeTags.includes(tag);
+      if (isSelected === wasSelected) continue;
+      if (isSelected) this.activeTags.push(tag);
+      else this.activeTags.splice(this.activeTags.indexOf(tag), 1);
+    }
+
+    this.tagsChange.emit(this.activeTags);
+
     this.displayDrawer = false;
+    this.updateTagsSuggestions();
+    this.updateDetailedTags();
+    this.ref.markForCheck();
   }
 
   acceptSuggestion() {
@@ -53,6 +75,7 @@ export class BlogTagsComponent implements OnInit {
     this.tagsChange.emit(this.activeTags);
 
     this.updateTagsSuggestions();
+    this.updateDetailedTags();
     this.ref.markForCheck();
   }
 
@@ -73,5 +96,10 @@ export class BlogTagsComponent implements OnInit {
 
     this.tagInputValue = '';
     this.updateTagsSuggestions();
+    this.updateDetailedTags();
+  }
+
+  private updateDetailedTags() {
+    this.detailedTags = this.allTags.map(tag => ({ label: tag, active: this.activeTags.includes(tag) }));
   }
 }

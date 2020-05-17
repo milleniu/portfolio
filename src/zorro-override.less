@@ -8,6 +8,7 @@
 @import '../node_modules/ng-zorro-antd/auto-complete/style/entry.less';
 @import '../node_modules/ng-zorro-antd/breadcrumb/style/entry.less';
 @import '../node_modules/ng-zorro-antd/icon/style/entry.less';
+@import '../node_modules/ng-zorro-antd/switch/style/entry.less';
 
 @import './styles/_colors.less';
 
@@ -57,18 +58,38 @@
 @menu-item-boundary-margin: 0px;
 @border-width-base: 0px;
 
-// Card
+// CARD
 @card-head-color: @white;
 @card-actions-background: transparent;
 @card-background: @component-background;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 @card-hover-border: @accent-color;
 
-// Tag
+// TAG
 @tag-default-bg: @auxiliary-color;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
 
-// BackTop
+// BACKTOP
 @back-top-bg: @darkened-text-color;
 @back-top-hover-bg: @accent-color;
+
+// BREADCRUMB
+@breadcrumb-link-color: @darkened-text-color;
+@breadcrumb-link-color-hover: @accent-color;
+
+// SWITCH
+@switch-color: @auxiliary-color;
+nz-switch.text-only .@{switch-prefix-cls} {
+    padding: 0 1em;
+
+    &-inner {
+        text-align: center;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    &::after {
+        display: none;
+    }
+}

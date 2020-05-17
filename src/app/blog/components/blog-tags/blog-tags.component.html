@@ -12,14 +12,25 @@
     <section class="section">
         <div class="container">
 
-            <h3 class="tags-label">Sélectionnez vos filtres</h3>
-            <div class="tags">
-
+            <div class="tags-container">
+                <h3 class="tags-label">Sélectionnez vos filtres</h3>
+                <div class="tags">
+                    <ng-container *ngFor="let tag of detailedTags">
+                        <nz-switch
+                            class="switch text-only"
+                            [(ngModel)]="tag.active"
+                            [nzCheckedChildren]="tagTemplate"
+                            [nzUnCheckedChildren]="tagTemplate">
+                        </nz-switch>
+                        <ng-template #tagTemplate>{{ tag.label }}</ng-template>
+                    </ng-container>
+                </div>
             </div>
+
             <button nz-button
                 nzType="primary"
                 nzShape="circle"
-                class="validation"
+                class="tags-validation"
                 (click)="addTags()">
                     <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
             </button>

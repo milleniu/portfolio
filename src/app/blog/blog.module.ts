@@ -8,6 +8,7 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
 
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { BlogPostCardComponent } from './components/blog-post-card/blog-post-card.component';
@@ -31,6 +32,7 @@ import { BlogBreadcrumbComponent } from './components/blog-breadcrumb/blog-bread
     NzBreadCrumbModule,
     NzIconModule,
     NzButtonModule,
+    NzSwitchModule,
     BlogRoutingModule
   ],
   declarations: [
