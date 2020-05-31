@@ -1,10 +1,12 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { Category } from '../blog-post-repository';
 
 export class Unity implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/unity/';
 
     title: string = 'Unity';
+    category: Category = 'Compétence Technique';
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "Unity est un moteur de jeu multi-plateforme développé par Unity Technologies.";

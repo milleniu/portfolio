@@ -1,10 +1,12 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { Category } from '../blog-post-repository';
 
 export class VueJS implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/vue-js/';
 
     title: string = 'Vue.js';
+    category: Category = 'Compétence Technique';
 
     coverImage: string = this.assetsRoot + 'cover.png';
     description: string = "Vue.js est un framework open source créé par Evan You en JavaScript.";

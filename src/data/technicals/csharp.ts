@@ -1,10 +1,12 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { Category } from '../blog-post-repository';
 
 export class CSharp implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/csharp/';
 
     title: string = 'C# et .NET Core';
+    category: Category = 'Compétence Technique';
 
     coverImage: string = this.assetsRoot + 'cover.png';
     description: string = "C# est un langage développé par Microsoft que j'utilise en entreprise et dans mon temps libre.";

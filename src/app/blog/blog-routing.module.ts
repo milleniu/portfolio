@@ -22,7 +22,7 @@ export class BlogRoutingModule {
   ) {
     const getBlogPostRoutes = () => {
       return blogPostRepository
-        .get()
+        .getLatest()
         .map<Route>(post => ({ path: `blog/${post.routerLink}`, component: BlogPageComponent }));
     };
     registerDynamicRoutes(router, getBlogPostRoutes);

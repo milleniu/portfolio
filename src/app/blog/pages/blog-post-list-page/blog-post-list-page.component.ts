@@ -37,7 +37,7 @@ export class BlogPostListPageComponent implements OnInit {
 
   public getAllTagsFromPosts = (): string[] => {
     const set = new Set<string>();
-    for (const post of this.blogPostRepository.get())
+    for (const post of this.blogPostRepository.getLatest())
       for (const tag of post.tags)
         if (!set.has(tag))
           set.add(tag);

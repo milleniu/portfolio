@@ -1,10 +1,12 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { Category } from '../blog-post-repository';
 
 export class Typescript implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/typescript/';
 
     title: string = 'TypeScript';
+    category: Category = 'Compétence Technique';
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "TypeScript est un langage open source développé par Microsoft.";
