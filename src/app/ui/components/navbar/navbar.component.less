@@ -4,7 +4,7 @@
 @navbar-toggler-height: 1.75em;
 @navbar-toggler-border-width: 1px;
 @navbar-toggler-width: 2.5em;
-@navigation-item-height: 2rem;
+@navigation-item-height: 2em;
 
 .navbar {
     background-color: #1d2024;
@@ -122,13 +122,27 @@
             }
 
             @media screen and (max-width: @screen-xs) {
-                @navigation-height-xs: calc(100vh - 3 * @navbar-padding - @navbar-toggler-height + 2 * @navbar-toggler-border-width);
+                @navigation-height-xs: calc(
+                      100vh
+                    - 3 * @navbar-padding
+                    - @navbar-toggler-height
+                    + 2 * @navbar-toggler-border-width
+                );
+                
                 height: @navigation-height-xs;
                 .navigation-animation(@navigation-height-xs);
             }
 
             @media screen and (min-width: @screen-xs) and (max-width: @screen-lg) {
-                .navigation-animation(4 * @navigation-item-height + 2 * @navbar-padding);
+                @navigation-height-md: calc(
+                      8 * @navigation-item-height
+                    + @navbar-toggler-height
+                    + 2 * @navbar-toggler-border-width
+                    + 2 * @navbar-padding
+                );
+
+                height: @navigation-height-md;
+                .navigation-animation(@navigation-height-md);
             }
 
             > .navigation-menu {
@@ -141,12 +155,31 @@
                     flex-direction: row;
                 }
 
+                >  .navigation-menu-dropdown {
+                    &-lg {
+                        @media screen and (max-width: @screen-lg) {
+                            display: none;
+                        }
+                    }
+
+                    &-xs {
+                        @media screen and (min-width: @screen-lg) {
+                            display: none;
+                        }
+                    }
+                }
+
                 > .navigation-menu-item {
                     height: @navigation-item-height;
 
                     @media screen and (max-width: @screen-lg) {
                         margin: 0.25em 0;
                     }
+                }
+
+                > .navigation-menu-child-item {
+                    margin-left: 1em;
+                    border-bottom: none;
                 }
             }
         }

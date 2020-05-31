@@ -23,7 +23,7 @@
 
                         <ng-template #dropdownMenu>
                             <li nz-menu-item
-                                class="navigation-menu-item"
+                                class="navigation-menu-dropdown-lg navigation-menu-item"
                                 [routerLink]="item.navigationTarget.routerLink"
                                 [fragment]="item.navigationTarget.fragment"
                                 (click)="displayMenu = false"
@@ -45,6 +45,27 @@
                                     </ul>
                                 </nz-dropdown-menu>
                             </li>
+
+                            <li nz-menu-item
+                                class="navigation-menu-dropdown-xs navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected">
+                                {{ item.label }}
+                            </li>
+
+                            <li *ngFor="let child of item.children"
+                                nz-menu-item
+                                class="navigation-menu-dropdown-xs navigation-menu-item navigation-menu-child-item"
+                                [routerLink]="child.navigationTarget.routerLink"
+                                [fragment]="child.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="child.selected">
+                                {{ child.label }}
+                            </li>
+
+
                         </ng-template>
 
                         <ng-template #simpleMenu>

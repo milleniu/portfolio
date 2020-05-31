@@ -56,9 +56,14 @@
 @menu-highlight-color: @accent-color;
 @menu-item-active-bg: transparent;
 @menu-item-active-border-width: 0px;
-@menu-item-font-size: 32px;
+@menu-item-font-size: @font-size-base;
 @menu-item-boundary-margin: 0px;
 @border-width-base: 0px;
+.@{menu-prefix-cls} {
+    &-submenu-popup {
+        width: fit-content;
+    }
+}
 
 // DROPDOWN
 @dropdown-selected-color: @accent-color !important;

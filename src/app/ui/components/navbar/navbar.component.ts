@@ -35,16 +35,20 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
     this.navbarItems = this.navigationTargets.map(target => ({ ...target, selected: false }));
     this.displayMenu = false;
 
-    if (window['ResizeObserver']) {
-      this._updateHighlightedIndex$ = new Subject<void>();
-      this._updateHighlightedIndex$.pipe(debounceTime(100)).subscribe(() => this.updateHighlightedIndex);
+    this._updateHighlightedIndex$ = new Subject<void>();
+    this._updateHighlightedIndex$.pipe(debounceTime(100)).subscribe(() => this.updateHighlightedIndex());
 
+    if (window['ResizeObserver']) {
       this._resizeObserver = new window['ResizeObserver'](() => { this._updateHighlightedIndex$.next(); });
       this._resizeObserver.observe(this.elementRef.nativeElement);
     }
   }
 
   @HostListener('window:scroll')
+  scrollListener() {
+    this._updateHighlightedIndex$.next();
+  }
+
   updateHighlightedIndex() {
     const offsetY = window.pageYOffset + this.elementRef.nativeElement.offsetHeight;
     const findIndex = (targets: ReadonlyArray<NavbarItem>) => targets
