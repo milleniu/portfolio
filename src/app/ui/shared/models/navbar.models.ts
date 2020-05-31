@@ -1,41 +1,74 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, ViewRef } from '@angular/core';
 
 export interface NavbarItem {
   label: string;
   navigationTarget: { routerLink: string, fragment?: string }
   viewRef?: ElementRef;
+  children?: ReadonlyArray<NavbarItem>;
+  configuration?: (item: SelectableNavbarItem) => void;
 }
 
-export type NavbarItemDefault = 'home' | 'about' | 'skills' | 'posts';
-export type NavbarItemViewRefCollection = { [label in NavbarItemDefault]?: ElementRef; };
+export type SelectableNavbarItem = NavbarItem & { selected: boolean };
+
+type LabelInfer<T extends { label: string }> = T['label'];
+type ChildrenInfer<T> = T extends { children: infer C } ? C : never;
+type NavbarItemInfer = typeof DefaultNavigationTargets[number];
+type NavbarItemLabelUnion = LabelInfer<NavbarItemInfer> | LabelInfer<ChildrenInfer<NavbarItemInfer>[number]>;
+
+export type NavbarItemViewRefCollection = { [label in NavbarItemLabelUnion]?: ElementRef; };
+export interface NavbarItemConfiguration {
+  key: NavbarItemLabelUnion,
+  configuration: (item: SelectableNavbarItem) => void;
+}
+
+const DefaultNavigationTargets = [
+  {
+    label: 'Accueil',
+    navigationTarget: { routerLink: '/home', fragment: 'hero' },
+    children: [
+      {
+        label: 'À Propos',
+        navigationTarget: { routerLink: '/home', fragment: 'about' },
+      },
+      {
+        label: 'Compétences',
+        navigationTarget: { routerLink: '/home', fragment: 'skills' },
+      },
+      {
+        label: 'Publications',
+        navigationTarget: { routerLink: '/home', fragment: 'blog-posts' },
+      }
+    ]
+  },
+  {
+    label: 'Réalisations',
+    navigationTarget: { routerLink: '/blog' }
+  }
+] as const;
 
 export function getDefaultNavigationTargets(
-  viewRefCollection?: NavbarItemViewRefCollection
-): NavbarItem[] {
-  const resolveViewRef = (label: NavbarItemDefault) => {
-    return !viewRefCollection ? undefined : viewRefCollection[label];
+  viewRefCollection?: NavbarItemViewRefCollection,
+  configurations?: NavbarItemConfiguration[]
+): ReadonlyArray<NavbarItem> {
+  
+  const configureDefault = (navbarItems: ReadonlyArray<NavbarItem>) => {
+    for (const navbarItem of navbarItems) {
+      navbarItem.viewRef = !!viewRefCollection
+        ? viewRefCollection[navbarItem.label]
+        : undefined;
+
+      const filtered = (configurations || [])
+        .filter(item => item.key === navbarItem.label)
+        .map(item => item.configuration);
+      if( filtered.length === 0 ) navbarItem.configuration = undefined;
+      if( filtered.length === 1 ) navbarItem.configuration = filtered[0];
+      navbarItem.configuration = item => filtered.forEach(c => c(item));
+
+      if (!!navbarItem.children)
+        configureDefault(navbarItem.children);
+    }
   }
 
-  return [
-    {
-      label: 'Accueil',
-      navigationTarget: { routerLink: '/home', fragment: 'hero' },
-      viewRef: resolveViewRef('home')
-    },
-    {
-      label: 'À Propos',
-      navigationTarget: { routerLink: '/home', fragment: 'about' },
-      viewRef: resolveViewRef('about')
-    },
-    {
-      label: 'Compétences',
-      navigationTarget: { routerLink: '/home', fragment: 'skills' },
-      viewRef: resolveViewRef('skills')
-    },
-    {
-      label: 'Publications',
-      navigationTarget: { routerLink: '/home', fragment: 'blog-posts' },
-      viewRef: resolveViewRef('posts')
-    }
-  ]
+  configureDefault(DefaultNavigationTargets);
+  return DefaultNavigationTargets;
 };

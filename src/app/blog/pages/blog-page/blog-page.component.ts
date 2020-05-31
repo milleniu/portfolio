@@ -11,12 +11,9 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 })
 export class BlogPageComponent implements OnInit {
 
+  public navigationTargets: ReadonlyArray<NavbarItem>;
   public post: BlogPost;
   public get postTitle(): string { return this.post ? this.post.title : ''; }
-
-  public get navigationTargets(): NavbarItem[] {
-    return getDefaultNavigationTargets();
-  }
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,6 +21,11 @@ export class BlogPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    this.navigationTargets = getDefaultNavigationTargets(
+      {},
+      [ { key: 'Réalisations', configuration: item => item.selected = true } ]
+    );
+
     const url = this.activatedRoute.snapshot.url;
     const lastSegment = url[url.length - 1];
     this.post = this.blogPostRepository.getFromRouterLink(lastSegment.path);

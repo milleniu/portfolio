@@ -1,10 +1,8 @@
-import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener, HostBinding, OnDestroy, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, HostListener, HostBinding, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 
-import { NavbarItem } from '../../shared/models/navbar.models';
+import { NavbarItem, SelectableNavbarItem } from '../../shared/models/navbar.models';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-
-type SelectableNavbarItem = NavbarItem & { selected: boolean };
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +10,15 @@ type SelectableNavbarItem = NavbarItem & { selected: boolean };
   styleUrls: ['./navbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @Input() navigationTargets: NavbarItem[];
+  @Input() navigationTargets: ReadonlyArray<NavbarItem>;
 
   @ViewChild('navigation', { static: true }) navigationElement: ElementRef;
 
   public displayMenu: boolean;
 
-  private _highlightedIndex: number;
+  private _highlightedIndex: [number, number];
   public navbarItems: SelectableNavbarItem[]
 
   private _resizeObserver: { observe: (elementRef: any) => void; disconnect: () => void; };
@@ -33,7 +31,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this._highlightedIndex = -1;
+    this._highlightedIndex = [-1, -1];
     this.navbarItems = this.navigationTargets.map(target => ({ ...target, selected: false }));
     this.displayMenu = false;
 
@@ -49,29 +47,62 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll')
   updateHighlightedIndex() {
     const offsetY = window.pageYOffset + this.elementRef.nativeElement.offsetHeight;
-    const currentHighlightedIndex = this.navigationTargets
+    const findIndex = (targets: ReadonlyArray<NavbarItem>) => targets
       .map((target, i) => ({ viewRef: target.viewRef, i }))
       .filter(({ viewRef }) => viewRef)
       .map(({ viewRef, i }) => ({ offsetTop: viewRef.nativeElement.offsetTop, i }))
       .sort((a, b) => -(a.offsetTop > b.offsetTop))
       .reduce((prev, curr) => prev !== -1 ? prev : curr.offsetTop <= offsetY ? curr.i : prev, -1);
 
-    if (currentHighlightedIndex === this._highlightedIndex) return;
+    const highlightIndex = findIndex(this.navigationTargets);
+    const highlightChildIndex = highlightIndex !== -1 && !!this.navigationTargets[highlightIndex].children
+      ? findIndex(this.navigationTargets[highlightIndex].children)
+      : -1;
 
-    this._highlightedIndex = currentHighlightedIndex;
-    this.navbarItems = this.navigationTargets.map((item, i) => ({ ...item, selected: this._highlightedIndex === i }));
+    let viewUpdateRequired = this._highlightedIndex[0] !== highlightIndex
+      || this._highlightedIndex[1] !== highlightChildIndex;
 
-    this.ref.markForCheck();
+    this._highlightedIndex = [highlightIndex, highlightChildIndex];
+    this.navbarItems = this.navigationTargets.map((navigationTarget, i) => {
+      const result = {
+        ...navigationTarget,
+        selected: highlightIndex === i,
+      };
+
+      if (!!result.children) {
+        result.children = result.children.map((child, j) => {
+          const childResult = { ...child, selected: highlightIndex === i && highlightChildIndex === j };
+          if (!!childResult.configuration) {
+            childResult.configuration(childResult);
+            viewUpdateRequired = true;
+          }
+          return childResult;
+        });
+      }
+
+      if (!!result.configuration) {
+        result.configuration(result);
+        viewUpdateRequired = true;
+      }
+
+      return result;
+    });
+
+    if(viewUpdateRequired) this.ref.markForCheck();
   }
 
   @HostListener('document:click', ['$event'])
   closeOnOutsideClick(event: Event) {
     if (!(this.displayMenu && event.target)) return;
-    
+
     const clickedInside = this.navigationElement.nativeElement.contains(event.target);
-    if(clickedInside) return;
-    
+    if (clickedInside) return;
+
     this.displayMenu = false;
+  }
+
+  ngAfterViewInit() {
+    this.updateHighlightedIndex();
   }
 
   ngOnDestroy() {

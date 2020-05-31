@@ -23,7 +23,10 @@ export class BlogPostListPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.navigationTargets = getDefaultNavigationTargets();
+    this.navigationTargets = getDefaultNavigationTargets(
+      {},
+      [ { key: 'Réalisations', configuration: item => item.selected = true } ]
+    );
 
     const queries = this.activatedRoute.snapshot.queryParamMap;
     this.tags = queries.has('tag') && this.getAllTagsFromPosts().includes(queries.get('tag'))

@@ -16,14 +16,50 @@
                 nzMode="horizontal"
                 [nzSelectable]="false">
 
-                <li nz-menu-item *ngFor="let item of navbarItems"
-                    class="navigation-menu-item"
-                    [routerLink]="item.navigationTarget.routerLink"
-                    [fragment]="item.navigationTarget.fragment"
-                    (click)="displayMenu = false"
-                    [nzSelected]="item.selected">
-                        {{ item.label }}
-                </li>
+                <ng-container *ngFor="let item of navbarItems">
+                    <ng-container
+                        [ngTemplateOutlet]="item.children?.length > 0 ? dropdownMenu : simpleMenu"
+                        [ngTemplateOutletContext]="{item: item}">
+
+                        <ng-template #dropdownMenu>
+                            <li nz-menu-item
+                                class="navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected"
+                                
+                                nz-dropdown
+                                [nzDropdownMenu]="childrenDropdown">
+                                {{ item.label }}
+
+                                <nz-dropdown-menu #childrenDropdown="nzDropdownMenu">
+                                    <ul nz-menu>
+                                        <li *ngFor="let child of item.children"
+                                            nz-menu-item
+                                            [routerLink]="child.navigationTarget.routerLink"
+                                            [fragment]="child.navigationTarget.fragment"
+                                            [nzSelected]="child.selected">
+                                            {{ child.label }}
+                                        </li>
+                                    </ul>
+                                </nz-dropdown-menu>
+                            </li>
+                        </ng-template>
+
+                        <ng-template #simpleMenu>
+                            <li nz-menu-item
+                                class="navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected">
+                                {{ item.label }}
+                            </li>
+                        </ng-template>
+
+                    </ng-container>
+                </ng-container>
 
             </ul>
         </div>
