@@ -6,7 +6,7 @@
     <app-blog-breadcrumb></app-blog-breadcrumb>
     <app-blog-tags
         class="tags"
-        [tags]="getAllTagsFromPosts()"
+        [tags]="allTags"
         [default]="tags"
         (tagsChange)="tagsChange($event)"
     ></app-blog-tags>

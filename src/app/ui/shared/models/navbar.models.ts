@@ -2,7 +2,7 @@ import { ElementRef, ViewRef } from '@angular/core';
 
 export interface NavbarItem {
   label: string;
-  navigationTarget: { routerLink: string, fragment?: string }
+  navigationTarget: { routerLink: string | string[], fragment?: string }
   viewRef?: ElementRef;
   children?: ReadonlyArray<NavbarItem>;
   configuration?: (item: SelectableNavbarItem) => void;
@@ -41,8 +41,22 @@ const DefaultNavigationTargets = [
     ]
   },
   {
+    label: 'Mes Compétences',
+    navigationTarget: { routerLink: '/skills' },
+    children: [
+      {
+        label: 'Techniques',
+        navigationTarget: { routerLink: '/blog/technical' }
+      },
+      {
+        label: 'Transversales',
+        navigationTarget: { routerLink: '/blog/transversal' }
+      }
+    ]
+  },
+  {
     label: 'Réalisations',
-    navigationTarget: { routerLink: '/blog' }
+    navigationTarget: { routerLink: '/blog/realization' }
   }
 ] as const;
 

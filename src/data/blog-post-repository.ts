@@ -9,17 +9,44 @@ import { SQL } from './technicals/sql';
 
 class BlogPostRepository implements BlogPostRepositoryModel {
 
+    private _tags: string[];
+    private _categories: string[];
+
     constructor(
         private readonly blogPosts: ReadonlyArray<BlogPost>
-    ) { }
+    ) {
+        const tagSet = new Set<string>();
+        const categoriesSet = new Set<string>();
 
-    getLatest(count?: number): ReadonlyArray<BlogPost> {
+        for (const blogPost of blogPosts) {
+            for (const tag of blogPost.tags) {
+                if (!tagSet.has(tag))
+                    tagSet.add(tag);
+            }
+
+            if (!categoriesSet.has(blogPost.category))
+                categoriesSet.add(blogPost.category);
+        }
+
+        this._tags = [...tagSet.values()];
+        this._categories = [ ...categoriesSet.values()];
+    }
+
+    getAllTags(): ReadonlyArray<string> {
+        return this._tags;
+    }
+
+    getAllCategories(): ReadonlyArray<string> {
+        return this._categories;
+    }
+
+    get(count?: number): ReadonlyArray<BlogPost> {
         return this.sliceArray(this.blogPosts, count);
     }
 
     getWithTags(tagFilter: string | string[]): ReadonlyArray<BlogPost> {
         return this.blogPosts.filter(blogPost => {
-            if(tagFilter.length === 0) return true;
+            if (tagFilter.length === 0) return true;
 
             return tagFilter instanceof Array
                 ? tagFilter.every(tag => blogPost.tags.includes(tag))
@@ -27,19 +54,19 @@ class BlogPostRepository implements BlogPostRepositoryModel {
         });
     }
 
-    getFromRouterLink(routerLink: string): BlogPost|undefined {
+    getFromRouterLink(routerLink: string): BlogPost | undefined {
         const index = this.blogPosts.findIndex(post => post.routerLink === routerLink);
         return ~index ? this.blogPosts[index] : undefined;
     }
 
-    getLatestInCategory(category: Category, count?: number): readonly BlogPost[] {
+    getInCategory(category: Category, count?: number): readonly BlogPost[] {
         return this.sliceArray(this.blogPosts.filter(blogPost => blogPost.category === category), count);
     }
 
-    getWithTagsInCategory(category: Category, tagFilter: string | string[]): readonly BlogPost[] {
+    getInCategoryWithTags(category: Category, tagFilter: string | string[]): readonly BlogPost[] {
         return this.blogPosts.filter(blogPost => {
-            if(blogPost.category !== category) return false;
-            if(tagFilter.length === 0) return true;
+            if (blogPost.category !== category) return false;
+            if (tagFilter.length === 0) return true;
 
             return tagFilter instanceof Array
                 ? tagFilter.every(tag => blogPost.tags.includes(tag))
@@ -52,7 +79,7 @@ class BlogPostRepository implements BlogPostRepositoryModel {
     }
 }
 
-export type Category = 'Réalisation' | 'Compétence Technique' | 'Compétence Transversale';
+export type Category = 'realization' | 'technical' | 'transversal';
 
 export const blogPostRepository = new BlogPostRepository([
     new RedPandaUI(),

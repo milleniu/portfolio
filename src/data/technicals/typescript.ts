@@ -6,7 +6,7 @@ export class Typescript implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/typescript/';
 
     title: string = 'TypeScript';
-    category: Category = 'Compétence Technique';
+    category: Category = 'technical';
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "TypeScript est un langage open source développé par Microsoft.";

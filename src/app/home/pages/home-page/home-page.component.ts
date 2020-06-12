@@ -35,6 +35,6 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.posts = this.blogPostRepository.getLatest(6);
+    this.posts = this.blogPostRepository.get(6);
   }
 }

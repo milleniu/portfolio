@@ -6,7 +6,7 @@ export class VueJS implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/vue-js/';
 
     title: string = 'Vue.js';
-    category: Category = 'Compétence Technique';
+    category: Category = 'technical';
 
     coverImage: string = this.assetsRoot + 'cover.png';
     description: string = "Vue.js est un framework open source créé par Evan You en JavaScript.";

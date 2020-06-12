@@ -5,12 +5,14 @@ import { BLOG_POST_REPOSITORY } from '../core/config/injection-tokens';
 import { BlogPostRepository } from '../core/models/blog-post.models';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { BlogPostListPageComponent } from './pages/blog-post-list-page/blog-post-list-page.component';
+import { CategoryGuard } from './shared/services/category.guard';
 
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: 'blog',
-      component: BlogPostListPageComponent
+      path: 'blog/:category',
+      component: BlogPostListPageComponent,
+      canActivate: [ CategoryGuard ]
     }
   ])],
   exports: [RouterModule]
@@ -22,7 +24,7 @@ export class BlogRoutingModule {
   ) {
     const getBlogPostRoutes = () => {
       return blogPostRepository
-        .getLatest()
+        .get()
         .map<Route>(post => ({ path: `blog/${post.routerLink}`, component: BlogPageComponent }));
     };
     registerDynamicRoutes(router, getBlogPostRoutes);

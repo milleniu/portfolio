@@ -6,7 +6,7 @@ export class Unity implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/unity/';
 
     title: string = 'Unity';
-    category: Category = 'Compétence Technique';
+    category: Category = 'technical';
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "Unity est un moteur de jeu multi-plateforme développé par Unity Technologies.";

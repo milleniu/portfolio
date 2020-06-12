@@ -6,7 +6,7 @@ export class Angular implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/angular/';
 
     title: string = 'Angular';
-    category: Category = 'Compétence Technique';
+    category: Category = 'technical';
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";

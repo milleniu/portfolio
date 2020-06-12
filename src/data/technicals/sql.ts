@@ -6,7 +6,7 @@ export class SQL implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/sql/';
 
     title: string = 'Microsft SQL Server';
-    category: Category = 'Compétence Technique';
+    category: Category = 'technical';
 
     coverImage: string = this.assetsRoot + 'cover.png';
     description: string = "Microsoft SQL Server est un système de gestion de base de données développé par Microsoft.";
