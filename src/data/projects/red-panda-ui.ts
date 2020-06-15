@@ -1,12 +1,12 @@
-import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { BlogPostContent, Paragraph, Divider, List, Title, Image } from 'src/app/core/models/blog-post-content.models';
-import { Category } from '../blog-post-repository';
+import { WellKnownBlogPostCategory } from '../blog-post-category';
 
 export class RedPandaUI implements BlogPost {
     private readonly assetsRoot = 'assets/blog/projects/red-panda-ui/';
 
     title: string = 'Red Panda UI';
-    category: Category = 'realization';
+    category: BlogPostCategory = WellKnownBlogPostCategory.Realization;
 
     coverImage: string = this.assetsRoot + 'cover.png';
     description: string = "Red panda UI est un projet communautaire réalisé en 2016 / 2017 sur Final Fantasy XIV."

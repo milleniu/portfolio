@@ -1,12 +1,13 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost } from 'src/app/core/models/blog-post.models';
-import { Category } from '../blog-post-repository';
+import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { WellKnownBlogPostCategory } from '../blog-post-category';
+
 
 export class Angular implements BlogPost {
     private readonly assetsRoot = 'assets/blog/technicals/angular/';
 
     title: string = 'Angular';
-    category: Category = 'technical';
+    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
     coverImage: string = this.assetsRoot + 'cover.svg';
     description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";

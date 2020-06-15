@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject, Input, OnDestroy } from '@angular/core';
-
-import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import { NavbarItem, getDefaultNavigationTargets, NavbarItemConfiguration, NavbarItemLabelUnion } from 'src/app/ui/shared/models/navbar.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
-import { BlogPostRepository, BlogPost } from 'src/app/core/models/blog-post.models';
+import { BlogPostRepositoryModel, BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, Subject, of } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { switchMap, withLatestFrom, takeUntil } from 'rxjs/operators';
+import { WellKnownBlogPostCategory, BlogPostCategoryStyling } from 'src/data/blog-post-category';
 
 @Component({
   selector: 'app-blog-post-list-page',
@@ -27,19 +27,31 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepository,
+    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
   ) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this._onDestroy = new Subject();
 
     this.navigationTargets = getDefaultNavigationTargets(
       {},
-      [ { key: 'Réalisations', configuration: item => item.selected = true } ]
+      (Object.values(WellKnownBlogPostCategory) as BlogPostCategory[])
+        .concat(Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
+        .map<NavbarItemConfiguration>(category => ({
+          key: category.label as unknown as NavbarItemLabelUnion,
+          configuration: (item) => {
+            if( category.path instanceof Array ) {
+              item.selected = category.path.includes( this._category );
+            } else {
+              item.selected = category.path === this._category;
+            }
+          }
+        }))
     );
+
     this.posts = [];
-    this.tags= []
+    this.tags = []
 
     const tagQuery$ = this.activatedRoute.queryParamMap
       .pipe(
@@ -56,7 +68,7 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
         withLatestFrom(tagQuery$),
         switchMap(([params, tag]: [ParamMap, string]) => {
           this._category = params.get('category');
-          this.tags = !!tag ? [ tag ] : [];
+          this.tags = !!tag ? [tag] : [];
           return of(this.blogPostRepository.getInCategoryWithTags(this._category, this.tags));
         }))
       .subscribe(posts => this.posts = posts);

@@ -1,4 +1,4 @@
-import { BlogPostRepository as BlogPostRepositoryModel, BlogPost } from 'src/app/core/models/blog-post.models';
+import { BlogPostRepositoryModel, BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { RedPandaUI } from './projects/red-panda-ui';
 import { CSharp } from './technicals/csharp';
 import { Angular } from './technicals/angular';
@@ -7,7 +7,7 @@ import { Unity } from './technicals/unity';
 import { VueJS } from './technicals/vue-js';
 import { SQL } from './technicals/sql';
 
-class BlogPostRepository implements BlogPostRepositoryModel {
+class SimpleBlogPostRepository implements BlogPostRepositoryModel {
 
     private _tags: string[];
     private _categories: string[];
@@ -24,12 +24,22 @@ class BlogPostRepository implements BlogPostRepositoryModel {
                     tagSet.add(tag);
             }
 
-            if (!categoriesSet.has(blogPost.category))
-                categoriesSet.add(blogPost.category);
+            if (blogPost.category.path instanceof Array) {
+                for (const path of blogPost.category.path) {
+                    if (!categoriesSet.has(path)) {
+                        categoriesSet.add(path);
+                    }
+                }
+            } else {
+                const path = blogPost.category.path as string;
+                if (!categoriesSet.has(path)) {
+                    categoriesSet.add(path);
+                }
+            }
         }
 
         this._tags = [...tagSet.values()];
-        this._categories = [ ...categoriesSet.values()];
+        this._categories = [...categoriesSet.values()];
     }
 
     getAllTags(): ReadonlyArray<string> {
@@ -59,13 +69,13 @@ class BlogPostRepository implements BlogPostRepositoryModel {
         return ~index ? this.blogPosts[index] : undefined;
     }
 
-    getInCategory(category: Category, count?: number): readonly BlogPost[] {
-        return this.sliceArray(this.blogPosts.filter(blogPost => blogPost.category === category), count);
+    getInCategory(category: string, count?: number): readonly BlogPost[] {
+        return this.sliceArray(this.blogPosts.filter(blogPost => blogPost.category.path === category), count);
     }
 
-    getInCategoryWithTags(category: Category, tagFilter: string | string[]): readonly BlogPost[] {
+    getInCategoryWithTags(category: string, tagFilter: string | string[]): readonly BlogPost[] {
         return this.blogPosts.filter(blogPost => {
-            if (blogPost.category !== category) return false;
+            if (blogPost.category.path !== category) return false;
             if (tagFilter.length === 0) return true;
 
             return tagFilter instanceof Array
@@ -79,9 +89,7 @@ class BlogPostRepository implements BlogPostRepositoryModel {
     }
 }
 
-export type Category = 'realization' | 'technical' | 'transversal';
-
-export const blogPostRepository = new BlogPostRepository([
+export const blogPostRepository = new SimpleBlogPostRepository([
     new RedPandaUI(),
     new CSharp(),
     new Angular(),

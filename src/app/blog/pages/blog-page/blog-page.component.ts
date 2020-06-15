@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogPost, BlogPostRepository } from 'src/app/core/models/blog-post.models';
+import { BlogPost, BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 
@@ -17,7 +17,7 @@ export class BlogPageComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepository
+    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel
   ) { }
 
   async ngOnInit() {

@@ -4,7 +4,7 @@ import { AboutSectionComponent } from '../../components/about-section/about-sect
 import { SkillsSectionComponent } from '../../components/skills-section/skills-section.component';
 import { BlogSectionComponent } from '../../components/blog-section/blog-section.component';
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
-import { BlogPost, BlogPostRepository } from 'src/app/core/models/blog-post.models';
+import { BlogPost, BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 
 @Component({
@@ -31,7 +31,7 @@ export class HomePageComponent implements OnInit {
   }
 
   constructor(
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepository,
+    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
   ) { }
 
   ngOnInit() {

@@ -1,20 +1,27 @@
 import { ElementRef, ViewRef } from '@angular/core';
 
+type Label = { label: string };
+type RouterLink = { routerLink: string };
+type RouterFragment = { fragment?: string };
+type Selectable = { selected: boolean };
+
+type NavigationTarget = RouterLink & RouterFragment;
+
 export interface NavbarItem {
   label: string;
-  navigationTarget: { routerLink: string | string[], fragment?: string }
+  navigationTarget: NavigationTarget
   viewRef?: ElementRef;
   children?: ReadonlyArray<NavbarItem>;
   configuration?: (item: SelectableNavbarItem) => void;
 }
 
-export type SelectableNavbarItem = NavbarItem & { selected: boolean };
+export type SelectableNavbarItem = NavbarItem & Selectable;
 
-type LabelInfer<T extends { label: string }> = T['label'];
+type LabelInfer<T extends Label> = T['label'];
 type ChildrenInfer<T> = T extends { children: infer C } ? C : never;
 type NavbarItemInfer = typeof DefaultNavigationTargets[number];
-type NavbarItemLabelUnion = LabelInfer<NavbarItemInfer> | LabelInfer<ChildrenInfer<NavbarItemInfer>[number]>;
 
+export type NavbarItemLabelUnion = LabelInfer<NavbarItemInfer> | LabelInfer<ChildrenInfer<NavbarItemInfer>[number]>;
 export type NavbarItemViewRefCollection = { [label in NavbarItemLabelUnion]?: ElementRef; };
 export interface NavbarItemConfiguration {
   key: NavbarItemLabelUnion,
@@ -74,9 +81,9 @@ export function getDefaultNavigationTargets(
       const filtered = (configurations || [])
         .filter(item => item.key === navbarItem.label)
         .map(item => item.configuration);
-      if( filtered.length === 0 ) navbarItem.configuration = undefined;
-      if( filtered.length === 1 ) navbarItem.configuration = filtered[0];
-      navbarItem.configuration = item => filtered.forEach(c => c(item));
+      if( filtered.length === 0 ) navbarItem.configuration = (item) => {};
+      else if( filtered.length === 1 ) navbarItem.configuration = filtered[0];
+      else navbarItem.configuration = item => filtered.forEach(c => c(item));
 
       if (!!navbarItem.children)
         configureDefault(navbarItem.children);

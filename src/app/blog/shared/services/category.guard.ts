@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, ActivatedRoute } from '@angular/router';
-import { BlogPostRepository } from 'src/app/core/models/blog-post.models';
+import { BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 })
 export class CategoryGuard implements CanActivate, CanActivateChild {
   constructor(
-    @Inject(BLOG_POST_REPOSITORY) private readonly blogPostRepository: BlogPostRepository
+    @Inject(BLOG_POST_REPOSITORY) private readonly blogPostRepository: BlogPostRepositoryModel
   ) { }
 
   public canActivate(
