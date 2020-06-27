@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavbarItem } from 'src/app/ui/navbar/navbar.component';
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { HeroAreaComponent } from '../../components/hero-area/hero-area.component';
-import { AboutComponent } from '../../components/about/about.component';
-import { SkillsComponent } from '../../components/skills/skills.component';
+import { AboutSectionComponent } from '../../components/about-section/about-section.component';
+import { SkillsSectionComponent } from '../../components/skills-section/skills-section.component';
+import { BlogSectionComponent } from '../../components/blog-section/blog-section.component';
+import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
+import { BlogPost, BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
+import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
 
 @Component({
   selector: 'app-home-page',
@@ -12,35 +15,26 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 export class HomePageComponent implements OnInit {
 
   @ViewChild(HeroAreaComponent, { read: ElementRef, static: true }) heroAreaComponentRef: ElementRef;
-  @ViewChild(AboutComponent, { read: ElementRef, static: true }) aboutComponentRef: ElementRef;
-  @ViewChild(SkillsComponent, { read: ElementRef, static: true }) skillsComponentRef: ElementRef;
+  @ViewChild(AboutSectionComponent, { read: ElementRef, static: true }) aboutComponentRef: ElementRef;
+  @ViewChild(SkillsSectionComponent, { read: ElementRef, static: true }) skillsComponentRef: ElementRef;
+  @ViewChild(BlogSectionComponent, { read: ElementRef, static: true }) blogSectionComponentRef: ElementRef;
 
-  public get navigationTargets(): NavbarItem[] {
-    return [
-      {
-        label: 'Accueil',
-        navigationTarget: { routerLink: '/home', fragment: 'hero' },
-        viewRef: this.heroAreaComponentRef
-      },
-      {
-        label: 'À Propos',
-        navigationTarget: { routerLink: '/home', fragment: 'about' },
-        viewRef: this.aboutComponentRef
-      },
-      {
-        label: 'Compétences',
-        navigationTarget: { routerLink: '/home', fragment: 'skills' },
-        viewRef: this.skillsComponentRef
-      },
-      {
-        label: 'Réalisation',
-        navigationTarget: { routerLink: '/home', fragment: 'articles' },
-      }
-  ]}
+  public posts: ReadonlyArray<BlogPost>;
 
-  constructor() { }
-
-  ngOnInit() {
+  public get navigationTargets(): ReadonlyArray<NavbarItem> {
+    return getDefaultNavigationTargets({
+      Accueil: this.heroAreaComponentRef,
+      'À Propos': this.aboutComponentRef,
+      'Compétences': this.skillsComponentRef,
+      'Publications': this.blogSectionComponentRef,
+    });
   }
 
+  constructor(
+    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
+  ) { }
+
+  ngOnInit() {
+    this.posts = this.blogPostRepository.get(6);
+  }
 }

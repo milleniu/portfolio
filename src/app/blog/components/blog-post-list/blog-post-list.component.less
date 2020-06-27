@@ -1,0 +1,26 @@
+@import '../../../../styles.less';
+
+.blog-post-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > .blog-post-card {
+    position: relative;
+    width: 100%;
+    padding: 0 1em 2em;
+
+    flex: 1 1 100%;
+    max-width: 100%;
+
+    @media screen and (min-width: @screen-sm) {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+
+    @media screen and (min-width: @screen-lg) {
+      flex: 1 1 33%;
+      max-width: 33%;
+    }
+  }
+}

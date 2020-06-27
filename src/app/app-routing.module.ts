@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions, Router } from '@angular/router';
+import { registerScrollEventHandler } from './core/routes/scroll-event-handler';
 
 const routingConfiguration: ExtraOptions = {
   scrollPositionRestoration: 'disabled',
@@ -17,4 +18,11 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, routingConfiguration)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor(
+    router: Router,
+  ) {
+    registerScrollEventHandler(router);
+  }
+}
+

@@ -1,0 +1,97 @@
+@import '../../../../styles.less';
+
+@font-weight: 400;
+@header-text-color: @light-text-color;
+@content-text-color: @darkened-text-color;
+
+.container {
+
+    .post-constrained() {
+        @media screen and (min-width: @screen-sm) {
+            max-width: 540px;
+        }
+
+        @media screen and (min-width: @screen-md) {
+            max-width: 720px!important;
+        }
+    }
+    .post-constrained;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        > h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            text-transform: none;
+            color: @header-text-color;
+        }
+
+        > img {
+            margin-bottom: 2em;
+            max-width: 50%;
+            max-height: 15em;
+        }
+    }
+
+    .content {
+        .heading-text() {
+            color: @header-text-color;
+            font-weight: @font-weight;
+            text-transform: none;
+        }
+
+        .content-text() {
+            color: @content-text-color;
+            font-size: 1rem;
+            font-weight: @font-weight;
+            line-height: 1.5;
+        }
+
+        ::ng-deep h2 {
+            .heading-text;
+            font-size: 2rem;
+        }
+
+        ::ng-deep h3 {
+            .heading-text;
+            font-size: 1.75rem;
+        }
+
+        ::ng-deep h4 {
+            .heading-text;
+            font-size: 1.5rem;
+        }
+
+        ::ng-deep p {
+            .content-text;
+            margin-bottom: 1em;
+        }
+
+        ::ng-deep ul {
+            .content-text;
+            margin-bottom: 1rem;
+        }
+
+        ::ng-deep li {
+            .content-text;
+            margin-bottom: 0.5rem;
+        }
+
+        ::ng-deep hr {
+            margin: 1rem 0;
+            border: 0;
+            border-top: 1px solid @content-text-color;
+        }
+
+        ::ng-deep img {
+            width: 100%;
+            height: auto;
+            .post-constrained;
+        }
+    }
+}

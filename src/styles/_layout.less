@@ -1,12 +1,19 @@
+.section {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: 15px;
-  margin-left: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
 
   @media screen and (min-width: @screen-sm) {
-      max-width: 540px;
+    max-width: 540px;
   }
 
   @media screen and (min-width: @screen-md) {
@@ -19,28 +26,5 @@
 
   @media screen and (min-width: @screen-xl) {
       max-width: 1140px;
-  }
-}
-
-.section {
-  padding: 100px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  background-color: transparent;
-  color: @white;
-
-  transition: all .3s @ease-in 0s;
-
-  border-width: 1px;
-  border-color: @white;
-
-  &:hover {
-    background-color: @accent-color;
-    cursor: pointer;
-    cursor: hand;
   }
 }

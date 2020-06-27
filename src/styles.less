@@ -4,3 +4,20 @@
 
 @import './styles/_font';
 @import './styles/_layout';
+@import './styles/_collapsable.less';
+
+button {
+    background-color: transparent;
+    color: @white;
+  
+    transition: all .3s @ease-in 0s;
+  
+    border-width: 1px;
+    border-color: @white;
+  
+    &:hover {
+      background-color: @accent-color;
+      cursor: pointer;
+      cursor: hand;
+    }
+  }

@@ -1,0 +1,10 @@
+<div class="blog-post-list">
+    <ng-container *ngFor="let blogPost of blogPostList">
+
+        <app-blog-post-card
+            class="blog-post-card"
+            [post]="blogPost">
+        </app-blog-post-card>
+
+    </ng-container>
+</div>

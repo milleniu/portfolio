@@ -1,0 +1,30 @@
+<nz-card
+    class="blog-post-card"
+    [nzCover]="coverTemplate"
+    [nzActions]="[ actionNavigate ]">
+
+    <nz-card-meta
+        [nzTitle]="title"
+        [nzDescription]="description">
+    </nz-card-meta>
+
+</nz-card>
+
+<ng-template #coverTemplate>
+    <div class="cover-container">
+        <div class="cover-image-container">
+            <img class="cover-image" [src]="coverImage" alt="blog post cover" />
+        </div>
+        <div class="tags-container">
+            <ng-container *ngFor="let tag of tags">
+                <nz-tag>{{ tag }}</nz-tag>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #actionNavigate>
+    <button nz-button [routerLink]="routerLink" class="navigate-button">
+        Lire plus
+    </button>
+</ng-template>

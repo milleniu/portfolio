@@ -1,0 +1,23 @@
+<app-navbar [navigationTargets]="navigationTargets"></app-navbar>
+
+<section class="section heading">
+    <div class="container">
+
+    <app-blog-breadcrumb></app-blog-breadcrumb>
+    <app-blog-tags
+        class="tags"
+        [tags]="allTags"
+        [default]="tags"
+        (tagsChange)="tagsChange($event)"
+    ></app-blog-tags>
+
+    </div>
+</section>
+
+<section class="section posts">
+    <div class="container">
+        <app-blog-post-list [posts]="posts"></app-blog-post-list>
+    </div>
+</section>
+
+<nz-back-top></nz-back-top>

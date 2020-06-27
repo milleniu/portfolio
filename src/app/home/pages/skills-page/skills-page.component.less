@@ -1,0 +1,27 @@
+@import '../../../../styles.less';
+
+:host {
+    display: block;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: @screen-lg) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        > *:not(:first-child) {
+            padding-top: 42px;
+        }
+    }
+
+    @media screen and (min-width: @screen-lg) {
+        > * {
+            max-width: 48%;
+        }
+    }
+}

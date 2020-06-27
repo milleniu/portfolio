@@ -1,0 +1,68 @@
+<div class="tags-container-xs" >
+    <button nz-button
+        nzType="primary"
+        class="filter-button"
+        (click)="displayDrawer = !displayDrawer">
+            <i nz-icon nzType="filter" nzTheme="outline"></i>Filtrer
+    </button>
+</div>
+
+<div class="tags-container-xs-drawer" [ngClass]="{'show': displayDrawer}">
+
+    <section class="section">
+        <div class="container">
+
+            <div class="tags-container">
+                <h3 class="tags-label">Sélectionnez vos filtres</h3>
+                <div class="tags">
+                    <ng-container *ngFor="let tag of detailedTags">
+                        <nz-switch
+                            class="switch text-only"
+                            [(ngModel)]="tag.active"
+                            [nzCheckedChildren]="tagTemplate"
+                            [nzUnCheckedChildren]="tagTemplate">
+                        </nz-switch>
+                        <ng-template #tagTemplate>{{ tag.label }}</ng-template>
+                    </ng-container>
+                </div>
+            </div>
+
+            <button nz-button
+                nzType="primary"
+                nzShape="circle"
+                class="tags-validation"
+                (click)="addTags()">
+                    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+            </button>
+
+        </div>
+    </section>
+</div>
+
+<div class="tags-container-md">
+    <h3 class="tags-label">Filtres</h3>
+    <nz-tag
+        *ngFor="let tag of activeTags; let i = index"
+        nzMode="closeable"
+        (nzOnClose)="removeTag(i)">
+        {{ tag }}
+    </nz-tag>
+    <input nz-input
+        #tagInput
+        class="tag-input"
+        placeholder="Entrez un tag"
+        [(ngModel)]="tagInputValue"
+        (ngModelChange)="updateTagsSuggestions()"
+        [nzAutocomplete]="autocompleteTemplate"
+        (blur)="addTag()"
+        (keydown.enter)="addTag()"
+    ><span></span>
+
+    <nz-autocomplete #autocompleteTemplate [nzWidth]="200">
+        <nz-auto-option *ngFor="let suggestion of tagsSuggestions"
+            [nzValue]="suggestion"
+            (click)="acceptSuggestion()">
+                {{ suggestion}}
+        </nz-auto-option>
+    </nz-autocomplete>
+</div>

@@ -1,0 +1,73 @@
+@import '../../../../styles.less';
+
+.blog-post-card {
+
+    border-bottom: 2px solid transparent;
+    transition: .5s all;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    &:host {
+        display: flex;
+    }
+
+    &:hover {
+        border-bottom: 2px solid @accent-color;
+
+        .cover-image {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+        }
+    }
+
+    .cover-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @container-width: 90%;
+
+        > .cover-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15em;
+            width: @container-width;
+    
+            > .cover-image {
+                transition-duration: .3s;
+                max-width: 66%;
+                height: auto;
+            }
+        }
+    
+        > .tags-container {
+            width: @container-width;
+        }
+    }
+
+    &::ng-deep .ant-card-body {
+        flex: 1;
+    }
+
+    &::ng-deep .ant-card-actions > li > span {
+        cursor: inherit;
+    }
+
+    .navigate-button {
+        width: 8.5em;
+        height: 3.5em;
+        padding: 10px 30px;
+        margin-bottom: 1em;
+
+        border: 1px solid @darkened-text-color;
+        color: @white;
+        font-size: 0.85rem;
+
+        &:not(:hover) {
+            background-color: transparent;
+        }
+    }
+}

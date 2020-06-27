@@ -1,0 +1,89 @@
+<nav class="navbar" #navigation>
+    <div class="container">
+
+        <a routerLink="/home" class="logo">
+            <img src="assets/logo.png" alt="Logo">
+            <span class="heading">Hugo Zammit</span>
+        </a>
+
+        <button nz-button class="navigation-toggler" (click)="displayMenu = !displayMenu">
+            <i nz-icon nzType="menu" nzTheme="outline"></i>
+        </button>
+
+        <div class="navigation" [ngClass]="{'show': displayMenu}">
+            <ul nz-menu *ngIf="navbarItems?.length"
+                class="navigation-menu"
+                nzMode="horizontal"
+                [nzSelectable]="false">
+
+                <ng-container *ngFor="let item of navbarItems">
+                    <ng-container
+                        [ngTemplateOutlet]="item.children?.length > 0 ? dropdownMenu : simpleMenu"
+                        [ngTemplateOutletContext]="{item: item}">
+
+                        <ng-template #dropdownMenu>
+                            <li nz-menu-item
+                                class="navigation-menu-dropdown-lg navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected"
+                                
+                                nz-dropdown
+                                [nzDropdownMenu]="childrenDropdown">
+                                {{ item.label }}
+
+                                <nz-dropdown-menu #childrenDropdown="nzDropdownMenu">
+                                    <ul nz-menu>
+                                        <li *ngFor="let child of item.children"
+                                            nz-menu-item
+                                            [routerLink]="child.navigationTarget.routerLink"
+                                            [fragment]="child.navigationTarget.fragment"
+                                            [nzSelected]="child.selected">
+                                            {{ child.label }}
+                                        </li>
+                                    </ul>
+                                </nz-dropdown-menu>
+                            </li>
+
+                            <li nz-menu-item
+                                class="navigation-menu-dropdown-xs navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected">
+                                {{ item.label }}
+                            </li>
+
+                            <li *ngFor="let child of item.children"
+                                nz-menu-item
+                                class="navigation-menu-dropdown-xs navigation-menu-item navigation-menu-child-item"
+                                [routerLink]="child.navigationTarget.routerLink"
+                                [fragment]="child.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="child.selected">
+                                {{ child.label }}
+                            </li>
+
+
+                        </ng-template>
+
+                        <ng-template #simpleMenu>
+                            <li nz-menu-item
+                                class="navigation-menu-item"
+                                [routerLink]="item.navigationTarget.routerLink"
+                                [fragment]="item.navigationTarget.fragment"
+                                (click)="displayMenu = false"
+                                [nzSelected]="item.selected">
+                                {{ item.label }}
+                            </li>
+                        </ng-template>
+
+                    </ng-container>
+                </ng-container>
+
+            </ul>
+        </div>
+        
+    </div>
+</nav>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-type WeightedWord = { word: string, weight: number };
+import { Component, OnInit, Input } from '@angular/core';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 
 @Component({
   selector: 'app-skills',
@@ -9,16 +8,19 @@ type WeightedWord = { word: string, weight: number };
 })
 export class SkillsComponent implements OnInit {
 
-  readonly words: WeightedWord[] = [
-    { word: 'Vue.js', weight: 1.4 },
-    { word: 'SQL', weight: 1.2 },
-    { word: 'Typescript', weight: 1.8 },
-    { word: 'C#', weight: 1.8 },
-    { word: 'Algorithmie', weight: 1.8 },
-    { word: 'Angular', weight: 1.4 },
-    { word: 'SIG', weight: 1.6 },
-    { word: 'Unity', weight: 1.3 },
-  ];
+  @Input('skill') public skill: BlogPostCategory;
+
+  public get title(): string {
+    return this.skill.label;
+  }
+
+  public get imgSource(): string {
+    return `assets/home/skills/${this.skill.path}.jpg`;
+  }
+
+  public get link(): string {
+    return `/blog/${this.skill.path}`;
+  }
 
   constructor() { }
 
