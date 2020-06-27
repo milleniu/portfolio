@@ -1,0 +1,20 @@
+<nz-card style="width: 100%;" [nzCover]="coverTemplate" [nzActions]="[goto]">
+    <nz-card-meta
+        [nzTitle]="'Compétences ' + title"
+        [nzAvatar]="avatarTemplate">
+    </nz-card-meta>
+</nz-card>
+
+<ng-template #avatarTemplate>
+    <nz-avatar nzIcon="setting"></nz-avatar>
+</ng-template>
+
+<ng-template #coverTemplate>
+    <div class="cover-container">
+        <img [src]="imgSource" class="cover-img"/>
+    </div>
+</ng-template>
+
+<ng-template #goto>
+    <i [routerLink]="link" nz-icon nzType="right"></i>
+</ng-template>

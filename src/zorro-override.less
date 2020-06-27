@@ -10,6 +10,7 @@
 @import '../node_modules/ng-zorro-antd/icon/style/entry.less';
 @import '../node_modules/ng-zorro-antd/switch/style/entry.less';
 @import '../node_modules/ng-zorro-antd/dropdown/style/entry.less';
+@import '../node_modules/ng-zorro-antd/avatar/style/entry.less';
 
 @import './styles/_colors.less';
 
@@ -18,6 +19,7 @@
 // Base background color for most components
 @component-background: @normal-color;
 
+@primary-color: @accent-color;
 @text-color: @light-text-color;
 @text-color-secondary: @darkened-text-color;
 @icon-color-hover: @accent-color;
@@ -103,3 +105,7 @@ nz-switch.text-only .@{switch-prefix-cls} {
         display: none;
     }
 }
+
+// AVATAR
+@avatar-bg: @background-color;
+@avatar-color: @accent-color;

@@ -1,0 +1,12 @@
+<app-navbar [navigationTargets]="navigationTargets"></app-navbar>
+
+<section class="section">
+    <div class="container">
+        <app-section-header sectionName="Mes Compétences"></app-section-header>
+
+        <div class="skills-container">
+            <app-skills [skill]="Category.Technical"></app-skills>
+            <app-skills [skill]="Category.Transversal"></app-skills>
+        </div>
+    </div>
+</section>
