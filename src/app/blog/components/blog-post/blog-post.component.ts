@@ -9,6 +9,7 @@ import { BlogPost } from '../../../core/models/blog-post.models';
 })
 export class BlogPostComponent implements OnInit {
   @Input() post: BlogPost;
+  @Input() recommendations: ReadonlyArray<BlogPost> = [];
 
   content: SafeHtml;
   get title(): string { return this.post.title; }
