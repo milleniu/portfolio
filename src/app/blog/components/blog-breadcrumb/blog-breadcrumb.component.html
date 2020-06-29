@@ -9,9 +9,9 @@
             Publications
         </a>
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item *ngIf="postTitle">
+    <nz-breadcrumb-item *ngIf="post">
         <a [routerLink]="['./']">
-            {{ postTitle }}
+            {{ post.title }}
         </a>
     </nz-breadcrumb-item>
 </nz-breadcrumb>

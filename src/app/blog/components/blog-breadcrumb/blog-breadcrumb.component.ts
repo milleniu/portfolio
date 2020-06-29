@@ -8,7 +8,7 @@ import { BlogPost } from 'src/app/core/models/blog-post.models';
 })
 export class BlogBreadcrumbComponent implements OnInit {
 
-  @Input('postTitle') postTitle?: string = '';
+  @Input() post: BlogPost = undefined;
 
   constructor() { }
 

@@ -15,8 +15,6 @@ export class BlogPageComponent implements OnInit {
   public post: BlogPost;
   public recommendations: ReadonlyArray<BlogPost>;
 
-  public get postTitle(): string { return this.post ? this.post.title : ''; }
-
   constructor(
     private activatedRoute: ActivatedRoute,
     @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
