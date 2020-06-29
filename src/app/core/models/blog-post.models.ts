@@ -29,3 +29,7 @@ export interface BlogPostRepositoryModel {
     getInCategory(category: string, count?: number): ReadonlyArray<BlogPost>;
     getInCategoryWithTags(category: string, tags: string | string[]): ReadonlyArray<BlogPost>;
 }
+
+export interface IBlogPostRecommendationsProvider {
+    getRecommendations(subject: BlogPost, count: number): ReadonlyArray<BlogPost>;
+}
