@@ -12,13 +12,14 @@ class TagBasedRecommendations implements IBlogPostRecommendationsProvider {
         if( count < 1 ) return [];
 
         return this._references
+            .filter(reference => reference.blogPostId !== subject.blogPostId)
             .map(reference => {
                 const weight = reference.tags
                     .filter(tag => subject.tags.includes(tag))
                     .length;
                 return { reference, weight };
             })
-            .sort((a, b) => a.weight - b.weight)
+            .sort((a, b) => b.weight - a.weight)
             .slice(0, count)
             .map(tuple => tuple.reference);
     }
