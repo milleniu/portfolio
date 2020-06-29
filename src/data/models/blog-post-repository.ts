@@ -1,11 +1,5 @@
 import { BlogPostRepositoryModel, BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
-import { RedPandaUI } from './projects/red-panda-ui';
-import { CSharp } from './technicals/csharp';
-import { Angular } from './technicals/angular';
-import { Typescript } from './technicals/typescript';
-import { Unity } from './technicals/unity';
-import { VueJS } from './technicals/vue-js';
-import { SQL } from './technicals/sql';
+import { BlogPosts } from '../blog-posts';
 
 class SimpleBlogPostRepository implements BlogPostRepositoryModel {
 
@@ -89,12 +83,4 @@ class SimpleBlogPostRepository implements BlogPostRepositoryModel {
     }
 }
 
-export const blogPostRepository = new SimpleBlogPostRepository([
-    new RedPandaUI(),
-    new CSharp(),
-    new Angular(),
-    new Typescript(),
-    new VueJS(),
-    new SQL(),
-    new Unity()
-]);
+export const BlogPostRepository = new SimpleBlogPostRepository(BlogPosts);

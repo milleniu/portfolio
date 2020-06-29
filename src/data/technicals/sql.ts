@@ -1,21 +1,25 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class SQL implements BlogPost {
+export class SQL extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/sql/';
 
-    title: string = 'Microsft SQL Server';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.png';
-    description: string = "Microsoft SQL Server est un système de gestion de base de données développé par Microsoft.";
+    public readonly title: string = 'Microsft SQL Server';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'sql';
-    tags: ReadonlyArray<string> = [ 'SQL', 'Back End' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.png';
+    public readonly description: string = "Microsoft SQL Server est un système de gestion de base de données développé par Microsoft.";
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'sql';
+    public readonly tags: ReadonlyArray<string> = [ 'SQL', 'Back End' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "Microsoft SQL server est un système de gestion de base de données développé et commercialisé par " +
             "Microsoft. If fonctionne sous Windows et Linux et se distingue par une grande richesse dans ses " +

@@ -1,21 +1,25 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class Unity implements BlogPost {
+export class Unity extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/unity/';
 
-    title: string = 'Unity';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.svg';
-    description: string = "Unity est un moteur de jeu multi-plateforme développé par Unity Technologies.";
+    public readonly title: string = 'Unity';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'unity';
-    tags: ReadonlyArray<string> = [ 'Unity', 'C#', 'Game Development' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.svg';
+    public readonly description: string = "Unity est un moteur de jeu multi-plateforme développé par Unity Technologies.";
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'unity';
+    public readonly tags: ReadonlyArray<string> = [ 'Unity', 'C#', 'Game Development' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "Unity est un moteur de jeu multiplateforme développé par Unity Technologies. Il est aujourd'hui l'un " +
             "des plus utilisés, aussi bien par les gros studios de développement que des indépendants. Il propose " +

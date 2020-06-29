@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogPost, BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
+import { BlogPost, BlogPostRepositoryModel, IBlogPostRecommendationsProvider } from 'src/app/core/models/blog-post.models';
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
-import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
+import { BLOG_POST_REPOSITORY, BLOG_POST_RECOMMENDATIONS } from 'src/app/core/config/injection-tokens';
 
 @Component({
   selector: 'app-blog-page',
@@ -13,11 +13,14 @@ export class BlogPageComponent implements OnInit {
 
   public navigationTargets: ReadonlyArray<NavbarItem>;
   public post: BlogPost;
+  public recommendations: ReadonlyArray<BlogPost>;
+
   public get postTitle(): string { return this.post ? this.post.title : ''; }
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel
+    @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
+    @Inject(BLOG_POST_RECOMMENDATIONS) private blogPostRecommendations: IBlogPostRecommendationsProvider
   ) { }
 
   async ngOnInit() {
@@ -31,5 +34,7 @@ export class BlogPageComponent implements OnInit {
     this.post = this.blogPostRepository.getFromRouterLink(lastSegment.path);
     if( this.post === undefined )
       throw new Error(`Unable to load post associated with path: ${lastSegment.path}`);
+
+    this.recommendations = this.blogPostRecommendations.getRecommendations(this.post, 3);
   }
 }

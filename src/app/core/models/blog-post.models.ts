@@ -6,6 +6,8 @@ export interface BlogPostCategory {
 }
 
 export interface BlogPost {
+    readonly blogPostId: number;
+
     readonly title: string;
     readonly category: BlogPostCategory;
 
@@ -28,4 +30,8 @@ export interface BlogPostRepositoryModel {
     getWithTags(tags: string | string[]): ReadonlyArray<BlogPost>;
     getInCategory(category: string, count?: number): ReadonlyArray<BlogPost>;
     getInCategoryWithTags(category: string, tags: string | string[]): ReadonlyArray<BlogPost>;
+}
+
+export interface IBlogPostRecommendationsProvider {
+    getRecommendations(subject: BlogPost, count: number): ReadonlyArray<BlogPost>;
 }

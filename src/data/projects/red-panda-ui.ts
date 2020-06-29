@@ -1,20 +1,25 @@
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { BlogPostContent, Paragraph, Divider, List, Title, Image } from 'src/app/core/models/blog-post-content.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-export class RedPandaUI implements BlogPost {
+export class RedPandaUI extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/projects/red-panda-ui/';
 
-    title: string = 'Red Panda UI';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Realization;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.png';
-    description: string = "Red panda UI est un projet communautaire réalisé en 2016 / 2017 sur Final Fantasy XIV."
+    public readonly title: string = 'Red Panda UI';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Realization;
 
-    routerLink: string = 'red-panda-ui';
-    tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source', 'Game Development' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.png';
+    public readonly description: string = "Red panda UI est un projet communautaire réalisé en 2016 / 2017 sur Final Fantasy XIV."
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'red-panda-ui';
+    public readonly tags: string[] = [ 'Lua', 'Final Fantasy XIV', 'Open Source', 'Game Development' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph([
             "Red panda UI est un projet communautaire réalisé en 2016 / 2017. Il a eu pour but de proposer une " +
             "alternative à l'interface de base proposée par le jeu de rôle en ligne massivement multijoueurs " +

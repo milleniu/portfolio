@@ -1,21 +1,25 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class Angular implements BlogPost {
+export class Angular extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/angular/';
 
-    title: string = 'Angular';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.svg';
-    description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";
+    public readonly title: string = 'Angular';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'angular';
-    tags: ReadonlyArray<string> = [ 'Angular', 'Open Source', 'Front End', 'TypeScript' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.svg';
+    public readonly description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'angular';
+    public readonly tags: ReadonlyArray<string> = [ 'Angular', 'Open Source', 'Front End', 'TypeScript' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "Angular (plus communément appelé Angular 2+ ou avec l’acronyme « ngx ») est un framework JavaScript " +
             "opensource développé par Google, des entreprises et la communauté. C’est un projet dont la première " +

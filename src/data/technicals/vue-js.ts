@@ -1,19 +1,23 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class VueJS implements BlogPost {
+export class VueJS extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/vue-js/';
 
-    title: string = 'Vue.js';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.png';
-    description: string = "Vue.js est un framework open source créé par Evan You en JavaScript.";
+    public readonly title: string = 'Vue.js';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'vue-js';
-    tags: ReadonlyArray<string> = [ 'Vue.js', 'Open Source', 'Front End', 'TypeScript' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.png';
+    public readonly description: string = "Vue.js est un framework open source créé par Evan You en JavaScript.";
+
+    public readonly routerLink: string = 'vue-js';
+    public readonly tags: ReadonlyArray<string> = [ 'Vue.js', 'Open Source', 'Front End', 'TypeScript' ];
 
     content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
