@@ -6,6 +6,8 @@ export interface BlogPostCategory {
 }
 
 export interface BlogPost {
+    readonly blogPostId: number;
+
     readonly title: string;
     readonly category: BlogPostCategory;
 

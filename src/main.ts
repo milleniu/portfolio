@@ -5,7 +5,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import { BLOG_POST_REPOSITORY } from './app/core/config/injection-tokens';
-import { blogPostRepository } from './data/blog-post-repository';
+import { BlogPostRepository } from './data/models/blog-post-repository';
 
 if (environment.production) {
   enableProdMode();
@@ -15,7 +15,7 @@ platformBrowserDynamic(
   [
     {
       provide: BLOG_POST_REPOSITORY,
-      useValue: blogPostRepository
+      useValue: BlogPostRepository
     }
   ])
   .bootstrapModule(AppModule)

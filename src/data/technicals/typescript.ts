@@ -1,21 +1,25 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class Typescript implements BlogPost {
+export class Typescript extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/typescript/';
 
-    title: string = 'TypeScript';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.svg';
-    description: string = "TypeScript est un langage open source développé par Microsoft.";
+    public readonly title: string = 'TypeScript';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'typescript';
-    tags: ReadonlyArray<string> = [ 'TypeScript', 'Open Source', 'Angular', 'Vue.js' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.svg';
+    public readonly description: string = "TypeScript est un langage open source développé par Microsoft.";
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'typescript';
+    public readonly tags: ReadonlyArray<string> = [ 'TypeScript', 'Open Source', 'Angular', 'Vue.js' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "TypeScript est un langage de programmation développé par Microsoft. Il est libre et open source. Son " +
             "but est d'améliorer la production de code JavaScript. TypeScript est un sur-ensemble du langage "+

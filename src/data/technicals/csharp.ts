@@ -1,21 +1,25 @@
 import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/models/blog-post-content.models';
-import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
+import { BlogPostBase } from '../models/blog-post-base';
 
-
-export class CSharp implements BlogPost {
+export class CSharp extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/csharp/';
 
-    title: string = 'C# et .NET Core';
-    category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
+    constructor() {
+        super();
+    }
 
-    coverImage: string = this.assetsRoot + 'cover.png';
-    description: string = "C# est un langage développé par Microsoft que j'utilise en entreprise et dans mon temps libre.";
+    public readonly title: string = 'C# et .NET Core';
+    public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
-    routerLink: string = 'csharp';
-    tags: ReadonlyArray<string> = [ 'C#', 'Open Source', 'Back End' ];
+    public readonly coverImage: string = this.assetsRoot + 'cover.png';
+    public readonly description: string = "C# est un langage développé par Microsoft que j'utilise en entreprise et dans mon temps libre.";
 
-    content: ReadonlyArray<BlogPostContent> = [
+    public readonly routerLink: string = 'csharp';
+    public readonly tags: ReadonlyArray<string> = [ 'C#', 'Open Source', 'Back End' ];
+
+    public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "C# est un langage de programmation orientée objet. Il est commercialisé par Microsoft sur la " +
             "plateforme .NET depuis 2002. C’est un dérivé du langage C++ et il est similaire au Java dont il " +
