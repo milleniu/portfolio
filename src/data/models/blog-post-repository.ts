@@ -4,31 +4,22 @@ import { BlogPosts } from '../blog-posts';
 class SimpleBlogPostRepository implements BlogPostRepositoryModel {
 
     private _tags: string[];
-    private _categories: string[];
+    private _categories: BlogPostCategory[];
 
     constructor(
-        private readonly blogPosts: ReadonlyArray<BlogPost>
+        private readonly _blogPosts: ReadonlyArray<BlogPost>
     ) {
         const tagSet = new Set<string>();
-        const categoriesSet = new Set<string>();
+        const categoriesSet = new Map<string, BlogPostCategory>();
 
-        for (const blogPost of blogPosts) {
+        for (const blogPost of _blogPosts) {
             for (const tag of blogPost.tags) {
                 if (!tagSet.has(tag))
                     tagSet.add(tag);
             }
 
-            if (blogPost.category.path instanceof Array) {
-                for (const path of blogPost.category.path) {
-                    if (!categoriesSet.has(path)) {
-                        categoriesSet.add(path);
-                    }
-                }
-            } else {
-                const path = blogPost.category.path as string;
-                if (!categoriesSet.has(path)) {
-                    categoriesSet.add(path);
-                }
+            if (!categoriesSet.has(blogPost.category.path)) {
+                categoriesSet.set(blogPost.category.path, blogPost.category);
             }
         }
 
@@ -40,16 +31,16 @@ class SimpleBlogPostRepository implements BlogPostRepositoryModel {
         return this._tags;
     }
 
-    getAllCategories(): ReadonlyArray<string> {
+    getAllCategories(): ReadonlyArray<BlogPostCategory> {
         return this._categories;
     }
 
     get(count?: number): ReadonlyArray<BlogPost> {
-        return this.sliceArray(this.blogPosts, count);
+        return this.sliceArray(this._blogPosts, count);
     }
 
     getWithTags(tagFilter: string | string[]): ReadonlyArray<BlogPost> {
-        return this.blogPosts.filter(blogPost => {
+        return this._blogPosts.filter(blogPost => {
             if (tagFilter.length === 0) return true;
 
             return tagFilter instanceof Array
@@ -59,16 +50,16 @@ class SimpleBlogPostRepository implements BlogPostRepositoryModel {
     }
 
     getFromRouterLink(routerLink: string): BlogPost | undefined {
-        const index = this.blogPosts.findIndex(post => post.routerLink === routerLink);
-        return ~index ? this.blogPosts[index] : undefined;
+        const index = this._blogPosts.findIndex(post => post.routerLink === routerLink);
+        return ~index ? this._blogPosts[index] : undefined;
     }
 
     getInCategory(category: string, count?: number): readonly BlogPost[] {
-        return this.sliceArray(this.blogPosts.filter(blogPost => blogPost.category.path === category), count);
+        return this.sliceArray(this._blogPosts.filter(blogPost => blogPost.category.path === category), count);
     }
 
     getInCategoryWithTags(category: string, tagFilter: string | string[]): readonly BlogPost[] {
-        return this.blogPosts.filter(blogPost => {
+        return this._blogPosts.filter(blogPost => {
             if (blogPost.category.path !== category) return false;
             if (tagFilter.length === 0) return true;
 

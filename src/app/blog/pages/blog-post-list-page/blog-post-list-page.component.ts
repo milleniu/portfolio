@@ -40,13 +40,7 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
         .concat(Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
         .map<NavbarItemConfiguration>(category => ({
           key: category.label as unknown as NavbarItemLabelUnion,
-          configuration: (item) => {
-            if( category.path instanceof Array ) {
-              item.selected = category.path.includes( this._category );
-            } else {
-              item.selected = category.path === this._category;
-            }
-          }
+          configuration: (item) => item.selected = category.path === this._category
         }))
     );
 

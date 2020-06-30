@@ -16,6 +16,7 @@ export class CategoryGuard implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot): boolean {
     return this.blogPostRepository
       .getAllCategories()
+      .map(category => category.path)
       .includes(next.paramMap.get('category'));
   }
 
