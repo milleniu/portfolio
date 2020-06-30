@@ -18,8 +18,13 @@ export class WellKnownBlogPostCategory {
 }
 
 export class BlogPostCategoryStyling {
-    public static __: BlogPostCategory = {
+    public static __a: BlogPostCategory = {
         label: 'Mes Compétences',
-        path: [ 'technical', 'transversal' ]
+        path: 'technical'
+    }
+
+    public static __b: BlogPostCategory = {
+        label: 'Mes Compétences',
+        path: 'transversal'
     }
 }

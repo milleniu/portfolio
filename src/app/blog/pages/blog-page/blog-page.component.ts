@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogPost, BlogPostRepositoryModel, IBlogPostRecommendationsProvider } from 'src/app/core/models/blog-post.models';
-import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
+import { BlogPost, BlogPostRepositoryModel, IBlogPostRecommendationsProvider, BlogPostCategory } from 'src/app/core/models/blog-post.models';
+import { NavbarItem, getDefaultNavigationTargets, NavbarItemLabelUnion, NavbarItemConfiguration } from 'src/app/ui/shared/models/navbar.models';
 import { BLOG_POST_REPOSITORY, BLOG_POST_RECOMMENDATIONS } from 'src/app/core/config/injection-tokens';
+import { WellKnownBlogPostCategory, BlogPostCategoryStyling } from 'src/data/blog-post-category';
 
 @Component({
   selector: 'app-blog-page',
@@ -15,8 +16,6 @@ export class BlogPageComponent implements OnInit {
   public post: BlogPost;
   public recommendations: ReadonlyArray<BlogPost>;
 
-  public get postTitle(): string { return this.post ? this.post.title : ''; }
-
   constructor(
     private activatedRoute: ActivatedRoute,
     @Inject(BLOG_POST_REPOSITORY) private blogPostRepository: BlogPostRepositoryModel,
@@ -24,17 +23,32 @@ export class BlogPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    const url = this.activatedRoute.snapshot.url;
+    const postSegment = url[url.length - 1];
+
+    this.post = this.blogPostRepository.getFromRouterLink(postSegment.path);
+    if( this.post === undefined )
+      throw new Error(`Unable to load post associated with path: ${postSegment.path}`);
+
     this.navigationTargets = getDefaultNavigationTargets(
       {},
-      [ { key: 'Réalisations', configuration: item => item.selected = true } ]
+      (Object.values(WellKnownBlogPostCategory) as BlogPostCategory[])
+        .map<NavbarItemConfiguration>(category => ({
+          key: category.label as unknown as NavbarItemLabelUnion,
+          configuration: (item) => item.selected = category.path === this.post.category.path
+        }))
+        .concat(
+          (Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
+            .map<NavbarItemConfiguration>(category => ({
+              key: category.label as unknown as NavbarItemLabelUnion,
+              configuration: (item) => item.selected = category.path === this.post.category.path,
+              accept: (_) => category.path === this.post.category.path
+            }))
+        )
     );
-
-    const url = this.activatedRoute.snapshot.url;
-    const lastSegment = url[url.length - 1];
-    this.post = this.blogPostRepository.getFromRouterLink(lastSegment.path);
-    if( this.post === undefined )
-      throw new Error(`Unable to load post associated with path: ${lastSegment.path}`);
 
     this.recommendations = this.blogPostRecommendations.getRecommendations(this.post, 3);
   }
+
+  private get
 }

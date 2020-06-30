@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
 import { WellKnownBlogPostCategory } from 'src/data/blog-post-category';
 
@@ -10,11 +10,17 @@ import { WellKnownBlogPostCategory } from 'src/data/blog-post-category';
 export class SkillsPageComponent implements OnInit {
 
   public get navigationTargets(): ReadonlyArray<NavbarItem> {
-    return getDefaultNavigationTargets();
+    return getDefaultNavigationTargets(
+      {},
+      [ { key: 'Mes Compétences', configuration: (item) => item.selected = true } ]
+    );
   }
 
-  public get Category(): typeof WellKnownBlogPostCategory {
-    return WellKnownBlogPostCategory;
+  public get categories(): ReadonlyArray<WellKnownBlogPostCategory> {
+    return [
+      WellKnownBlogPostCategory.Technical,
+      WellKnownBlogPostCategory.Transversal
+    ];
   }
 
   constructor(

@@ -26,6 +26,7 @@ export type NavbarItemViewRefCollection = { [label in NavbarItemLabelUnion]?: El
 export interface NavbarItemConfiguration {
   key: NavbarItemLabelUnion,
   configuration: (item: SelectableNavbarItem) => void;
+  accept?: (item: SelectableNavbarItem) => boolean;
 }
 
 const DefaultNavigationTargets = [
@@ -78,12 +79,22 @@ export function getDefaultNavigationTargets(
         ? viewRefCollection[navbarItem.label]
         : undefined;
 
-      const filtered = (configurations || [])
-        .filter(item => item.key === navbarItem.label)
-        .map(item => item.configuration);
-      if( filtered.length === 0 ) navbarItem.configuration = (_) => {};
-      else if( filtered.length === 1 ) navbarItem.configuration = filtered[0];
-      else navbarItem.configuration = item => filtered.forEach(c => c(item));
+      const filtered = (configurations || []).filter(item => item.key === navbarItem.label);
+      if( filtered.length === 0 ) {
+        navbarItem.configuration = (_) => {};
+      } else if( filtered.length === 1 ) {
+        const single = filtered[0];
+        navbarItem.configuration = item => {
+          if( !single.accept || single.accept(item) )
+            single.configuration(item)
+        };
+      } else {
+        navbarItem.configuration = item => {
+          filtered
+            .filter(single => !single.accept || single.accept(item))
+            .forEach(single => single.configuration(item));
+        };
+      }
 
       if (!!navbarItem.children)
         configureDefault(navbarItem.children);

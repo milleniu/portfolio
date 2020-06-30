@@ -5,8 +5,9 @@
         <app-section-header sectionName="Mes Compétences"></app-section-header>
 
         <div class="skills-container">
-            <app-skills [skill]="Category.Technical"></app-skills>
-            <app-skills [skill]="Category.Transversal"></app-skills>
+            <ng-container *ngFor="let category of categories">
+                <app-skills [skill]="category"></app-skills>
+            </ng-container>
         </div>
     </div>
 </section>

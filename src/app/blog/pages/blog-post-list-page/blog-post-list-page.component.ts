@@ -14,9 +14,9 @@ import { WellKnownBlogPostCategory, BlogPostCategoryStyling } from 'src/data/blo
 })
 export class BlogPostListPageComponent implements OnInit, OnDestroy {
 
-  private _category: string;
   private _onDestroy: Subject<void>;
 
+  public category: BlogPostCategory;
   public navigationTargets: ReadonlyArray<NavbarItem>;
   public posts: ReadonlyArray<BlogPost>;
   public tags: string[];
@@ -34,20 +34,27 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this._onDestroy = new Subject();
 
+    const url = this.activatedRoute.snapshot.url;
+    const lastSegment = url[url.length - 1];
+    this.category = this.blogPostRepository.getCategoryFromPath(lastSegment.path);
+    if( this.category === undefined )
+      throw new Error(`Unable to find category associated with path: ${lastSegment.path}`);
+
     this.navigationTargets = getDefaultNavigationTargets(
       {},
       (Object.values(WellKnownBlogPostCategory) as BlogPostCategory[])
-        .concat(Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
         .map<NavbarItemConfiguration>(category => ({
           key: category.label as unknown as NavbarItemLabelUnion,
-          configuration: (item) => {
-            if( category.path instanceof Array ) {
-              item.selected = category.path.includes( this._category );
-            } else {
-              item.selected = category.path === this._category;
-            }
-          }
+          configuration: (item) => item.selected = category.path === this.category.path
         }))
+        .concat(
+          (Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
+            .map<NavbarItemConfiguration>(category => ({
+              key: category.label as unknown as NavbarItemLabelUnion,
+              configuration: (item) => item.selected = category.path === this.category.path,
+              accept: (_) => category.path === lastSegment.path
+            }))
+        )
     );
 
     this.posts = [];
@@ -67,16 +74,17 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
         takeUntil(this._onDestroy),
         withLatestFrom(tagQuery$),
         switchMap(([params, tag]: [ParamMap, string]) => {
-          this._category = params.get('category');
+          const categoryPath = params.get('category');
+          this.category = this.blogPostRepository.getCategoryFromPath(categoryPath);
           this.tags = !!tag ? [tag] : [];
-          return of(this.blogPostRepository.getInCategoryWithTags(this._category, this.tags));
+          return of(this.blogPostRepository.getInCategoryWithTags(this.category, this.tags));
         }))
       .subscribe(posts => this.posts = posts);
   }
 
   public tagsChange(tags: string[]) {
     this.tags = tags;
-    this.posts = this.blogPostRepository.getInCategoryWithTags(this._category, this.tags);
+    this.posts = this.blogPostRepository.getInCategoryWithTags(this.category, this.tags);
   }
 
   public ngOnDestroy() {

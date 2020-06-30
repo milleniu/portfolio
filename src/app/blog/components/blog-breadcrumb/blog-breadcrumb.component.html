@@ -5,13 +5,13 @@
         </a>
     </nz-breadcrumb-item>
     <nz-breadcrumb-item>
-        <a [routerLink]="['../']">
-            Publications
+        <a [routerLink]="['/blog', category.path]">
+            {{ category.label }}
         </a>
     </nz-breadcrumb-item>
-    <nz-breadcrumb-item *ngIf="postTitle">
+    <nz-breadcrumb-item *ngIf="post">
         <a [routerLink]="['./']">
-            {{ postTitle }}
+            {{ post.title }}
         </a>
     </nz-breadcrumb-item>
 </nz-breadcrumb>
