@@ -35,21 +35,28 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this._onDestroy = new Subject();
 
-    this.navigationTargets = getDefaultNavigationTargets(
-      {},
-      (Object.values(WellKnownBlogPostCategory) as BlogPostCategory[])
-        .concat(Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
-        .map<NavbarItemConfiguration>(category => ({
-          key: category.label as unknown as NavbarItemLabelUnion,
-          configuration: (item) => item.selected = category.path === this._category
-        }))
-    );
-
     const url = this.activatedRoute.snapshot.url;
     const lastSegment = url[url.length - 1];
     this.category = this.blogPostRepository.getCategoryFromPath(lastSegment.path);
     if( this.category === undefined )
       throw new Error(`Unable to find category associated with path: ${lastSegment.path}`);
+
+    this.navigationTargets = getDefaultNavigationTargets(
+      {},
+      (Object.values(WellKnownBlogPostCategory) as BlogPostCategory[])
+        .map<NavbarItemConfiguration>(category => ({
+          key: category.label as unknown as NavbarItemLabelUnion,
+          configuration: (item) => item.selected = category.path === this._category
+        }))
+        .concat(
+          (Object.values(BlogPostCategoryStyling) as BlogPostCategory[])
+            .map<NavbarItemConfiguration>(category => ({
+              key: category.label as unknown as NavbarItemLabelUnion,
+              configuration: (item) => item.selected = category.path === this._category,
+              accept: (_) => category.path === lastSegment.path
+            }))
+        )
+    );
 
     this.posts = [];
     this.tags = []

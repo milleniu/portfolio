@@ -20,11 +20,11 @@ export class WellKnownBlogPostCategory {
 export class BlogPostCategoryStyling {
     public static __a: BlogPostCategory = {
         label: 'Mes Compétences',
-        path: 'transversal'
+        path: 'technical'
     }
 
     public static __b: BlogPostCategory = {
         label: 'Mes Compétences',
-        path: 'technical'
+        path: 'transversal'
     }
 }
