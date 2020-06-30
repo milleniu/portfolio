@@ -28,8 +28,8 @@ export interface BlogPostRepositoryModel {
 
     get(count?: number): ReadonlyArray<BlogPost>;
     getWithTags(tags: string | string[]): ReadonlyArray<BlogPost>;
-    getInCategory(category: string, count?: number): ReadonlyArray<BlogPost>;
-    getInCategoryWithTags(category: string, tags: string | string[]): ReadonlyArray<BlogPost>;
+    getInCategory(category: BlogPostCategory, count?: number): ReadonlyArray<BlogPost>;
+    getInCategoryWithTags(category: BlogPostCategory, tags: string | string[]): ReadonlyArray<BlogPost>;
 
     getCategoryFromPath(path: string): BlogPostCategory;
 }

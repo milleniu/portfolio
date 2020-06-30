@@ -54,13 +54,13 @@ class SimpleBlogPostRepository implements BlogPostRepositoryModel {
         return ~index ? this._blogPosts[index] : undefined;
     }
 
-    getInCategory(category: string, count?: number): readonly BlogPost[] {
-        return this.sliceArray(this._blogPosts.filter(blogPost => blogPost.category.path === category), count);
+    getInCategory(category: BlogPostCategory, count?: number): readonly BlogPost[] {
+        return this.sliceArray(this._blogPosts.filter(blogPost => blogPost.category.path === category.path), count);
     }
 
-    getInCategoryWithTags(category: string, tagFilter: string | string[]): readonly BlogPost[] {
+    getInCategoryWithTags(category: BlogPostCategory, tagFilter: string | string[]): readonly BlogPost[] {
         return this._blogPosts.filter(blogPost => {
-            if (blogPost.category.path !== category) return false;
+            if (blogPost.category.path !== category.path) return false;
             if (tagFilter.length === 0) return true;
 
             return tagFilter instanceof Array
