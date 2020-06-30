@@ -17,6 +17,7 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
   private _category: string;
   private _onDestroy: Subject<void>;
 
+  public category: BlogPostCategory;
   public navigationTargets: ReadonlyArray<NavbarItem>;
   public posts: ReadonlyArray<BlogPost>;
   public tags: string[];
@@ -43,6 +44,12 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
           configuration: (item) => item.selected = category.path === this._category
         }))
     );
+
+    const url = this.activatedRoute.snapshot.url;
+    const lastSegment = url[url.length - 1];
+    this.category = this.blogPostRepository.getCategoryFromPath(lastSegment.path);
+    if( this.category === undefined )
+      throw new Error(`Unable to find category associated with path: ${lastSegment.path}`);
 
     this.posts = [];
     this.tags = []

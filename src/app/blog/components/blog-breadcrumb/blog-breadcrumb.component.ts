@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
 
 @Component({
   selector: 'app-blog-breadcrumb',
@@ -8,6 +8,7 @@ import { BlogPost } from 'src/app/core/models/blog-post.models';
 })
 export class BlogBreadcrumbComponent implements OnInit {
 
+  @Input() category: BlogPostCategory;
   @Input() post: BlogPost = undefined;
 
   constructor() { }
