@@ -69,6 +69,11 @@ class SimpleBlogPostRepository implements BlogPostRepositoryModel {
         });
     }
 
+    getCategoryFromPath(path: string): BlogPostCategory {
+        const categories = this._categories.filter(category => category.path === path);
+        return !!categories.length ? categories[0] : undefined;
+    }
+
     private sliceArray<T>(array: ReadonlyArray<T>, count?: number) {
         return count > 0 ? array.slice(-Math.min(count, array.length)) : array;
     }

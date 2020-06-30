@@ -30,6 +30,8 @@ export interface BlogPostRepositoryModel {
     getWithTags(tags: string | string[]): ReadonlyArray<BlogPost>;
     getInCategory(category: string, count?: number): ReadonlyArray<BlogPost>;
     getInCategoryWithTags(category: string, tags: string | string[]): ReadonlyArray<BlogPost>;
+
+    getCategoryFromPath(path: string): BlogPostCategory;
 }
 
 export interface IBlogPostRecommendationsProvider {
