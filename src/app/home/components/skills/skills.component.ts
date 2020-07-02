@@ -18,8 +18,8 @@ export class SkillsComponent implements OnInit {
     return `assets/home/skills/${this.skill.path}.jpg`;
   }
 
-  public get link(): string {
-    return `/blog/${this.skill.path}`;
+  public get routerLink(): string {
+    return this.skill.path;
   }
 
   constructor() { }
