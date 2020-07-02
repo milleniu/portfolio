@@ -19,11 +19,8 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
   public category: BlogPostCategory;
   public navigationTargets: ReadonlyArray<NavbarItem>;
   public posts: ReadonlyArray<BlogPost>;
+  public allTags: ReadonlyArray<string>;
   public tags: string[];
-
-  public get allTags(): ReadonlyArray<string> {
-    return this.blogPostRepository.getAllTags();
-  }
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -58,6 +55,7 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
     );
 
     this.posts = [];
+    this.allTags = this.blogPostRepository.getAllTags(this.category);
     this.tags = []
 
     const tagQuery$ = this.activatedRoute.queryParamMap
@@ -76,6 +74,9 @@ export class BlogPostListPageComponent implements OnInit, OnDestroy {
         switchMap(([params, tag]: [ParamMap, string]) => {
           const categoryPath = params.get('category');
           this.category = this.blogPostRepository.getCategoryFromPath(categoryPath);
+          if( this.category === undefined )
+            throw new Error(`Unable to find category associated with path: ${categoryPath}`);
+          this.allTags = this.blogPostRepository.getAllTags(this.category);
           this.tags = !!tag ? [tag] : [];
           return of(this.blogPostRepository.getInCategoryWithTags(this.category, this.tags));
         }))
