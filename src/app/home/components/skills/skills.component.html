@@ -1,8 +1,15 @@
-<nz-card style="width: 100%;" [nzCover]="coverTemplate" [nzActions]="[goto]">
+<nz-card
+    style="width: 100%;"
+    class="skill-card"
+    nzHoverable
+    [routerLink]="['/blog', routerLink]"
+    [nzCover]="coverTemplate">
+
     <nz-card-meta
         [nzTitle]="'Compétences ' + title"
         [nzAvatar]="avatarTemplate">
     </nz-card-meta>
+
 </nz-card>
 
 <ng-template #avatarTemplate>
@@ -13,8 +20,4 @@
     <div class="cover-container">
         <img [src]="imgSource" class="cover-img"/>
     </div>
-</ng-template>
-
-<ng-template #goto>
-    <i [routerLink]="link" nz-icon nzType="right"></i>
 </ng-template>

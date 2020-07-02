@@ -1,12 +1,19 @@
 @import '../../../../styles.less';
 
-.cover-container {
+.skill-card {
+    border-bottom: 2px solid transparent;
+    transition: .5s all;
 
-    display: flex;
+    &:hover {
+        border-bottom: 2px solid @accent-color;
+    }
 
-    > .cover-img {
-        flex: 1;
-        object-fit: cover;
-        width: 90%;
+    .cover-container {
+        display: flex;
+        > .cover-img {
+            flex: 1;
+            object-fit: cover;
+            width: 90%;
+        }
     }
 }
