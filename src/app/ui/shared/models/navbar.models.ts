@@ -63,7 +63,7 @@ const DefaultNavigationTargets = [
     ]
   },
   {
-    label: 'Réalisations',
+    label: 'Mes Réalisations',
     navigationTarget: { routerLink: '/blog/realization' }
   }
 ] as const;

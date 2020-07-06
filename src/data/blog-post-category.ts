@@ -2,7 +2,7 @@ import { BlogPostCategory } from 'src/app/core/models/blog-post.models'
 
 export class WellKnownBlogPostCategory {
     public static Realization: BlogPostCategory = {
-        label: 'Réalisations',
+        label: 'Mes Réalisations',
         path: 'realization'
     }
     
