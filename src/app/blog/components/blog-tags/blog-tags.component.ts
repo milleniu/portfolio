@@ -13,20 +13,32 @@ interface TagDetails {
 })
 export class BlogTagsComponent implements OnInit {
 
-  @Input('tags') public allTags: string[];
+  private _allTags: string[];
+
+  public get allTags(): string[] { return this._allTags; }
+  @Input('tags') public set allTags(value: string[]) {
+    this._allTags = value;
+    
+    this.activeTags = [];
+    this.tagsChange.emit(this.activeTags);
+
+    this.updateTagsSuggestions();
+    this.updateDetailedTags();
+  };
+
   @Input('default') public defaultActiveTags?: string[] = [];
 
   @Output() public tagsChange = new EventEmitter<string[]>();
 
   @ViewChild('tagInput', { static: true }) tagInputElement: ElementRef;
 
-  public activeTags: string[];
+  public activeTags: string[] = [];
 
-  public tagInputValue: string;
-  public tagsSuggestions: string[];
+  public tagInputValue: string = '';
+  public tagsSuggestions: string[] = [];
 
-  public displayDrawer: boolean;
-  public detailedTags: TagDetails[];
+  public displayDrawer: boolean = false;
+  public detailedTags: TagDetails[] = [];
 
   constructor(
     private ref: ChangeDetectorRef
