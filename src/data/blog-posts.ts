@@ -9,6 +9,7 @@ import { BlogPost } from 'src/app/core/models/blog-post.models';
 import { TapTapRevolution } from './projects/tap-tap-revolution';
 import { FSharp } from './projects/fsharp';
 import { PeerPairPrograming } from './transervals/peer-pair-programing';
+import { PopularizationOfProblems } from './transervals/popularization-of-problems';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new RedPandaUI(),
@@ -22,5 +23,6 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
     new SQL(),
     new Unity(),
 
-    new PeerPairPrograming()
+    new PeerPairPrograming(),
+    new PopularizationOfProblems()
 ];
