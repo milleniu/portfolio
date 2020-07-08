@@ -30,7 +30,7 @@ export class PopularizationOfProblems extends BlogPostBase {
         ),
         new Divider(),
 
-        new Title("La Situation", 2),
+        new Title("La situation", 2),
         new Paragraph(
             "Au sein de mon entreprise, je participe à un projet en tant que Tech Lead. Ce poste implique entre autres " +
             "deux responsabilités : justifier des estimations de temps de développement au client et assister l’équipe " +
