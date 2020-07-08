@@ -12,11 +12,13 @@ import { PeerPairPrograming } from './transervals/peer-pair-programing';
 import { PopularizationOfProblems } from './transervals/popularization-of-problems';
 import { Autonomy } from './transervals/autonomy';
 import { KayakerExperience } from './transervals/kayaker-experience';
+import { AspNetAuthClient } from './projects/asp-net-auth-client';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new RedPandaUI(),
     new TapTapRevolution(),
     new FSharp(),
+    new AspNetAuthClient(),
 
     new CSharp(),
     new Angular(),
