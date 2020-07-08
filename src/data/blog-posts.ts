@@ -10,6 +10,7 @@ import { TapTapRevolution } from './projects/tap-tap-revolution';
 import { FSharp } from './projects/fsharp';
 import { PeerPairPrograming } from './transervals/peer-pair-programing';
 import { PopularizationOfProblems } from './transervals/popularization-of-problems';
+import { Autonomy } from './transervals/autonomy';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new RedPandaUI(),
@@ -24,5 +25,6 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
     new Unity(),
 
     new PeerPairPrograming(),
-    new PopularizationOfProblems()
+    new PopularizationOfProblems(),
+    new Autonomy()
 ];
