@@ -8,6 +8,7 @@ import { Unity } from './technicals/unity';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
 import { TapTapRevolution } from './projects/tap-tap-revolution';
 import { FSharp } from './projects/fsharp';
+import { PeerPairPrograming } from './transervals/peer-pair-programing';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new RedPandaUI(),
@@ -19,5 +20,7 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
     new Typescript(),
     new VueJS(),
     new SQL(),
-    new Unity()
+    new Unity(),
+
+    new PeerPairPrograming()
 ];
