@@ -11,6 +11,7 @@ import { FSharp } from './projects/fsharp';
 import { PeerPairPrograming } from './transervals/peer-pair-programing';
 import { PopularizationOfProblems } from './transervals/popularization-of-problems';
 import { Autonomy } from './transervals/autonomy';
+import { KayakerExperience } from './transervals/kayaker-experience';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new RedPandaUI(),
@@ -26,5 +27,6 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
 
     new PeerPairPrograming(),
     new PopularizationOfProblems(),
-    new Autonomy()
+    new Autonomy(),
+    new KayakerExperience()
 ];
