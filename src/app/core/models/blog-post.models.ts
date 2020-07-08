@@ -23,7 +23,7 @@ export interface BlogPost {
 export interface BlogPostRepositoryModel {
     getFromRouterLink(routerLink: string): BlogPost|undefined;
     
-    getAllTags(): ReadonlyArray<string>;
+    getAllTags(category?: BlogPostCategory): ReadonlyArray<string>;
     getAllCategories(): ReadonlyArray<BlogPostCategory>;
 
     get(count?: number): ReadonlyArray<BlogPost>;
