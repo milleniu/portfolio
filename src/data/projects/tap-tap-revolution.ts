@@ -1,6 +1,6 @@
 import { BlogPostBase } from '../models/blog-post-base';
 import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
-import { BlogPostContent, Paragraph, Divider, Title, List } from 'src/app/core/models/blog-post-content.models';
+import { BlogPostContent, Paragraph, Divider, Title, List, Image } from 'src/app/core/models/blog-post-content.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
 
 export class TapTapRevolution extends BlogPostBase {
@@ -27,7 +27,7 @@ export class TapTapRevolution extends BlogPostBase {
             "répéter sans erreur. Cependant des modificateurs viennent complexifier la tâche, par exemple " +
             "modification de l’opacité du jeu, déplacement des cases ou autres visuels divers et variés.",
 
-            "J’ai développé ce projet en collaboration avec un second développeur, sur une DUREE période de 3 mois. " +
+            "J’ai développé ce projet en collaboration avec un second développeur, sur une période de 3 mois. " +
             "Pour nous deux, ce projet avait pour but d’expérimenter et d’améliorer notre connaissance du moteur Unity."
         ]),
         new Divider(),
@@ -45,8 +45,8 @@ export class TapTapRevolution extends BlogPostBase {
             "Après-projet : retour sur expérience et sur l’application"
         ]),
 
-        new Title("Déroulé", 2),
         new Divider(),
+        new Title("Déroulé", 2),
 
         new Paragraph([
             "Afin de ne pas commencer à coder immédiatement sans structure, sans organisation et sans tâches " +
@@ -70,6 +70,9 @@ export class TapTapRevolution extends BlogPostBase {
             "flux tumultueux de la vie nous ayant rattrapé, nous avons dû mettre le projet en pause… pause qui " +
             "s’est avérée terminale."
         ]),
+
+        new Title("Interface finale", 2),
+        new Image(this.assetsRoot + 'ui.jpg', 'Tap Tap Revolution UI'),
 
         new Divider(),
         new Title("Retour sur expérience", 2),
