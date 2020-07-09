@@ -15,20 +15,18 @@ import { KayakerExperience } from './transervals/kayaker-experience';
 import { AspNetAuthClient } from './projects/asp-net-auth-client';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
-    new RedPandaUI(),
     new TapTapRevolution(),
-    new FSharp(),
-    new AspNetAuthClient(),
-
-    new CSharp(),
     new Angular(),
     new Typescript(),
     new VueJS(),
     new SQL(),
     new Unity(),
-
     new PeerPairPrograming(),
-    new PopularizationOfProblems(),
     new Autonomy(),
-    new KayakerExperience()
+    new KayakerExperience(),
+    new RedPandaUI(),
+    new FSharp(),
+    new PopularizationOfProblems(),
+    new CSharp(),
+    new AspNetAuthClient(),
 ];
