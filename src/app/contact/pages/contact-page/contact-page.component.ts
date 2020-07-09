@@ -13,7 +13,10 @@ export class ContactPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.navigationTargets = getDefaultNavigationTargets();
+    this.navigationTargets = getDefaultNavigationTargets(
+      {},
+      [{ key: "Contact", configuration: item => item.selected = true }]
+    );
   }
 
 }
