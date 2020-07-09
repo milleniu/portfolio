@@ -13,6 +13,7 @@ import { PopularizationOfProblems } from './transervals/popularization-of-proble
 import { Autonomy } from './transervals/autonomy';
 import { KayakerExperience } from './transervals/kayaker-experience';
 import { AspNetAuthClient } from './projects/asp-net-auth-client';
+import { FirstDown } from './projects/firstdown';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
     new TapTapRevolution(),
@@ -23,6 +24,7 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
     new Unity(),
     new PeerPairPrograming(),
     new Autonomy(),
+    new FirstDown(),
     new KayakerExperience(),
     new RedPandaUI(),
     new FSharp(),
