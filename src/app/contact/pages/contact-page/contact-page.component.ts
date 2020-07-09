@@ -9,6 +9,7 @@ import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/model
 export class ContactPageComponent implements OnInit {
 
   public navigationTargets: ReadonlyArray<NavbarItem>;
+  public infoCardStyle: string = "width: 425px; margin: 1em;";
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class ContactPageComponent implements OnInit {
       {},
       [{ key: "Contact", configuration: item => item.selected = true }]
     );
+  }
+
+  githubAccess() {
+    window.open('https://github.com/milleniu', '_blank');
   }
 
 }
