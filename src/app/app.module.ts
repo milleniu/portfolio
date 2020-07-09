@@ -10,6 +10,7 @@ import fr from '@angular/common/locales/fr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
+import { ContactModule } from './contact/contact.module';
 
 registerLocaleData(fr);
 
@@ -24,6 +25,7 @@ registerLocaleData(fr);
     FormsModule,
     NgZorroAntdModule,
     HomeModule,
+    ContactModule,
     AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],

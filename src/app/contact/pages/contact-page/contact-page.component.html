@@ -1,0 +1,43 @@
+<app-navbar [navigationTargets]="navigationTargets"></app-navbar>
+
+<section class="section heading">
+    <div class="container">
+
+        <app-section-header sectionName="Me Contacter"></app-section-header>
+
+        <div class="contact-info-container">
+
+            <a href="mailto:hugo.zammit@laposte.net">
+                <nz-card
+                    style="width: 320px; margin: 1em;"
+                    nzHoverable>
+                        <nz-card-meta
+                            nzTitle="E-Mail"
+                            nzDescription="hugo.zammit@laposte.net"
+                            [nzAvatar]="mailIcon">
+                        </nz-card-meta>
+                </nz-card>
+                <ng-template #mailIcon>
+                    <nz-avatar nzIcon="mail"></nz-avatar>
+                </ng-template>
+            </a>
+
+            <nz-card (click)="githubAccess()"
+                style="width: 320px; margin: 1em;"
+                nzHoverable>
+                    <nz-card-meta
+                        nzTitle="GitHub"
+                        nzDescription="github.com/milleniu"
+                        [nzAvatar]="githubIcon">
+                    </nz-card-meta>
+            </nz-card>
+            <ng-template #githubIcon>
+                <nz-avatar nzIcon="github"></nz-avatar>
+            </ng-template>
+
+        </div>
+
+    </div>
+</section>
+
+<nz-back-top></nz-back-top>
