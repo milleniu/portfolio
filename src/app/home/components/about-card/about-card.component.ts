@@ -11,10 +11,16 @@ export class AboutCardComponent implements OnInit {
   public title: string;
 
   @Input()
-  public content: string;
+  public content: string|string[];
 
   @Input()
   public icon: string;
+
+  public get normalizedContents(): string[] {
+    return this.content instanceof Array
+      ? this.content
+      : [ this.content ];
+  }
 
   constructor() { }
 

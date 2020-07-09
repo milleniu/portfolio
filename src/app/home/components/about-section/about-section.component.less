@@ -21,8 +21,20 @@
         }
     }
 
-    > .presentation-card {
+    > .presentation-container {
         width: 100%;
         padding: 1em;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        > .presentation-card {
+            width: 100%;
+
+            @media screen and (min-width: @screen-lg) {
+                max-width: 66%;
+            }
+        }
     }
 }
