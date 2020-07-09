@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomIcons } from 'src/app/ui/shared/custom-icons/custom-icon-repository';
+
+type Content = { title: string, content: string, icon: string };
 
 @Component({
   selector: 'app-about-section',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutSectionComponent implements OnInit {
 
-  public readonly content: Array<{ title: string, content: string, icon: string }> = [
+  public readonly content: Array<Content> = [
     {
       title: "Passionné",
       content: "Tombé dans le monde de la programmation à l'âge de 14 ans, je n'ai pas encore fini d'expérimenter et de me confronter à de nouvelles problématiques.",
@@ -24,6 +27,27 @@ export class AboutSectionComponent implements OnInit {
       icon: "laptop"
     }
   ];
+
+  public readonly presentation: Content = {
+    title: "Qui-suis je ?",
+    content:
+      "Tout petit déjà, j’avais deux passions : la pratique du kayak et le goût des constructions ordonnées, " +
+      "rangées et structurées. Si j’ai pu très tôt assouvir ma passion du kayak et me confronter à la haute " +
+      "rivière, j’ai du patienter quelques années de plus pour rencontrer l’informatique. La découverte de la " +
+      "programmation a été une révélation.\n" +
+
+      "J’aime développer des algorithmes, les peaufiner ou mettre à jour des solutions avancées. Exigent envers " +
+      "moi-même, je recherche une finition technique irréprochable.\n" +
+
+      "Après m’être dirigé vers des études classiques, j’ai très vite ressenti le besoin d’exploiter sans attendre " +
+      "mes compétences en informatique dans la vie professionnelle et je me suis réorienté vers l’alternance. Ma " +
+      "passion du kayak m’a soutenu dans cette évolution : j’y avais appris la remise en question, l’adaptabilité, " +
+      "la gestion de crise et le dépassement de soi.\n" +
+
+      "Fort de cette expérience, j’ai choisi d’intégrer l’INTECH, tout en débutant en parallèle en tant que " +
+      "stagiaire chez Signature-code, société dans laquelle j’ai depuis évolué de stagiaire à Tech Lead.",
+    icon: CustomIcons.Kayak
+  }
 
   constructor() { }
 
