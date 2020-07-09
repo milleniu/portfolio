@@ -13,12 +13,14 @@
             ></app-about-card>
         </div>
 
-        <div nz-col nzSpan="24" class="presentation-card">
-            <app-about-card
-                [title]="presentation.title"
-                [content]="presentation.content"
-                [icon]="presentation.icon"
-            ></app-about-card>
+        <div nz-col nzSpan="24" class="presentation-container">
+            <div class="presentation-card">
+                <app-about-card
+                    [title]="presentation.title"
+                    [content]="presentation.content"
+                    [icon]="presentation.icon"
+                ></app-about-card>
+            </div>
         </div>
 
     </div>
