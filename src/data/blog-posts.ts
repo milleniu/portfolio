@@ -6,13 +6,29 @@ import { VueJS } from './technicals/vue-js';
 import { SQL } from './technicals/sql';
 import { Unity } from './technicals/unity';
 import { BlogPost } from 'src/app/core/models/blog-post.models';
+import { TapTapRevolution } from './projects/tap-tap-revolution';
+import { FSharp } from './projects/fsharp';
+import { PeerPairPrograming } from './transervals/peer-pair-programing';
+import { PopularizationOfProblems } from './transervals/popularization-of-problems';
+import { Autonomy } from './transervals/autonomy';
+import { KayakerExperience } from './transervals/kayaker-experience';
+import { AspNetAuthClient } from './projects/asp-net-auth-client';
+import { FirstDown } from './projects/firstdown';
 
 export const BlogPosts: ReadonlyArray<BlogPost> = [
-    new RedPandaUI(),
-    new CSharp(),
+    new TapTapRevolution(),
     new Angular(),
     new Typescript(),
     new VueJS(),
     new SQL(),
-    new Unity()
+    new Unity(),
+    new PeerPairPrograming(),
+    new Autonomy(),
+    new FirstDown(),
+    new KayakerExperience(),
+    new FSharp(),
+    new PopularizationOfProblems(),
+    new CSharp(),
+    new AspNetAuthClient(),
+    new RedPandaUI(),
 ];

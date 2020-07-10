@@ -1,5 +1,6 @@
 import { BlogPost, BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { BlogPostContent } from 'src/app/core/models/blog-post-content.models';
+import { WellKnownTags } from '../blog-post-tags';
 
 export abstract class BlogPostBase implements BlogPost {
 
@@ -17,7 +18,7 @@ export abstract class BlogPostBase implements BlogPost {
     public abstract coverImage: string;
     public abstract description: string;
     public abstract content: ReadonlyArray<BlogPostContent>;
-    public abstract tags: readonly string[];
+    public abstract tags: ReadonlyArray<WellKnownTags>;
     public abstract routerLink: string;
     //#endregion
 }

@@ -2,6 +2,7 @@ import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/m
 import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
 import { BlogPostBase } from '../models/blog-post-base';
+import { WellKnownTags } from '../blog-post-tags';
 
 export class Angular extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/angular/';
@@ -17,7 +18,7 @@ export class Angular extends BlogPostBase {
     public readonly description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";
 
     public readonly routerLink: string = 'angular';
-    public readonly tags: ReadonlyArray<string> = [ 'Angular', 'Open Source', 'Front End', 'TypeScript' ];
+  public readonly tags: ReadonlyArray<WellKnownTags> = [WellKnownTags.Angular];
 
     public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
@@ -28,7 +29,7 @@ export class Angular extends BlogPostBase {
         ),
         new Divider(),
 
-        new Title("Avantage", 2),
+        new Title("MVVM en typescript", 2),
         new List([
             "Il est basé sur TypeScript, il exploite donc la vérification statique et opérationnelle de la saisie. " +
             "Cela permet d'accroître le nombre d'erreurs à la compilation et ainsi de diminuer le nombre d'erreurs " +
@@ -43,7 +44,7 @@ export class Angular extends BlogPostBase {
             "Un moteur d'injection de dépendances est présent de base au coeur du framework"
         ]),
 
-        new Title("Au quotidien", 2),
+        new Title("Framework pour applications clientes", 2),
         new Paragraph(
             "Angular n'est pas le seul framework JavaScript que j'utilise. Cependant, de par ses avantages, c'est " +
             "celui que je préfère utiliser pour plusieurs de mes projets :"

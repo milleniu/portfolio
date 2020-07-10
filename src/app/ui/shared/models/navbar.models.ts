@@ -43,7 +43,7 @@ const DefaultNavigationTargets = [
         navigationTarget: { routerLink: '/home', fragment: 'skills' },
       },
       {
-        label: 'Publications',
+        label: 'Réalisations',
         navigationTarget: { routerLink: '/home', fragment: 'blog-posts' },
       }
     ]
@@ -76,7 +76,7 @@ export function getDefaultNavigationTargets(
   viewRefCollection?: NavbarItemViewRefCollection,
   configurations?: NavbarItemConfiguration[]
 ): ReadonlyArray<NavbarItem> {
-  
+
   const configureDefault = (navbarItems: ReadonlyArray<NavbarItem>) => {
     for (const navbarItem of navbarItems) {
       navbarItem.viewRef = !!viewRefCollection

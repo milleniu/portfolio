@@ -15,6 +15,7 @@ export class BlogPageComponent implements OnInit {
   public navigationTargets: ReadonlyArray<NavbarItem>;
   public post: BlogPost;
   public recommendations: ReadonlyArray<BlogPost>;
+  public recommendationsLabel: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -47,8 +48,9 @@ export class BlogPageComponent implements OnInit {
         )
     );
 
-    this.recommendations = this.blogPostRecommendations.getRecommendations(this.post, 3);
+    this.recommendationsLabel = this.post.category === WellKnownBlogPostCategory.Realization
+      ? 'Compétences associées :'
+      : 'Réalisations associées :';
+    this.recommendations = this.blogPostRecommendations.getRecommendations(this.post, 10);
   }
-
-  private get
 }

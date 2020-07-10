@@ -6,6 +6,7 @@ import { BlogSectionComponent } from '../../components/blog-section/blog-section
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
 import { BlogPost, BlogPostRepositoryModel } from 'src/app/core/models/blog-post.models';
 import { BLOG_POST_REPOSITORY } from 'src/app/core/config/injection-tokens';
+import { WellKnownBlogPostCategory } from 'src/data/blog-post-category';
 
 @Component({
   selector: 'app-home-page',
@@ -26,7 +27,7 @@ export class HomePageComponent implements OnInit {
       Accueil: this.heroAreaComponentRef,
       'À Propos': this.aboutComponentRef,
       'Compétences': this.skillsComponentRef,
-      'Publications': this.blogSectionComponentRef,
+      'Réalisations': this.blogSectionComponentRef,
     });
   }
 
@@ -35,6 +36,6 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.posts = this.blogPostRepository.get(6);
+    this.posts = this.blogPostRepository.getInCategory(WellKnownBlogPostCategory.Realization, 3);
   }
 }
