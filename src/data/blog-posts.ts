@@ -26,9 +26,9 @@ export const BlogPosts: ReadonlyArray<BlogPost> = [
     new Autonomy(),
     new FirstDown(),
     new KayakerExperience(),
-    new RedPandaUI(),
     new FSharp(),
     new PopularizationOfProblems(),
     new CSharp(),
     new AspNetAuthClient(),
+    new RedPandaUI(),
 ];
