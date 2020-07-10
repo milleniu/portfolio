@@ -2,10 +2,11 @@ import { BlogPostBase } from '../models/blog-post-base';
 import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
 import { BlogPostContent, Paragraph, Divider, Title } from 'src/app/core/models/blog-post-content.models';
+import { WellKnownTags } from '../blog-post-tags';
 
 export class AspNetAuthClient extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/projects/asp-net-auth-client/';
-    
+
     constructor() {
         super();
     }
@@ -17,7 +18,11 @@ export class AspNetAuthClient extends BlogPostBase {
     public readonly description: string = "CK-AspNetAuth-Client est un projet typescript qui implémente un système de login mot de passe dans une web-application.";
 
     public readonly routerLink: string = 'asp-net-auth-client';
-    public readonly tags: ReadonlyArray<string> = [];
+    public readonly tags: ReadonlyArray<WellKnownTags> = [
+      WellKnownTags.TypeScript,
+      WellKnownTags.Angular,
+      WellKnownTags.Autonomy
+    ];
 
     public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(

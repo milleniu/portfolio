@@ -2,6 +2,7 @@ import { BlogPostContent, Paragraph, List, Divider, Title } from 'src/app/core/m
 import { BlogPostCategory } from 'src/app/core/models/blog-post.models';
 import { WellKnownBlogPostCategory } from '../blog-post-category';
 import { BlogPostBase } from '../models/blog-post-base';
+import { WellKnownTags } from '../blog-post-tags';
 
 export class Angular extends BlogPostBase {
     private readonly assetsRoot = 'assets/blog/technicals/angular/';
@@ -17,7 +18,7 @@ export class Angular extends BlogPostBase {
     public readonly description: string = "Angular est un framework JavaScript open source co-dirigé par Google et basé sur TypeScript.";
 
     public readonly routerLink: string = 'angular';
-    public readonly tags: ReadonlyArray<string> = [ 'Angular', 'Open Source', 'Front End', 'TypeScript' ];
+  public readonly tags: ReadonlyArray<WellKnownTags> = [WellKnownTags.Angular];
 
     public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(

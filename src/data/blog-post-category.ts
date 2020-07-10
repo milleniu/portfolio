@@ -5,12 +5,12 @@ export class WellKnownBlogPostCategory {
         label: 'Mes Réalisations',
         path: 'realization'
     }
-    
+
     public static Technical: BlogPostCategory = {
         label: 'Techniques',
         path: 'technical'
     }
-    
+
     public static Transversal: BlogPostCategory = {
         label: 'Transversales',
         path: 'transversal'
