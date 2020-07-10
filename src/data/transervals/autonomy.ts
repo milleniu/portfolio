@@ -67,7 +67,7 @@ export class Autonomy extends BlogPostBase {
     ]),
 
     new Divider(),
-    new Title("Expérience personnelle", 2),
+    new Title("Ma progression", 2),
     new Paragraph([
       "Avant de travailler en entreprise, j’ai déjà eu la chance de travailler sur un projet conséquent en " +
       "quasi-totale autonomie (RedPandaUI). Cependant, durant ce projet, je n’avais pas de référent, c’était " +

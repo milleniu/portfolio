@@ -53,7 +53,7 @@ export class TapTapRevolution extends BlogPostBase {
     ]),
 
     new Divider(),
-    new Title("Déroulé", 2),
+    new Title("Le développement d'un jeu vidéo", 2),
 
     new Paragraph([
       "Afin de ne pas commencer à coder immédiatement sans structure, sans organisation et sans tâches " +
@@ -82,7 +82,7 @@ export class TapTapRevolution extends BlogPostBase {
     new Image(this.assetsRoot + 'ui.jpg', 'Tap Tap Revolution UI'),
 
     new Divider(),
-    new Title("Retour sur expérience", 2),
+    new Title("Analyse finale", 2),
     new Paragraph([
       "Quelques mois après la « fin » de ce projet, nous avons réalisé une analyse de l’état du projet. Nous " +
       "nous sommes aperçus que nous nous étions confrontés à une loi bien connue des développeurs, la loi de " +

@@ -43,7 +43,7 @@ export class Typescript extends BlogPostBase {
       "le configurer afin qu'il corresponde à notre besoin immédiat, puis l'adpater au fil de l'eau."
     ]),
 
-    new Title("Au quotidien", 2),
+    new Title("Strongly typed javascript", 2),
     new Paragraph(
       "J'utilise TypeScript presque quotidiennement et je m'efforce de migrer mes projets JavaScript vers " +
       "TypeScript. En effet, le système de type est une réelle force qui me permet d'améliorer mon expérience " +

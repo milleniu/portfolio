@@ -44,7 +44,7 @@ export class RedPandaUI extends BlogPostBase {
     new Title("Interface de World of Warcraft", 3),
     new Image(this.assetsRoot + 'wow_ui.jpg', "Nnoggie Interface - WoW"),
 
-    new Title("Objectifs", 2),
+    new Title("Cahier des charges", 2),
     new Paragraph(
       "L'objectif de ce projet a donc été de proposer une solution alternative, qui permettrait de " +
       "s'affranchir de ces limitations. Cette solution devrait respecter les points suivants :"
@@ -114,7 +114,7 @@ export class RedPandaUI extends BlogPostBase {
     ),
 
     new Divider(),
-    new Title("Retour sur expérience", 2),
+    new Title("Autopsie du projet", 2),
     new Paragraph([
       "Bien que ce projet puisse être considéré comme un projet « non terminé », il serait dénigrant de le " +
       "considérer de la sorte. En effet, sa version initiale a été distribuée et utilisée par de nombreux " +

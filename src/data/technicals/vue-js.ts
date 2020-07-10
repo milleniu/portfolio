@@ -28,7 +28,7 @@ export class VueJS extends BlogPostBase {
     ),
     new Divider(),
 
-    new Title("Avantages", 2),
+    new Title("Framework tout terrain", 2),
     new List([
       "Il utilise le le modèle MVVM ainsi qu'un système de réactivité pour la donnée qui exploite le " +
       "JavaScript afin d'avoir un re-rendu optimisé.",
@@ -43,7 +43,7 @@ export class VueJS extends BlogPostBase {
       "envergure."
     ]),
 
-    new Title("Au quotidien", 2),
+    new Title("Projet legacy quand tu nous tiens", 2),
     new Paragraph(
       "Vue.js est l'un des frameworks que j'utilise au sein de mon entreprise. Il est plutôt utilisé pour " +
       "les projets plus anciens du fait de sa maléabilité. Recommencer ces derniers à zéro n'est pas " +

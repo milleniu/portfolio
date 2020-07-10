@@ -64,6 +64,7 @@ export class KayakerExperience extends BlogPostBase {
     ),
 
     new Divider(),
+    new Title("Une force de la nature", 2),
     new Paragraph(
       "Mon expérience de kayakiste m’a donné de nombreuses forces que j’ai très rapidement exploitées " +
       "professionnellement : mon expérience d’encadrant m’a permis d’endosser naturellement le rôle de " +

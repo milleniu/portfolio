@@ -75,7 +75,7 @@ export class FSharp extends BlogPostBase {
     ]),
 
     new Divider(),
-    new Title("Retour sur expérience", 2),
+    new Title("L'après cours", 2),
     new Paragraph([
       "Pour ma part, en tant qu’étudiant, ce cour s’est relativement bien déroulé : mon équipe a pu mener à " +
       "bien son  projet #github#. En tant que formateur, j’ai eu des retours positifs des autres étudiants " +

@@ -29,7 +29,7 @@ export class Angular extends BlogPostBase {
         ),
         new Divider(),
 
-        new Title("Avantage", 2),
+        new Title("MVVM en typescript", 2),
         new List([
             "Il est basé sur TypeScript, il exploite donc la vérification statique et opérationnelle de la saisie. " +
             "Cela permet d'accroître le nombre d'erreurs à la compilation et ainsi de diminuer le nombre d'erreurs " +
@@ -44,7 +44,7 @@ export class Angular extends BlogPostBase {
             "Un moteur d'injection de dépendances est présent de base au coeur du framework"
         ]),
 
-        new Title("Au quotidien", 2),
+        new Title("Framework pour applications clientes", 2),
         new Paragraph(
             "Angular n'est pas le seul framework JavaScript que j'utilise. Cependant, de par ses avantages, c'est " +
             "celui que je préfère utiliser pour plusieurs de mes projets :"

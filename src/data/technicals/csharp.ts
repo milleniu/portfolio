@@ -28,7 +28,7 @@ export class CSharp extends BlogPostBase {
     ),
     new Divider(),
 
-    new Title("Avantages", 2),
+    new Title("Modulaire et multi-plateforme", 2),
     new List([
       "Il est désormais open source grâce à .NET Core. Cela permet une meilleure compréhension et un " +
       "meilleur investissement de la communauté qui peut en décortiquer les entrailles.",
@@ -41,7 +41,7 @@ export class CSharp extends BlogPostBase {
       "quotidien."
     ]),
 
-    new Title("Au quotidien", 2),
+    new Title("Backends, algorithmes et jeux vidéos", 2),
     new Paragraph(
       "Ce langage possède de multiples applications, mais dans mon expérience de développeur au quotidien il " +
       "répond à trois de mes besoins :"

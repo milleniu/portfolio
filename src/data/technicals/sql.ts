@@ -28,7 +28,7 @@ export class SQL extends BlogPostBase {
     ),
     new Divider(),
 
-    new Title("Avantages", 2),
+    new Title("Base de données et SIG", 2),
     new List([
       "SQL Server Management Studio (SSMS) est un outil fourni avec les versions payantes de SQL Server " +
       "Il permet de se connecter et d'administrer facilement plusieurs bases de données. Ainsi, durant le " +

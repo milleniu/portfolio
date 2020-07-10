@@ -28,7 +28,7 @@ export class Unity extends BlogPostBase {
     ),
     new Divider(),
 
-    new Title("Avantages", 2),
+    new Title("Un moteur de jeu", 2),
     new List([
       "Unity utilise le langage C# sur la plateforme .NET avec l'implémentation Mono. Il est ainsi possible de " +
       "compiler du code Mono, mutliplateforme et multi-architecture. Toutefois, on peut utiliser un mode de " +
@@ -46,7 +46,7 @@ export class Unity extends BlogPostBase {
       "Il est possible de produire des jeux pour un importants nombre de plateformes (25+)"
     ]),
 
-    new Title("Au quotidien", 2),
+    new Title("Pour les loisirs", 2),
     new Paragraph(
       "J'utilise très rarement Unity dans le cadre professionnel. C'est plutôt durant mes heures perdues que " +
       "je produis à l'aide de ce logiciel."
