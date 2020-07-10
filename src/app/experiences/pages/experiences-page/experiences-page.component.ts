@@ -13,7 +13,10 @@ export class ExperiencesPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.navigationTargets = getDefaultNavigationTargets();
+    this.navigationTargets = getDefaultNavigationTargets(
+      {},
+      [{ key: 'Mon Parcours', configuration: item => item.selected = true }]
+    );
   }
 
 }

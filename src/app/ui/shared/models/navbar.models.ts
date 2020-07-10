@@ -49,6 +49,10 @@ const DefaultNavigationTargets = [
     ]
   },
   {
+    label: 'Mon Parcours',
+    navigationTarget: { routerLink: '/experiences' }
+  },
+  {
     label: 'Mes Compétences',
     navigationTarget: { routerLink: '/skills' },
     children: [
