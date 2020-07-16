@@ -46,11 +46,11 @@ export class KayakerExperience extends BlogPostBase {
       "petit, le junior va se hisser au niveau de l’expertise requise. Pour descendre certaines rivières d’un " +
       "bout à l’autre, afin d’éviter de se mettre lui-même en danger ou de provoquer une situation " +
       "d’insécurité pour le groupe, il sera parfois contraint de mettre pied à terre, et de porter son kayak " +
-      "pendant que les autres glissent sur l’eau. Mais avec le temps, l’entrainement et l’interaction " +
+      "pendant que les autres glissent sur l’eau. Mais avec le temps, l’entraînement et l’interaction " +
       "bienveillante et constructive de son club, il pourra naviguer sans interruption."
     ),
 
-    new Title("Être kaykiste, un atout", 2),
+    new Title("Être kayakiste, un atout", 2),
     new Paragraph(
       "C’est fort de mon expérience de kayakiste que, durant ma formation à Intech’Info, j’ai rejoint " +
       "Invenietis en 2017, d’abord en tant que simple stagiaire, puis en tant qu’alternant en 2018. Le choix " +

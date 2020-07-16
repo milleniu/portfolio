@@ -23,7 +23,7 @@ export class Angular extends BlogPostBase {
     public readonly content: ReadonlyArray<BlogPostContent> = [
         new Paragraph(
             "Angular (plus communément appelé Angular 2+ ou avec l’acronyme « ngx ») est un framework JavaScript " +
-            "opensource développé par Google, des entreprises et la communauté. C’est un projet dont la première " +
+            "open source développé par Google, des entreprises et la communauté. C’est un projet dont la première " +
             "version officielle date de septembre 2016. Il s’agit d’une refonte complète d’un projet de la même " +
             "équipe : AngularJS."
         ),
@@ -60,7 +60,7 @@ export class Angular extends BlogPostBase {
             "tenants. Grâce au système de projets et d'injection de dépendances, nous avons pu produire facilement " +
             "des librairies de composants réutilisables et modifiables.",
 
-            "Enfin, angular est aussi le moteur qui est est dérrière ce portfolio. Il m'a servi pour gérer " +
+            "Enfin, angular est aussi le moteur qui est est derrière ce portfolio. Il m'a servi pour gérer " +
             "dynamiquement l'ajout de publications, aussi bien au niveau des différents composants qu'au niveau de la " +
             "gestion de la navigation."
         ])

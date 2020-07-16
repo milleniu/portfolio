@@ -54,9 +54,9 @@ export class AspNetAuthClient extends BlogPostBase {
             "Au cours de mon second stage, ce projet a évolué vers sa deuxième version majeure. En plus des " +
             "fonctionnalités préexistantes, il a fallu rajouter deux types d’authentification ainsi que la gestion " +
             "d’une nouvelle fonctionnalité́ présente dans CK-AspNet-Auth, l’ajout de paramètres supplémentaires " +
-            "personnalises dans les réponses du webfrontauth (le gestionnaire d’authentification backend). Pour ce " +
+            "personnalisés dans les réponses du webfrontauth (le gestionnaire d’authentification backend). Pour ce " +
             "faire, les technologies utilisées n’ont pas changé depuis la première version, il s’agit de typescript. " +
-            "Cette itération a été différente de la première : ce n’est pas moi qui ai développé ces fonctionnalités " +
+            "Cette itération a été différente de la première : ce n’est pas moi qui ai développé ces fonctionnalités, " +
             "mais un nouveau stagiaire accueilli au sein de l’entreprise. Toutefois, étant le développeur de la " +
             "version initiale de ce package, il a été invité à se tourner vers moi en cas de problèmes liés au " +
             "code préexistant. Je l’ai donc aidé à développer les différentes fonctionnalités."
@@ -80,10 +80,10 @@ export class AspNetAuthClient extends BlogPostBase {
             "casquette de conseiller. J’ai guidé le stagiaire au travers du programme qui était déjà réalisé, lui " +
             "expliquant ainsi quelles parties du protocole étaient actuellement déjà présentes et quelles parties " +
             "restaient manquantes et à sa charge. Cela nous a permis d’établir une liste des tâches à réaliser en " +
-            "termes d’évolution, liste à laquelle est venue se greffer les corrections de bugs. Une fois cette liste " +
+            "termes d’évolution, liste à laquelle sont venues se greffer les corrections de bugs. Une fois cette liste " +
             "mise au point, nous avons pu, à l’aide de l’expert technique du projet, prioriser ces tâches afin qu’il " +
             "puisse commencer son développement. Fort de mon expérience passée, je savais qu’il était nécessaire de " +
-            "l’aider dans cette tâche, puisque cette dernière peut parfois paraitre insurmontable les premières fois " +
+            "l’aider dans cette tâche, puisque cette dernière peut parfois paraître insurmontable les premières fois " +
             "que l’on s’y confronte. En effet, assigner de simples nombres à des objectifs qui vont réguler tout le " +
             "projet peut dérouter et en désarmer plus d’un. Prioriser les tâches nécessite de l’expérience, de plus, " +
             "c’est une étape que l’on ne peut réaliser pour vous, chaque développeur étant unique, la difficulté de " +

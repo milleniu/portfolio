@@ -14,7 +14,7 @@ export class SkillsSectionComponent implements OnInit {
     { word: 'SQL', weight: 1.2 },
     { word: 'TypeScript', weight: 1.8 },
     { word: 'C#', weight: 1.8 },
-    { word: 'Algorithmie', weight: 1.8 },
+    { word: 'Algorithmique', weight: 1.8 },
     { word: 'Angular', weight: 1.4 },
     { word: 'SIG', weight: 1.6 },
     { word: 'Unity', weight: 1.3 },
