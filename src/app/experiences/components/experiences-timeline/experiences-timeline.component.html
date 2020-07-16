@@ -1,8 +1,15 @@
 <nz-timeline nzMode="alternate">
-  <ng-container *ngFor="let experience of normalizedExperiences">
+  <ng-container *ngFor="let experience of experiences">
     <nz-timeline-item
-      [nzDot]="experience.type === ExperienceType.Event ? dipomaTemplate : undefined">
-        {{ getExperienceLabel(experience) }}
+      [nzDot]="isDiploma(experience) ? diplomaTemplate : undefined">
+        <h4>
+          {{ getExperienceHeader(experience) }}
+          <span class="date">{{ getExperienceDate(experience) }}</span>
+          {{ getAdditionalExperienceHeader(experience) }}
+        </h4>
+        <p *ngFor="let detail of getExperienceDetails( experience )">
+          {{ detail }}
+        </p>
     </nz-timeline-item>
   </ng-container>
 </nz-timeline>
