@@ -15,7 +15,7 @@ export class Unity extends BlogPostBase {
   public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Technical;
 
   public readonly coverImage: string = this.assetsRoot + 'cover.svg';
-  public readonly description: string = "Unity est un moteur de jeu multi-plateforme développé par Unity Technologies.";
+  public readonly description: string = "Unity est un moteur de jeu multiplateforme développé par Unity Technologies.";
 
   public readonly routerLink: string = 'unity';
   public readonly tags: ReadonlyArray<WellKnownTags> = [WellKnownTags.GameDevelopment, WellKnownTags.Unity];
@@ -32,18 +32,18 @@ export class Unity extends BlogPostBase {
     new List([
       "Unity utilise le langage C# sur la plateforme .NET avec l'implémentation Mono. Il est ainsi possible de " +
       "compiler du code Mono, mutliplateforme et multi-architecture. Toutefois, on peut utiliser un mode de " +
-      "compilation « IL2CPP » afin de générer du code intérmédiaire C++",
+      "compilation « IL2CPP » afin de générer du code intermédiaire C++",
 
       "Il peut être utilisé pour créer un vaste panel d'applications: ",
       [
         "Jeux en 2 dimensions",
         "Jeux en 3 dimensions",
-        "Réalite Virtuelle",
-        "Réalité Augmentée",
+        "Réalite virtuelle",
+        "Réalité augmentée",
         "Simulations"
       ],
 
-      "Il est possible de produire des jeux pour un importants nombre de plateformes (25+)"
+      "Il est possible de produire des jeux pour un nombre important de plateformes (25+)"
     ]),
 
     new Title("Pour les loisirs", 2),

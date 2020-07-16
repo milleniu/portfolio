@@ -30,15 +30,15 @@ export class Autonomy extends BlogPostBase {
 
     new Title("L'indépendance", 2),
     new Paragraph([
-      "L’indépendance en entreprise est un moyen d’alléger la surcharge d’obligations dîtes plus " +
+      "L’indépendance en entreprise est un moyen d’alléger la surcharge d’obligations dites plus " +
       "administratives. Par exemple, un manager ayant confiance en un acteur d’un projet (donc d’un " +
       "développeur seul ou bien d’une équipe à part entière) peut diminuer le nombre de réunions et/ou de " +
       "suivis.",
 
       "En effet, l’acteur étant autonome, certaines décisions vont être prises de facto en amont. Il est donc " +
       "possible de restreindre les sujets abordés lors de ces moments de rencontres. Les réunions ayant " +
-      "mauvaise réputation, (une majorité des acteurs du monde du travail en France se plaignent d’une " +
-      "réunionite aigüe et leur tenue empêchant de se focaliser sur la réalisation de ses tâches pendant un " +
+      "mauvaise réputation (une majorité des acteurs du monde du travail en France se plaignent d’une " +
+      "réunionite aiguë et leur tenue empêchant de se focaliser sur la réalisation de ses tâches pendant un " +
       "important laps de temps avant et après cette dernière), les diminuer induit le plus souvent une " +
       "augmentation de la productivité des acteurs concernés."
     ]),
@@ -72,9 +72,9 @@ export class Autonomy extends BlogPostBase {
       "Avant de travailler en entreprise, j’ai déjà eu la chance de travailler sur un projet conséquent en " +
       "quasi-totale autonomie (RedPandaUI). Cependant, durant ce projet, je n’avais pas de référent, c’était " +
       "à moi de définir les priorités et c’était la communauté qui influençait ces choix. Ainsi, j'ai pu durant " +
-      "ce projet sentir l'importance de l'orgnisation de par son absence. Mes choix étant influencés, je " +
+      "ce projet sentir l'importance de l'organisation de par son absence. Mes choix étant influencés, je " +
       "modifiais parfois mes objectifs plusieurs fois par semaine ce qui diminuait la productivité car je " +
-      "n'étais pas capable de m'organiser face aux attentes en perpetuelle évolution de la communauté.",
+      "n'étais pas capable de m'organiser face aux attentes en perpétuelle évolution de la communauté.",
 
       "Toutefois, en entreprise, lors d’un projet réalisé seul au cours de plusieurs mois, j’ai dû apprendre à " +
       "m’organiser de mieux en mieux, améliorant ainsi ma prise de décision. En effet, je devais respecter des " +
@@ -83,7 +83,7 @@ export class Autonomy extends BlogPostBase {
       "projet avec un regard moins constant des suiveurs du projet. Cependant, cette liberté a apporté " +
       "avantages et désavantages. Certes, il n’y avait plus de réunions journalières et on ne se sentait plus " +
       "tenu par la main, mais il n’y avait plus de reconnaissance directe de l’état d’avancement,ce qui pouvait " +
-      "entrainer une baisse de la motivation."
+      "entraîner une baisse de la motivation."
     ])
   ];
 }

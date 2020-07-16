@@ -16,7 +16,7 @@ export class ContactPageComponent implements OnInit {
   ngOnInit() {
     this.navigationTargets = getDefaultNavigationTargets(
       {},
-      [{ key: "Contact", configuration: item => item.selected = true }]
+      [{ key: "Me Contacter", configuration: item => item.selected = true }]
     );
   }
 

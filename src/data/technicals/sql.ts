@@ -32,10 +32,10 @@ export class SQL extends BlogPostBase {
     new List([
       "SQL Server Management Studio (SSMS) est un outil fourni avec les versions payantes de SQL Server " +
       "Il permet de se connecter et d'administrer facilement plusieurs bases de données. Ainsi, durant le " +
-      "développement on peut aisément créer et / ou dupliquer des bases de données à la volée. Ce processus " +
+      "développement on peut aisément créer et/ou dupliquer des bases de données à la volée. Ce processus " +
       "facilite la création de scripts de migration.",
 
-      "Il intégre un SIG dans toutes ses versions modernes. Celui-ci permet de stocker et de manipuler des " +
+      "Il intègre un SIG dans toutes ses versions modernes. Celui-ci permet de stocker et de manipuler des " +
       "objets géométriques ou géographiques. Il est basé sur le standard OGC ce qui permet de communiquer " +
       "facilement avec le monde extérieur.",
 
@@ -46,13 +46,13 @@ export class SQL extends BlogPostBase {
 
     new Title("Au quotidien", 2),
     new Paragraph(
-      "La quasi totalité des projets sur lesquels je travaille utilisent Microsoft SQL Server. C'est donc une " +
+      "La quasi-totalité des projets sur lesquels je travaille utilise Microsoft SQL Server. C'est donc une " +
       "technologie que je côtoie tous les jours et avec laquelle je dois travailler en harmonie pour traiter " +
       "différents types de problématiques."
     ),
     new List([
       "Le premier type de problématique est le développement : du stockage des informations utilisateurs et " +
-      "des projets d'une plateforme aux mécanismes intrinsèques aux processus de connections et d'invitations, " +
+      "des projets d'une plateforme aux mécanismes intrinsèques aux processus de connexions et d'invitations, " +
       "il ne se passe presque pas une journée durant laquelle je ne doive regarder l'un de mes serveurs.",
 
       "Suite au développement d'une fonctionnalité, il convient de la mettre en ligne. Il faut alors gérer " +
@@ -61,7 +61,7 @@ export class SQL extends BlogPostBase {
       "processus automatiques.",
 
       "Enfin, il faut analyser les différentes bases afin de s'assurer de la qualité de la donnée et parfois " +
-      "remanier la base de données afin d'améliorer les temps de calculs et / ou de réponses des requêtes.",
+      "remanier la base de données afin d'améliorer les temps de calculs et/ou de réponses des requêtes.",
     ])
   ];
 }

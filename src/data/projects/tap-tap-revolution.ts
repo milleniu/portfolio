@@ -68,13 +68,13 @@ export class TapTapRevolution extends BlogPostBase {
       "synchronisation des tâches ainsi que le développement en parallèle des missions étaient plus ardus que " +
       "nous ne l’avions initialement imaginé. Afin de remédier à ces problèmes organisationnels, nous avons " +
       "mis en place une méthodologie SCRUM à l’aide de VSTS. Cette représentation sous forme de tâches nous a " +
-      "permis de plus facilement identifier le reste à faire ainsi que les sujets déjà pris en charge. Armé " +
+      "permis de plus facilement identifier le reste à faire ainsi que les sujets déjà pris en charge. Armés " +
       "de cette méthodologie, nous avons repris le développement et après plusieurs mois de labeur, nous " +
       "avons pu sortir notre MVP.",
 
       "Nous l’avons fait essayer à plusieurs connaissances et avons pu collecter les retours de nos premiers " +
       "utilisateurs. Cela nous a permis de sortir quelques nouvelles versions par la suite. Cependant, le " +
-      "flux tumultueux de la vie nous ayant rattrapé, nous avons dû mettre le projet en pause… pause qui " +
+      "flux tumultueux de la vie nous ayant rattrapés, nous avons dû mettre le projet en pause… pause qui " +
       "s’est avérée terminale."
     ]),
 
@@ -86,10 +86,10 @@ export class TapTapRevolution extends BlogPostBase {
     new Paragraph([
       "Quelques mois après la « fin » de ce projet, nous avons réalisé une analyse de l’état du projet. Nous " +
       "nous sommes aperçus que nous nous étions confrontés à une loi bien connue des développeurs, la loi de " +
-      "Pareto. Nous avions fait 80% des fonctionnalités mais le 20% du reste à faire allait être plus " +
-      "fastidieux à implémenter. Il est également plus facile de se lancer car le projet évolue plus " +
+      "Pareto. Nous avions fait 80% des fonctionnalités, mais le 20% du reste à faire allait être plus " +
+      "fastidieux à implémenter. Il est également plus facile de se lancer, car le projet évolue plus " +
       "rapidement dans cette période, mais une fois passée l’euphorie initiale, il peut être plus compliqué " +
-      "de garder sa motivation lorsque la charge de travail requise pour obtenir une évolution s’accroit " +
+      "de garder sa motivation lorsque la charge de travail requise pour obtenir une évolution s’accroît " +
       "drastiquement.",
 
       "Bien que ce projet n’ait pas abouti, il m’a apporté une réelle plus-value. Tout d’abord, j’ai " +

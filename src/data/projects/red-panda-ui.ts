@@ -59,13 +59,13 @@ export class RedPandaUI extends BlogPostBase {
     new Title("Phase de développement", 2),
     new Divider(),
 
-    new Title("Rencontre internationnale", 3),
+    new Title("Rencontre internationale", 3),
     new Paragraph(
       "Il convient en premier lieu de présenter une personne qui a été très importante dans la réalisation de " +
       "ce projet Mog. Il s'agit d'un joueur qui était à la tête d'un projet nommé aetherflow. Accompagné de " +
       "deux autres personnes, Ravahn et Ice, ils ont développé ce projet permettant l'utilisation d'addons au " +
       "sein de FF XIV. En effet, nativement, ce jeu n'autorisait pas l'utilisation d'outils extérieurs, ne " +
-      "souhaitant pas avantager les joueurs PC vis à vis des joueurs consoles qui n'y auraient pas accès. Ils " +
+      "souhaitant pas avantager les joueurs PC vis-à-vis des joueurs consoles qui n'y auraient pas accès. Ils " +
       "ont donc employé une technique nommée l'injection de .dll afin de contourner cette limitation. Il était " +
       "désormais possible d'utiliser des addons."
     ),
@@ -92,7 +92,7 @@ export class RedPandaUI extends BlogPostBase {
     new Title("Fin de vie du projet", 3),
     new Paragraph(
       "Au terme d'une période de deux mois, et à hauteur d'environ une trentaine d'heures de travail par " +
-      "semaine, le projet a atteint un stade assez avancé. Mon collègue et moi-même avions développés les " +
+      "semaine, le projet a atteint un stade assez avancé. Mon collègue et moi-même avions développé les " +
       "éléments techniques suivants :"
     ),
     new List([

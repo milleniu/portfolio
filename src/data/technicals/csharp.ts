@@ -28,13 +28,13 @@ export class CSharp extends BlogPostBase {
     ),
     new Divider(),
 
-    new Title("Modulaire et multi-plateforme", 2),
+    new Title("Modulaire et multiplateforme", 2),
     new List([
       "Il est désormais open source grâce à .NET Core. Cela permet une meilleure compréhension et un " +
       "meilleur investissement de la communauté qui peut en décortiquer les entrailles.",
 
-      "C’est un langage multi-plateforme, bien que certains points soient exclusifs à Windows, la quasi-" +
-      "totalité des applications fonctionnent sur Windows, MacOS et Linux.",
+      "C’est un langage multiplateforme, bien que certains points soient exclusifs à Windows, la quasi-" +
+      "totalité des applications fonctionne sur Windows, MacOS et Linux.",
 
       "Il est modulaire ce qui permet aux développeurs de ne sélectionner que les parties nécessaires afin " +
       "d’avoir de meilleures performances et une meilleure maintenabilité : une meilleure expérience au " +
@@ -57,7 +57,7 @@ export class CSharp extends BlogPostBase {
       "géographiques : algorithme d’optimisation de tracé, norme MVT…",
 
       "En dernier lieu, dans mon temps libre, je l’utilise sur le moteur de jeu multiplateforme Unity. " +
-      "Grâce à ce moteur j’ai pu aussi bien réaliser des simulations physiques, représentation du système " +
+      "Grâce à ce moteur, j’ai pu aussi bien réaliser des simulations physiques, représentation du système " +
       "solaire par exemple, que des jeux développés en petite équipe de 3 – 4 personnes."
     ])
   ]

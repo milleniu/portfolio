@@ -49,7 +49,7 @@ export class FirstDown extends BlogPostBase {
       "clients à l’aide de ce dernier.",
 
       "Pour répondre à ses besoins, affichage de points d’intérêt sur une carte personnalisée, le choix a été " +
-      "fait d’utiliser Angular avec OpenLayers comme moteur de rendu cartographique. A la fin du développement " +
+      "fait d’utiliser Angular avec OpenLayers comme moteur de rendu cartographique. À la fin du développement " +
       "le client était très satisfait et a accepté le MVP. Aujourd’hui, il est amusant de relever que dernier " +
       "est très éloigné en fonctionnalités de ce qu’est devenue la plateforme."
     ]),
@@ -82,7 +82,7 @@ export class FirstDown extends BlogPostBase {
       "Angular. Toutefois, il y avait deux différences majeures : le framework graphique employé était " +
       "désormais NgZorro afin d’être plus assorti aux autres sites déjà développés pour le client, la seconde " +
       "différence qui n’est pas des moindres était l’ajout d’un serveur en C#. Finies les applications client " +
-      "autonomes, FirstDown était désormais une plateforme complexe multi-utilisateurs."
+      "autonomes, FirstDown était désormais une plateforme complexe multi-utilisateur."
     ),
 
     new Title("L'équipage à la rescousse", 2),

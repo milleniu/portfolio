@@ -18,7 +18,7 @@ export class AboutSectionComponent implements OnInit {
     },
     {
       title: "Formation",
-      content: "Option ISN au baccalauréat. Enseignement théorique à l'EFREI et validation d'un diplôme d'expert en ingénieurie logicielle à INTECH'INFO.",
+      content: "Option ISN au baccalauréat. Enseignement théorique à l'EFREI et validation d'un diplôme d'expert en ingénierie logicielle à INTECH'INFO.",
       icon: "read"
     },
     {
@@ -29,7 +29,7 @@ export class AboutSectionComponent implements OnInit {
   ];
 
   public readonly presentation: Content = {
-    title: "Qui-suis je ?",
+    title: "Qui suis-je ?",
     content: [
       "Tout petit déjà, j’avais deux passions : la pratique du kayak et le goût des constructions ordonnées, " +
       "rangées et structurées. Si j’ai pu très tôt assouvir ma passion du kayak et me confronter à la haute " +

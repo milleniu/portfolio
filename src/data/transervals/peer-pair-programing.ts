@@ -62,17 +62,17 @@ export class PeerPairPrograming extends BlogPostBase {
       "Elle possède de nombreux avantages :"
     ]),
     new List([
-      "Elle peut être fait en physique, deux développeurs qui se partagent un même ordinateur et un même clavier ou bien à distance avec un logiciel de partage ou de contrôle à distance.",
-      "Ce procédé offre une excellente méthode d’intégration pour des juniors, des mentors pouvant leur être assignés. Ainsi, il est possible, en plus d’analyser son code, d’analyser ses méthodes de travail pour améliorer son expérience.",
+      "Elle peut être faite en physique, deux développeurs qui se partagent un même ordinateur et un même clavier ou bien à distance avec un logiciel de partage ou de contrôle à distance.",
+      "Ce procédé offre une excellente méthode d’intégration pour des juniors, des mentors pouvant leur être affectés. Ainsi, il est possible, en plus d’analyser son code, d’analyser ses méthodes de travail pour améliorer son expérience.",
       "La revue se fait ici instantanément, une mauvaise décision pourra être relevée plus tôt évitant le phénomène de « confiance absolue en son code », un phénomène où le développeur d’un composant d’un programme aura plus de difficultés à relever les erreurs du fait qu’il en est le créateur.",
-      "C’est également une méthode moins hiérarchisée, ce ne sont plus les connaissances contre les connaissances lors de la revue mais les connaissances avec les connaissances lors du développement."
+      "C’est également une méthode moins hiérarchisée, ce ne sont plus les connaissances contre les connaissances lors de la revue, mais les connaissances avec les connaissances lors du développement."
     ]),
     new Paragraph(
       "Cependant cette méthode de travail présente, elle aussi, des défauts :"
     ),
     new List([
       "Il faut faire attention à ce que les mentors ne prennent pas la main sur les juniors lors de collaborations et ne les entravent, plus qu’ils ne les aident.",
-      "Il ne faut pas laisser l’équipe développer des petites ou simples fonctionnalités en tant que paires car cela serait une perte de temps, cette démarche doit être réservée à des tâches plus complexes.",
+      "Il ne faut pas laisser l’équipe développer de petites ou simples fonctionnalités en tant que paires, car cela serait une perte de temps, cette démarche doit être réservée à des tâches plus complexes.",
       "Il ne faut pas forcer d’équipes, deux développeurs aux démarches radicalement opposées ne pourront pas collaborer efficacement et c’est pour cette même raison qu’il faut faire tourner ces paires régulièrement.",
       "Enfin à l’instar de la première stratégie, ce n’est pas un combat d’ego, il faut faire attention à ce qu’un développeur n’en écrase pas un autre."
     ]),

@@ -15,7 +15,7 @@ export class PopularizationOfProblems extends BlogPostBase {
   public readonly category: BlogPostCategory = WellKnownBlogPostCategory.Transversal;
 
   public readonly coverImage: string = this.assetsRoot + 'cover.svg';
-  public readonly description: string = "Au quotidien, je me dois régulièrement de simplifier des problèmes à l'aide de schémas et de documentions.";
+  public readonly description: string = "Au quotidien, je me dois régulièrement de simplifier des problèmes à l'aide de schémas et de documentations.";
 
   public readonly routerLink: string = 'popularization-of-problems';
   public readonly tags: ReadonlyArray<WellKnownTags> = [WellKnownTags.PopularizationOfProblems];
@@ -66,7 +66,7 @@ export class PopularizationOfProblems extends BlogPostBase {
       "inusuel puisqu’il s’agit de mspaint avec une préférence pour la production de schémas en live lors " +
       "des réunions (client et/ou équipe). L’avantage de cet outil est qu’il est très basique. On ne perd " +
       "donc pas de temps à vouloir utiliser LA fonctionnalité de l’outil et les schémas ont une plus faible " +
-      "probabilité de devenir complexe. Certes si le schéma a vocation à être pérenne il conviendra de le " +
+      "probabilité de devenir complexes. Certes si le schéma a vocation à être pérenne il conviendra de le " +
       "retravailler avec un outil plus approprié, mais mspaint reste un outil suffisant pour produire des " +
       "schémas à l’instar du suivant :"
     ]),
