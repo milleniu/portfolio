@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { ContactModule } from './contact/contact.module';
+import { ExperiencesModule } from './experiences/experiences.module';
 
 registerLocaleData(fr);
 
@@ -25,6 +26,7 @@ registerLocaleData(fr);
     FormsModule,
     NgZorroAntdModule,
     HomeModule,
+    ExperiencesModule,
     ContactModule,
     AppRoutingModule
   ],
