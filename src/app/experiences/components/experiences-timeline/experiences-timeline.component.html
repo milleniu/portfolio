@@ -1,0 +1,12 @@
+<nz-timeline nzMode="alternate">
+  <ng-container *ngFor="let experience of normalizedExperiences">
+    <nz-timeline-item
+      [nzDot]="experience.type === ExperienceType.Event ? dipomaTemplate : undefined">
+        {{ getExperienceLabel(experience) }}
+    </nz-timeline-item>
+  </ng-container>
+</nz-timeline>
+
+<ng-template #diplomaTemplate>
+  <i nz-icon [nzType]="CustomIcons.Diploma" style="font-size: 20px;"></i>
+</ng-template>

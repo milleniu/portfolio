@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/models/navbar.models';
+import { Experience } from '../../shared/models/experience.model';
 
 @Component({
   selector: 'app-experiences-page',
@@ -9,6 +10,9 @@ import { NavbarItem, getDefaultNavigationTargets } from 'src/app/ui/shared/model
 export class ExperiencesPageComponent implements OnInit {
 
   public navigationTargets: ReadonlyArray<NavbarItem>;
+
+  public readonly experiences: ReadonlyArray<Experience> = [
+  ]
 
   constructor() { }
 
