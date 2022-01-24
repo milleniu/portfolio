@@ -26,8 +26,8 @@ registerLocaleData(fr);
     FormsModule,
     NgZorroAntdModule,
     HomeModule,
-    ExperiencesModule,
-    ContactModule,
+    // ExperiencesModule,
+    // ContactModule,
     AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
