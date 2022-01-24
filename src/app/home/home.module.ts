@@ -25,7 +25,7 @@ import { SkillsComponent } from './components/skills/skills.component';
     NzIconModule,
     NzCardModule,
     NzAvatarModule,
-    // BlogModule,
+    BlogModule,
     HomeRoutingModule
   ],
   declarations: [
