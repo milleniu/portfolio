@@ -8,11 +8,11 @@ const routes: Routes = [
   {
     component: HomePageComponent,
     path: 'home'
-  },
-  {
-    component: SkillsPageComponent,
-    path: 'skills'
-  }
+  }// ,
+  // {
+  //   component: SkillsPageComponent,
+  //   path: 'skills'
+  // }
 ];
 
 @NgModule({

@@ -2,6 +2,13 @@
     <div class="block">
         <h1>Hugo Zammit</h1>
         <p>Développeur full stack .NET</p>
-        <button nz-button nzType="primary" routerLink="/home" fragment="about">Me découvrir</button>
+        <ng-container *ngIf="maintenance === false; else maintenanceMessage">
+            <button nz-button nzType="primary" routerLink="/home" fragment="about">Me découvrir</button>
+        </ng-container>
+        <ng-template #maintenanceMessage>
+            <p class="maintenance-message">
+                Site actuellement en maintenance
+            </p>
+        </ng-template>
     </div>
 </section>
