@@ -9,11 +9,11 @@ import { CategoryGuard } from './shared/services/category.guard';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    // {
-    //   path: 'blog/:category',
-    //   component: BlogPostListPageComponent,
-    //   canActivate: [ CategoryGuard ]
-    // }
+    {
+      path: 'blog/:category',
+      component: BlogPostListPageComponent,
+      canActivate: [ CategoryGuard ]
+    }
   ])],
   exports: [RouterModule]
 })
@@ -27,6 +27,6 @@ export class BlogRoutingModule {
         .get()
         .map<Route>(post => ({ path: `blog/${post.routerLink}`, component: BlogPageComponent }));
     };
-    // registerDynamicRoutes(router, getBlogPostRoutes);
+    registerDynamicRoutes(router, getBlogPostRoutes);
   }
 }

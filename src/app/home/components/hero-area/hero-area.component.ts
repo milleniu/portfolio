@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hero-area.component.less']
 })
 export class HeroAreaComponent implements OnInit {
-  @Input() maintenance: boolean = false;
 
   constructor() { }
 
